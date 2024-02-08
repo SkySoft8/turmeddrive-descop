@@ -94,7 +94,7 @@
                      data-wow-delay='0.5s'
                      data-wow-duration='1s'>
                     <img src="assets/img/ok.svg">
-                    <p>Это удобный сервер, <b>решающий</b> простым способом <b>все задачи, связанные с туризмом</b>.</p>
+                    <p>Это удобный сервис, <b>решающий</b> простым способом <b>все задачи, связанные с туризмом</b>.</p>
                 </div>
                 <div class="about-item col col-12 col-md-4 zoomIn wow " data-wow-offset='0'
                      data-wow-delay='0.8s'

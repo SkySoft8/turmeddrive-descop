@@ -47,7 +47,6 @@ export default {
                 'price': this.subcat.price,
                 'qty': 1,
             },]
-
             if (!medProductList) {
                 localStorage.setItem('medProductList', JSON.stringify(newCafeProductList))
             } else {
@@ -91,8 +90,6 @@ export default {
                 })
                 Array.prototype.push.apply(medProductList, newCafeProductList)
                 localStorage.setItem('medProductList', JSON.stringify(medProductList))
-
-
             }
         },
     },

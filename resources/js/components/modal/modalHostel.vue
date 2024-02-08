@@ -1,5 +1,6 @@
 <template>
-    <transition name="modal-animation">
+<div v-if="state.user !== ''">
+<transition name="modal-animation">
         <div v-show="modalActive" class="modal-cafe">
             <transition name="modal-animation-inner">
                 <div v-show="modalActive" class="modal-inner-cafe">
@@ -50,7 +51,37 @@
                 </div>
             </transition>
         </div>
-    </transition>
+</transition>
+</div>
+<div v-if="state.user === ''">
+<transition name="modal-animation">
+        <div v-show="modalActive" class="modal-cafe">
+            <transition name="modal-animation-inner">
+                <div v-show="modalActive" class="modal-inner-cafe">
+                    <div class=" modal-content-cafe">
+                        <div class="col col-12 col-md-12 hotels-inf-item">
+                            <div class="section-label section-label-mob">
+                                <h2>Бронирование возможно только для зарегистрированных пользователей</h2>
+                                <hr>
+                            </div>
+                            <div class='d-flex justify-content-between align-items-center mt-4 modalRegister'>
+                                <div>
+                                    <button type="button" class="btn btn-primary"><a  href="http://127.0.0.1:8000/login"> Войти</a></button>
+                                    <button type="button" class="btn btn-primary"><a  href='http://127.0.0.1:8000/register'> Зарегистрироваться </a>  </button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-danger" @click.prevent="close">Закрыть</button>
+                                </div>
+                            </div>          
+                        </div>
+                      
+                    </div>
+
+                </div>
+            </transition>
+        </div>
+</transition>
+</div>
 </template>
 
 <script>
@@ -59,10 +90,11 @@
 import swiper from "../swiper.vue";
 import FormPickerSelect from "./FormPickerSelect.vue";
 import user from "../../user";
+import Login from "../../components/login.vue";
 
 export default {
     name: "modalHostel",
-    components: {FormPickerSelect, swiper},
+    components: {FormPickerSelect, swiper,Login},
     props: ['modalActive', 'posts', 'card', 'modalPost'],
     setup(props, {emit}) {
         const {state} = user;
@@ -161,6 +193,7 @@ export default {
 </script>
 
 <style scoped>
+
 .modal-close {
     float: right;
     margin-top: -35px;
@@ -254,7 +287,10 @@ export default {
     .btn-hostel{
         width: 100%;
     }
-
-
+}
+@media (max-width: 780px) {
+    .modalRegister {
+        display:block !important;
+    }
 }
 </style>

@@ -35,6 +35,7 @@
                             <div class="d-flex align-items-center">
                                 <button class="btn-total" @click.prevent="price">Cтоимость:</button>
                                 <p class="price-total ">{{ totalPrice }}</p>
+                            
                             </div>
 
                             <button
@@ -82,10 +83,10 @@ export default {
             order: [],
             role: 'Мед.центр',
             email: [],
-
+            count: ref(0),
         }
     },
-    methods: {
+       methods: {
         storePreOreder() {
             this.axios.post('/api/preOrder', {
                 'total_price': this.totalPrice,
