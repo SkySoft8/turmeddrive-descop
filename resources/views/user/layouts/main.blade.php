@@ -34,9 +34,9 @@
                 <div id="mob-menu" class="menu">
                     <ul>
                         <li><a href="http://127.0.0.1:8000/catalog/medical">Каталог</a></li>
-                        <li><a href="#">О компании</a>
+                        <li><a href="#">О проекте</a>
                             <ul>
-                                <li><a href="http://127.0.0.1:8000/rules-organization">Для организация</a></li>
+                                <li><a href="http://127.0.0.1:8000/rules-organization">Для организаций</a></li>
                                 <li><a href="http://127.0.0.1:8000/rules-client">Для клиентов</a></li>
                                 <li><a href="http://127.0.0.1:8000/ecosistem">Экосистема турмеддрайвер</a></li>
                             </ul>
