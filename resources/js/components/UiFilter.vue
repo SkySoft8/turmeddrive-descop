@@ -83,6 +83,7 @@ export default {
       this.axios.get('/api/medicals/filters',)
           .then(res => {
             this.filterList = res.data
+            console.log(res.data)
           })
           .catch(error => console.log(error))
     },

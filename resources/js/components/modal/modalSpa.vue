@@ -109,7 +109,7 @@ export default {
                 } else if (total.length === 0) {
                     return 0;
                 } else {
-                    return total.reduce((acc, curr) => (Number(acc) + Number(curr.price)), 0);
+                    return total.reduce((acc, curr) => (Number(acc) + Number(curr.price)*this.$refs.formDate.countPeople), 0);
                 }
             }
 
@@ -121,7 +121,7 @@ export default {
                 } else if (totals.length === null) {
                     return 0;
                 } else {
-                    return totals.reduce((acc, curr) => (Number(acc) + Number(curr.price)), 0);
+                    return totals.reduce((acc, curr) => (Number(acc) + Number(curr.price)*this.$refs.formDate.countPeople), 0);
                 }
             }
             if (calculatePrice(product) === 0) {

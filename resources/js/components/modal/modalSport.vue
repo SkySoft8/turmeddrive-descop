@@ -201,7 +201,7 @@ export default {
 
 
             const totalPrice = this.totalPrice
-            this.sumPrice = this.totalPrice + (this.price * this.day)
+            this.sumPrice = this.totalPrice + (this.price * (this.day-1))
 
 
             this.order = {

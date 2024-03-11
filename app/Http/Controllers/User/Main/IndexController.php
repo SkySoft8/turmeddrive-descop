@@ -15,7 +15,8 @@ class IndexController extends Controller
     public function __invoke()
     {
         $user = auth()->user();
-
+        $users = DB::table('users')->get();
+        dd($users);
         $preOrders = DB::table('pre_orders')->where('user_id', '=', $user['id'])->get();
         $products = DB::table('pre_orders')->pluck('products');
         $totals = DB::table('pre_orders')->where('user_id', '=', $user['id'])->pluck('total_price');
@@ -38,7 +39,7 @@ class IndexController extends Controller
         event(new PaymentMail($d,$message,$dd));
 
 
-        return view('user.main.index', compact('user', 'preOrders', 'products', 'totals', 'payments', 'promocode_status', 'promocode'));
+        return view('user.main.index', compact('users','user', 'preOrders', 'products', 'totals', 'payments', 'promocode_status', 'promocode'));
     }
 }
 

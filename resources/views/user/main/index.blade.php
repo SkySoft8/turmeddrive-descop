@@ -96,6 +96,7 @@
                     <div class="cart-section">
                         @foreach($preOrders as $preOrder)
                             @if($preOrder->role == 'Мед.центр')
+                                
                                 <div class="product">
                                     <div class="product_item">
                                         <div class="product_item_header">
@@ -111,6 +112,7 @@
                                             <ol class="product_option_list">
                                                 @if((json_decode($preOrder->products, true)['productList']) !== null)
                                                     @foreach((json_decode($preOrder->products, true)['productList']) as $list)
+                                                        @if($list['qty'] !=0)
                                                         <li class="product_option_list_item row">
                                                             <div class="product_list_item_header col-9">
                                                                 <div
@@ -124,6 +126,8 @@
                                                                 <p> p</p>
                                                             </div>
                                                         </li>
+                                                        @else
+                                                        @endif
                                                     @endforeach
                                                 @else
                                                 @endif
@@ -161,6 +165,7 @@
                                             <ol class="product_option_list">
                                                 @if(isset(json_decode($preOrder->products, true)['productList']))
                                                     @foreach((json_decode($preOrder->products, true)['productList']) as $list)
+                                                        @if($list['qty'] != 0 )
                                                         <li class="product_option_list_item row">
                                                             <div class="product_list_item_header col-9">
                                                                 <div
@@ -174,6 +179,8 @@
                                                                 <p> p</p>
                                                             </div>
                                                         </li>
+                                                        @else
+                                                        @endif
                                                     @endforeach
                                                 @else
                                                 @endif
@@ -210,6 +217,7 @@
                                         <ol class="product_option_list">
                                             @if((json_decode($preOrder->products, true)['productList']) !== null)
                                                 @foreach((json_decode($preOrder->products, true)['productList']) as $list)
+                                                @if($list['qty'] !=0)
                                                     <li class="product_option_list_item row">
                                                         <div class="product_list_item_header col-9 ">
                                                             <div
@@ -223,6 +231,8 @@
                                                             <p> p</p>
                                                         </div>
                                                     </li>
+                                                    @else
+                                                    @endif
                                                 @endforeach
                                             @else
                                             @endif
@@ -343,6 +353,7 @@
                                         <ol class="product_option_list_san col-5">
                                             @if((json_decode($preOrder->products, true)['productList']) !== null)
                                                 @foreach((json_decode($preOrder->products, true)['productList']) as $list)
+                                                    @if($list['qty'] !=0)    
                                                     <li class="product_option_list_item row">
                                                         <div class="product_list_item_header col-9">
                                                             <div
@@ -356,6 +367,8 @@
                                                             <p> p</p>
                                                         </div>
                                                     </li>
+                                                    @else
+                                                    @endif
                                                 @endforeach
                                             @else
                                             @endif
@@ -425,6 +438,7 @@
                                         <ol class="product_option_list_san col-5">
                                             @if((json_decode($preOrder->products, true)['productList']) !== null)
                                                 @foreach((json_decode($preOrder->products, true)['productList']) as $list)
+                                                     @if($list['qty'] !=0)
                                                     <li class="product_option_list_item row">
                                                         <div class="product_list_item_header col-9">
                                                             <div
@@ -438,6 +452,8 @@
                                                             <p> p</p>
                                                         </div>
                                                     </li>
+                                                    @else
+                                                    @endif
                                                 @endforeach
                                             @else
                                             @endif
@@ -616,6 +632,7 @@
                                                                     @endif
                                                                     @if(isset(json_decode($item,true)['productList']))
                                                                         @foreach(json_decode($item,true)['productList'] as $i)
+                                                                            @if($i['qty'] != 0)
                                                                             <div
                                                                                 class="d-flex justify-content-sm-between product_promo__item">
                                                                                 <div class="col-6"><p
@@ -628,6 +645,8 @@
                                                                                         class="new_style_promo_price">{{$i['price']}}
                                                                                         р</p></div>
                                                                             </div>
+                                                                            @else
+                                                                            @endif
                                                                         @endforeach
                                                                     @else
                                                                     @endif
@@ -693,6 +712,7 @@
                                                                     @endif
                                                                     @if(isset(json_decode($item,true)['productList']))
                                                                         @foreach(json_decode($item,true)['productList'] as $i)
+                                                                            @if($i['qty'] != 0)
                                                                             <div
                                                                                 class="d-flex justify-content-sm-between product_promo__item">
                                                                                 <div class="col-6"><p
@@ -705,6 +725,8 @@
                                                                                         class="new_style_promo_price">{{$i['price']}}
                                                                                         р</p></div>
                                                                             </div>
+                                                                            @else
+                                                                            @endif
                                                                         @endforeach
                                                                     @else
                                                                     @endif
@@ -785,6 +807,7 @@
                                                                     @endif
                                                                     @if(isset(json_decode($item,true)['productList']))
                                                                         @foreach(json_decode($item,true)['productList'] as $i)
+                                                                            @if($i['qty'] !=0)
                                                                             <div
                                                                                 class="d-flex justify-content-sm-between product_promo__item">
                                                                                 <p class="new_style_promo col-6">{{$i['product']}}</p>
@@ -793,6 +816,8 @@
                                                                                 <p class="new_style_promo_price col-3 text-right">{{$i['price']}}
                                                                                     р</p>
                                                                             </div>
+                                                                            @else
+                                                                            @endif
                                                                         @endforeach
                                                                     @else
                                                                     @endif
@@ -868,6 +893,7 @@
                                                                     @endif
                                                                     @if(isset(json_decode($item,true)['productList']))
                                                                         @foreach(json_decode($item,true)['productList'] as $i)
+                                                                            @if($i['qty'] != 0)
                                                                             <div
                                                                                 class="d-flex justify-content-sm-between product_promo__item">
                                                                                 <p class="new_style_promo col-6">{{$i['product']}}</p>
@@ -876,6 +902,8 @@
                                                                                 <p class="new_style_promo_price col-3 text-right">{{$i['price']}}
                                                                                     р</p>
                                                                             </div>
+                                                                            @else
+                                                                            @endif
                                                                         @endforeach
                                                                     @else
                                                                     @endif

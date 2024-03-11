@@ -8,7 +8,7 @@
             <div class="med-list-item"
                  v-if="subcat.medical_todo_list_id === list.id && list.user_id === card.user_id && subcat.deleted_at === null">
                 <div :class="subcat.price !== null ? 'd-flex' : 'd-none'">
-                    <label class="price-margin">{{ subcat.price }} руб.</label>
+                    <label class="price-margin">{{ subcat.price }}  руб.</label>
                     <div class="list-control">
                         <product-controls
                             :counts="counts"
@@ -39,7 +39,7 @@ export default {
     methods: {
         plus() {
             this.counts = this.counts + 1;
-
+        
             let medProductList = localStorage.getItem('medProductList')
             let newCafeProductList = [{
                 'id': this.subcat.id,
@@ -93,6 +93,8 @@ export default {
             }
         },
     },
+    mounted() {
+  },
 }
 </script>
 

@@ -170,6 +170,7 @@ export default {
                 this.totalPrice = calculatePrice(product) + calculatePriceList(productList)
             }
             const totalPrice = this.totalPrice
+            if(this.totalPrice){
             this.order = {
                 date: this.$refs.formDate.date,
                 people: this.$refs.formDate.countPeople,
@@ -177,7 +178,7 @@ export default {
                 productList: productList,
                 totalPrice: this.totalPrice
             }
-
+            }
             localStorage.setItem('orderProductCafe', JSON.stringify(this.order))
             const raw = localStorage.getItem('order')
             const orderProductCafe = JSON.parse(raw)

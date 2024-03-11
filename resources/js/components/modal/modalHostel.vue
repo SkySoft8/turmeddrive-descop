@@ -169,7 +169,7 @@ export default {
             if (this.$refs.formDate.date === undefined) {
                 this.message = 'Укажите дату'
             }
-            this.sumPrice = this.price * this.day
+            this.sumPrice = this.price * (this.day - 1)
             this.order = {
                 date: this.$refs.formDate.date,
                 id: this.id,

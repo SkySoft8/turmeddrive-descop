@@ -153,7 +153,6 @@ export default {
             } else if (this.endMM > this.startMM && this.startMM === 4 || this.startMM === 6 || this.startMM === 9 || this.startMM === 11) {
                 this.day = (this.end - this.start) + 31
             }
-            console.log(this.day);
 
             this.message = 'Заказ добавлен в корзину'
             const raws = localStorage.getItem('sanatoriumProduct')
@@ -202,7 +201,7 @@ export default {
 
 
             const totalPrice = this.totalPrice
-            this.sumPrice = this.totalPrice + (this.price * this.day)
+            this.sumPrice = this.totalPrice + (this.price * (this.day-1))
 
 
             this.order = {

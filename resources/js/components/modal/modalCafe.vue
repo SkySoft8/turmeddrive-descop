@@ -104,7 +104,7 @@ export default {
                 } else if (total.length === 0) {
                     return 0;
                 } else {
-                    return total.reduce((acc, curr) => (Number(acc) + Number(curr.price)), 0);
+                    return total.reduce((acc, curr) => (Number(acc) + Number(curr.price)*this.$refs.formDate.countPeople), 0);
                 }
             }
 
@@ -116,7 +116,7 @@ export default {
                 } else if (totals.length === null) {
                     return 0;
                 } else {
-                    return totals.reduce((acc, curr) => (Number(acc) + Number(curr.price)), 0);
+                    return totals.reduce((acc, curr) => (Number(acc) + Number(curr.price)*this.$refs.formDate.countPeople), 0);
                 }
             }
             if (calculatePrice(product) === 0) {
@@ -142,13 +142,14 @@ export default {
 
             const rawsList = localStorage.getItem('cafeProductList')
             const productList = JSON.parse(rawsList)
+            
             const calculatePrice = (total) => {
                 if (total === null) {
                     return 0;
                 } else if (total.length === 0) {
                     return 0;
                 } else {
-                    return total.reduce((acc, curr) => (Number(acc) + Number(curr.price)), 0);
+                    return total.reduce((acc, curr) => (Number(acc) + Number(curr.price)*this.$refs.formDate.countPeople), 0);
                 }
             }
             const calculatePriceList = (totals) => {
@@ -157,7 +158,7 @@ export default {
                 } else if (totals.length === null) {
                     return 0;
                 } else {
-                    return totals.reduce((acc, curr) => (Number(acc) + Number(curr.price)), 0);
+                    return totals.reduce((acc, curr) => (Number(acc) + Number(curr.price)*this.$refs.formDate.countPeople), 0);
                 }
             }
             if (calculatePrice(product) === 0) {
@@ -170,12 +171,14 @@ export default {
                 this.totalPrice = calculatePrice(product) + calculatePriceList(productList)
             }
             const totalPrice = this.totalPrice
+            if(this.totalPrice){
             this.order = {
                 date: this.$refs.formDate.date,
                 people: this.$refs.formDate.countPeople,
                 product: product,
                 productList: productList,
                 totalPrice: this.totalPrice
+            }
             }
 
             localStorage.setItem('orderProductCafe', JSON.stringify(this.order))
@@ -186,7 +189,7 @@ export default {
         },
     },
     mounted() {
-
+    
     }
 
 }

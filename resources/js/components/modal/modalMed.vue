@@ -86,7 +86,7 @@ export default {
             count: ref(0),
         }
     },
-       methods: {
+    methods: {
         storePreOreder() {
             this.axios.post('/api/preOrder', {
                 'total_price': this.totalPrice,
@@ -99,7 +99,7 @@ export default {
                 'organization_email': this.card.email
             })
                 .then(res => {
-                    // localStorage.clear()
+                     localStorage.clear()
                 })
         },
         price() {
@@ -112,7 +112,7 @@ export default {
                 } else if (total.length === 0) {
                     return 0;
                 } else {
-                    return total.reduce((acc, curr) => (Number(acc) + Number(curr.price)), 0);
+                    return total.reduce((acc, curr) => (Number(acc) + Number(curr.price)*this.$refs.formDate.countPeople), 0);
                 }
             }
 
@@ -124,7 +124,7 @@ export default {
                 } else if (totals.length === null) {
                     return 0;
                 } else {
-                    return totals.reduce((acc, curr) => (Number(acc) + Number(curr.price)), 0);
+                    return totals.reduce((acc, curr) => (Number(acc) + Number(curr.price)*this.$refs.formDate.countPeople), 0);
                 }
             }
             if (calculatePrice(product) === 0) {
@@ -148,7 +148,7 @@ export default {
             }
             const raws = localStorage.getItem('medProduct')
             const product = JSON.parse(raws)
-
+            
             const rawsList = localStorage.getItem('medProductList')
             const productList = JSON.parse(rawsList)
             const calculatePrice = (total) => {
@@ -157,7 +157,7 @@ export default {
                 } else if (total.length === 0) {
                     return 0;
                 } else {
-                    return total.reduce((acc, curr) => (Number(acc) + Number(curr.price)), 0);
+                    return total.reduce((acc, curr) => (Number(acc) + Number(curr.price)*this.$refs.formDate.countPeople), 0);
                 }
             }
             const calculatePriceList = (totals) => {
@@ -166,7 +166,7 @@ export default {
                 } else if (totals.length === null) {
                     return 0;
                 } else {
-                    return totals.reduce((acc, curr) => (Number(acc) + Number(curr.price)), 0);
+                    return totals.reduce((acc, curr) => (Number(acc) + Number(curr.price)*this.$refs.formDate.countPeople), 0);
                 }
             }
             if (calculatePrice(product) === 0) {
@@ -179,21 +179,26 @@ export default {
                 this.totalPrice = calculatePrice(product) + calculatePriceList(productList)
             }
             const totalPrice = this.totalPrice
-            this.order = {
+            if(this.totalPrice){
+                this.order = {
                 date: this.$refs.formDate.date,
                 people: this.$refs.formDate.countPeople,
                 product: product,
                 productList: productList,
                 totalPrice: this.totalPrice,
             }
+            }
+         
 
             localStorage.setItem('orderProductMed', JSON.stringify(this.order))
             const raw = localStorage.getItem('order')
             const orderProductMed = JSON.parse(raw)
             this.storePreOreder()
         },
-    },
 
+    },
+    mounted(){
+    } 
 }
 </script>
 
