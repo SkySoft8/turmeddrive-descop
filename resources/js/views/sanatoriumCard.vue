@@ -176,8 +176,8 @@
                                                 <a @click.prevent="deleteComment(comment.id)"
                                                    :class="(Number(state.user) === card.user_id ||
                               state.user === comment.user_name) ?
-                               'btn btn-danger btn-delete-active' :
-                               'btn btn-danger btn-delete disabled' ">Delete</a>
+                               'btn-delete-active' :
+                               'disabled' ">Удалить</a>
                                             </div>
                                         </div>
                                     </div>
@@ -390,9 +390,27 @@ export default {
 }
 
 .btn-delete-active {
-    opacity: 1;
+  display: flex;
+  width: 80px;
+  height: 30px;
+  border-radius: 15px;
+  border: 1px solid red;
+  opacity: 1;
+  color: red !important;
+  align-items: center;
+  justify-content: center;
+  transition-delay: 5.5ms;
 }
+.btn-delete-active:hover{
+  box-shadow: 1px 1px 13px 2px red;
+  transform: scale(1.1);
 
+}
+.disabled {
+  display: none;
+  pointer-events: none !important;
+  opacity: 0.3;
+}
 .hide {
     display: none;
 }
@@ -419,10 +437,6 @@ export default {
 .active {
     border: 1px solid #51D3B7 !important;
 }
-.disabled{
-    pointer-events: none !important;
-    opacity: 0.3;
-}
 .slides{
     width: 170px;
     height: 130px;
@@ -432,8 +446,5 @@ export default {
         width: 100%;
     }
 }
-.disabled{
-    pointer-events: none !important;
-    opacity: 0.3;
-}
+
 </style>
