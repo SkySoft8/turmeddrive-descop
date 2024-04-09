@@ -891,7 +891,7 @@
                                                                 @elseif($items['role'] == 'sanatorium')
                                                                     @foreach($sanatoriums as $sanatorium)
                                                                         @if($sanatorium->title === $items['name_product'])
-                                                                            <a href="http://127.0.0.1:8000/sanatorium/{{$el->id}}">
+                                                                            <a href="http://127.0.0.1:8000/sanatorium/{{$sanatorium->id}}">
                                                                                 <label style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
                                                                     @endforeach
