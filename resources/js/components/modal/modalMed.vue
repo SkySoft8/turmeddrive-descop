@@ -35,7 +35,7 @@
                             <div class="d-flex align-items-center">
                                 <button class="btn-total" @click.prevent="price">Cтоимость:</button>
                                 <p class="price-total ">{{ totalPrice }}</p>
-                            
+
                             </div>
 
                             <button
@@ -148,7 +148,7 @@ export default {
             }
             const raws = localStorage.getItem('medProduct')
             const product = JSON.parse(raws)
-            
+
             const rawsList = localStorage.getItem('medProductList')
             const productList = JSON.parse(rawsList)
             const calculatePrice = (total) => {
@@ -188,7 +188,7 @@ export default {
                 totalPrice: this.totalPrice,
             }
             }
-         
+
 
             localStorage.setItem('orderProductMed', JSON.stringify(this.order))
             const raw = localStorage.getItem('order')
@@ -198,7 +198,7 @@ export default {
 
     },
     mounted(){
-    } 
+    }
 }
 </script>
 

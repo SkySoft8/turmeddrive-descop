@@ -61,7 +61,7 @@
             <div class="menu">
                 <ul>
                     <li><a href="http://127.0.0.1:8000/catalog/medical">Каталог</a></li>
-                    <li><a href="http://127.0.0.1:8000/rules-organization">О компании</a></li>
+                    <li><a href="http://127.0.0.1:8000/rules-organization">О проекте</a></li>
                     <li><a href="http://127.0.0.1:8000/contact">Контакты</a></li>
                 </ul>
             </div>

@@ -387,9 +387,11 @@
                                                 @foreach(json_decode($preOrder->products, true)['date'] as $list)
                                                     <label class="date">{{$list}}</label>
                                                 @endforeach<br>
-                                                {{--<label
+                                                <p style="font-size: small; margin:0;">Стоимость за номер</p>
+                                                <p style="font-size: small; margin:0;">за 1 сутки</p>
+                                                <label
                                                         class="date">{{json_decode($preOrder->products, true)['totalPrice'] }}
-                                                    р</label>--}}
+                                                    р</label>
                                             </div>
                                         </div>
                                         <ol class="product_option_list_san col-5">
@@ -480,9 +482,11 @@
                                                 @foreach(json_decode($preOrder->products, true)['date'] as $list)
                                                     <label class="date">{{$list}}</label>
                                                 @endforeach<br>
-                                                {{--<label
+                                                    <p style="font-size: small; margin:0;">Стоимость за номер</p>
+                                                    <p style="font-size: small; margin:0;">за 1 сутки</p>
+                                                <label
                                                         class="date">{{json_decode($preOrder->products, true)['totalPrice'] }}
-                                                    р</label>--}}
+                                                    р</label>
                                             </div>
                                         </div>
                                         <ol class="product_option_list_san col-5">
