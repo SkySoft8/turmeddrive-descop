@@ -483,9 +483,8 @@
                                                     <label class="date">{{$list}}</label>
                                                 @endforeach<br>
                                                     <p style="font-size: small; margin:0;">Стоимость за номер</p>
-                                                    <p style="font-size: small; margin:0;">за 1 сутки</p>
                                                 <label
-                                                        class="date">{{json_decode($preOrder->products, true)['totalPrice'] }}
+                                                        class="date">{{json_decode($preOrder->products, true)['totalPrice']  }}
                                                     р</label>
                                             </div>
                                         </div>
@@ -512,7 +511,7 @@
                                             @else
                                             @endif
                                         </ol>
-                                        <p>{{json_decode($preOrder->total_price, true)}} &nbsp</p>
+                                        <p>{{json_decode($preOrder->products, true)['totalPrice']}} &nbsp</p>
                                         <p> p</p>
                                         {{--                                        <ul class="service">--}}
                                         {{--                                            @if((json_decode($preOrder->products, true)['product']) !== null)--}}

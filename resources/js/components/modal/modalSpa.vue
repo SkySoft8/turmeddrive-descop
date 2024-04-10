@@ -95,7 +95,7 @@ export default {
                 'organization_email': this.card.email
             })
                 .then(res => {
-                    localStorage.clear()
+                    //localStorage.clear()
                 })
         },
 
@@ -183,6 +183,8 @@ export default {
                 product: product,
                 productList: productList,
                 totalPrice: this.totalPrice
+            }else{
+                this.order={}
             }
 
             localStorage.setItem('orderProductSpa', JSON.stringify(this.order))

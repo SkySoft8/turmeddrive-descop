@@ -109,7 +109,7 @@ export default {
                 'organization_email': this.card.email
             })
                 .then(res => {
-                    // localStorage.clear()
+                     localStorage.clear()
                 })
         },
 

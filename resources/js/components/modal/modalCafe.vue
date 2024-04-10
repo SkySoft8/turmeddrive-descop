@@ -89,7 +89,7 @@ export default {
                 'organization_email': this.card.email
             })
                 .then(res => {
-                    localStorage.clear()
+                    //localStorage.clear()
                 })
         },
 
@@ -179,6 +179,8 @@ export default {
                 productList: productList,
                 totalPrice: this.totalPrice
             }
+            }else{
+                this.order={}
             }
 
             localStorage.setItem('orderProductCafe', JSON.stringify(this.order))

@@ -7,7 +7,7 @@
                 <label class="price-margin">{{ product.price }} руб.</label>
                 <div class="align-items-center">
                     <product-controls
-                        :counts="counts"
+                        :counts="count"
                         @minus="minus" @plus="plus"></product-controls>
                 </div>
             </div>
@@ -25,7 +25,7 @@ export default {
     props: ['product', 'index', 'lists', 'card', 'items'],
     data() {
         return {
-            counts: 0,
+            counts: ref(0),
             col: 12,
         }
     },

@@ -61,7 +61,7 @@
                                     <!-- </div> -->
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <p class="price-total-san "> Общая стоимость заказа : {{ this.sumPrice }}</p>
+                                    <p class="price-total-san "> Общая стоимость заказа : {{ this.allPrice }}</p>
                                 </div>
                                 <button class=" btn-price-san" @click.prevent="orderCafe">
                                     {{ message }}
@@ -117,6 +117,7 @@ export default {
             order: [],
             role: 'sport',
             berth: null,
+            allPrice:null,
         }
     },
     methods: {
@@ -133,7 +134,7 @@ export default {
                 'organization_email': this.card.email
             })
                 .then(res => {
-                    localStorage.clear()
+                   // localStorage.clear()
                 })
         },
         orderCafe() {
@@ -201,20 +202,24 @@ export default {
 
 
             const totalPrice = this.totalPrice
-            this.sumPrice = this.totalPrice + (this.price * (this.day-1))
+            this.sumPrice =(this.price * (this.day-1))
 
-
+            if(this.totalPrice != 0 && this.sumPrice != 0){
             this.order = {
                 date: this.$refs.formDate.date,
                 people: this.$refs.formDate.countPeople,
                 product: product,
                 productList: productList,
-                totalPrice: this.totalPrice + this.price,
+                totalPrice:this.sumPrice,
                 title: this.title,
                 category: this.category,
                 id: this.id,
                 berth: this.berth,
+                allPrice: this.totalPrice + (this.price * (this.day-1))
+            }}else{
+                this.order={}
             }
+
 
             localStorage.setItem('orderProductSport', JSON.stringify(this.order))
             const raw = localStorage.getItem('order')

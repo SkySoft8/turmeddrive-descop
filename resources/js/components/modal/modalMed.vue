@@ -99,7 +99,7 @@ export default {
                 'organization_email': this.card.email
             })
                 .then(res => {
-                     localStorage.clear()
+                   // localStorage.removeItem('orderProductMed')
                 })
         },
         price() {
@@ -145,12 +145,14 @@ export default {
             else if(this.$refs.formDate.date != undefined)
             {
                 this.message = 'Заказ добавлен в корзину'
+                console.log(this.totalPrice)
             }
             const raws = localStorage.getItem('medProduct')
             const product = JSON.parse(raws)
 
             const rawsList = localStorage.getItem('medProductList')
             const productList = JSON.parse(rawsList)
+            console.log(productList)
             const calculatePrice = (total) => {
                 if (total === null) {
                     return 0;
@@ -179,7 +181,7 @@ export default {
                 this.totalPrice = calculatePrice(product) + calculatePriceList(productList)
             }
             const totalPrice = this.totalPrice
-            if(this.totalPrice){
+            if(this.totalPrice != 0){
                 this.order = {
                 date: this.$refs.formDate.date,
                 people: this.$refs.formDate.countPeople,
@@ -187,8 +189,9 @@ export default {
                 productList: productList,
                 totalPrice: this.totalPrice,
             }
+            }else{
+                this.order={}
             }
-
 
             localStorage.setItem('orderProductMed', JSON.stringify(this.order))
             const raw = localStorage.getItem('order')
