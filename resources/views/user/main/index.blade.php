@@ -484,7 +484,7 @@
                                                 @endforeach<br>
                                                     <p style="font-size: small; margin:0;">Стоимость за номер</p>
                                                 <label
-                                                        class="date">{{json_decode($preOrder->products, true)['totalPrice']  }}
+                                                        class="date">{{json_decode($preOrder->products, true)['allPrice']  }}
                                                     р</label>
                                             </div>
                                         </div>
