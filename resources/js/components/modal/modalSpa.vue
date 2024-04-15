@@ -177,13 +177,13 @@ export default {
                 this.totalPrice = calculatePrice(product) + calculatePriceList(productList)
             }
             const totalPrice = this.totalPrice
-            this.order  = {
+            if(this.totalPrice != 0){this.order  = {
                 date: this.$refs.formDate.date,
                 people: this.$refs.formDate.countPeople,
                 product: product,
                 productList: productList,
                 totalPrice: this.totalPrice
-            }else{
+            }}else{
                 this.order={}
             }
 
