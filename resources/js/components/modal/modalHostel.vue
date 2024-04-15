@@ -1,87 +1,87 @@
 <template>
-<div v-if="state.user !== ''">
-<transition name="modal-animation">
-        <div v-show="modalActive" class="modal-cafe">
-            <transition name="modal-animation-inner">
-                <div v-show="modalActive" class="modal-inner-cafe">
-                    <div class=" modal-content-cafe">
-                        <div class="col col-12 col-md-12 hotels-inf-item">
-                            <div class="section-label section-label-mob">
-                                <h2>Номера</h2>
-                                <hr>
-                            </div>
-                            <form-picker-select ref="formDate"></form-picker-select>
-                            <div class="rooms" v-for="post in posts">
-                                <template v-if="post.id === modalPost">
-                                    <div v-if="post.user_id === card.user_id" class="rooms-item  mb-5" id="rooms-item">
-                                        <div class="rooms-item__line">
-                                            <div class='slides'>
-                                                <swiper
-                                                    :images="post.image_post"
-                                                ></swiper>
+    <div v-if="state.user !== ''">
+        <transition name="modal-animation">
+            <div v-show="modalActive" class="modal-cafe">
+                <transition name="modal-animation-inner">
+                    <div v-show="modalActive" class="modal-inner-cafe">
+                        <div class=" modal-content-cafe">
+                            <div class="col col-12 col-md-12 hotels-inf-item">
+                                <div class="section-label section-label-mob">
+                                    <h2>Номера</h2>
+                                    <hr>
+                                </div>
+                                <form-picker-select ref="formDate"></form-picker-select>
+                                <div class="rooms" v-for="post in posts">
+                                    <template v-if="post.id === modalPost">
+                                        <div v-if="post.user_id === card.user_id" class="rooms-item  mb-5" id="rooms-item">
+                                            <div class="rooms-item__line">
+                                                <div class='slides'>
+                                                    <swiper
+                                                        :images="post.image_post"
+                                                    ></swiper>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <label class="item-hostel" :id="`${post.category}`">{{ post.category }}<br>({{ post.berth }}
-                                            спальное
-                                            место)</label>
-                                        <ul class="item-hostel">
-                                            <li v-for="tag in post.tags"><img
-                                                src="assets/img/check-list.svg">{{ tag.title }}
-                                            </li>
-                                        </ul>
-                                        <label class="cost item-hostel">{{ post.price }}р за сутки</label>
-                                        <label :class="sumPrice === null ? 'hide' : 'cost'">Общая стоимость {{
-                                                sumPrice
-                                            }}р</label>
-                                        <input type="submit" @click.prevent="orderHostel(post.id)"
-                                               :class="(this.$refs.formDate.date === undefined ||
+                                            <label class="item-hostel" :id="`${post.category}`">{{ post.category }}<br>({{ post.berth }}
+                                                спальное
+                                                место)</label>
+                                            <ul class="item-hostel">
+                                                <li v-for="tag in post.tags"><img
+                                                    src="assets/img/check-list.svg">{{ tag.title }}
+                                                </li>
+                                            </ul>
+                                            <label class="cost item-hostel">{{ post.price }}р за сутки</label>
+                                            <label :class="sumPrice === null ? 'hide' : 'cost'">Общая стоимость {{
+                                                    sumPrice
+                                                }}р</label>
+                                            <input type="submit" @click.prevent="orderHostel(post.id)"
+                                                   :class="(this.$refs.formDate.date === undefined ||
                                                this.$refs.formDate.date === null
                                                ) ? 'disabled btn-hostel' : 'btn-hostel'"
-                                               :value="post.id === id ? message: 'Забронировать'">
-                                        <input class="hide" v-model="role" name="medical">
+                                                   :value="post.id === id ? message: 'Забронировать'">
+                                            <input class="hide" v-model="role" name="medical">
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+                            <button class="btn  modal-close modal-close-hostel" @click.prevent="close"
+                            >Закрыть
+                            </button>
+                        </div>
+
+                    </div>
+                </transition>
+            </div>
+        </transition>
+    </div>
+    <div v-if="state.user === ''">
+        <transition name="modal-animation">
+            <div v-show="modalActive" class="modal-cafe">
+                <transition name="modal-animation-inner">
+                    <div v-show="modalActive" class="modal-inner-cafe">
+                        <div class=" modal-content-cafe">
+                            <div class="col col-12 col-md-12 hotels-inf-item">
+                                <div class="section-label section-label-mob">
+                                    <h2>Бронирование возможно только для зарегистрированных пользователей</h2>
+                                    <hr>
+                                </div>
+                                <div class='d-flex justify-content-between align-items-center mt-4 modalRegister'>
+                                    <div>
+                                        <button type="button" class="btn btn-primary"><a  href="http://127.0.0.1:8000/login"> Войти</a></button>
+                                        <button type="button" class="btn btn-primary"><a  href='http://127.0.0.1:8000/register'> Зарегистрироваться </a>  </button>
                                     </div>
-                                </template>
-                            </div>
-                        </div>
-                        <button class="btn  modal-close modal-close-hostel" @click.prevent="close"
-                        >Закрыть
-                        </button>
-                    </div>
-
-                </div>
-            </transition>
-        </div>
-</transition>
-</div>
-<div v-if="state.user === ''">
-<transition name="modal-animation">
-        <div v-show="modalActive" class="modal-cafe">
-            <transition name="modal-animation-inner">
-                <div v-show="modalActive" class="modal-inner-cafe">
-                    <div class=" modal-content-cafe">
-                        <div class="col col-12 col-md-12 hotels-inf-item">
-                            <div class="section-label section-label-mob">
-                                <h2>Бронирование возможно только для зарегистрированных пользователей</h2>
-                                <hr>
-                            </div>
-                            <div class='d-flex justify-content-between align-items-center mt-4 modalRegister'>
-                                <div>
-                                    <button type="button" class="btn btn-primary"><a  href="http://127.0.0.1:8000/login"> Войти</a></button>
-                                    <button type="button" class="btn btn-primary"><a  href='http://127.0.0.1:8000/register'> Зарегистрироваться </a>  </button>
+                                    <div>
+                                        <button class="btn btn-danger" @click.prevent="close">Закрыть</button>
+                                    </div>
                                 </div>
-                                <div>
-                                    <button class="btn btn-danger" @click.prevent="close">Закрыть</button>
-                                </div>
-                            </div>          
-                        </div>
-                      
-                    </div>
+                            </div>
 
-                </div>
-            </transition>
-        </div>
-</transition>
-</div>
+                        </div>
+
+                    </div>
+                </transition>
+            </div>
+        </transition>
+    </div>
 </template>
 
 <script>
@@ -146,7 +146,7 @@ export default {
             this.end = Number(this.days[1].substr(0, 2))
             this.startMM = Number(this.days[0].substr(3, 2))
             this.endMM = Number(this.days[1].substr(3, 2))
-             if(this.endMM === this.startMM) {
+            if(this.endMM === this.startMM) {
                 this.day = (this.end - this.start)+1
             }
             else if (this.endMM > this.startMM && this.startMM === 3 || this.startMM === 1 || this.startMM === 5 || this.startMM === 7 || this.startMM === 8 || this.startMM === 10 || this.startMM === 12) {
@@ -177,8 +177,6 @@ export default {
                 price: this.sumPrice,
                 category: this.category,
                 berth: this.berth,
-            }else{
-                this.order={}
             }
 
             localStorage.setItem('orderHostel', JSON.stringify(this.order))

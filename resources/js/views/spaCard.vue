@@ -41,7 +41,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <input @click.prevent="toggleModal" :class="state.user !== '' ? '' : 'disabled '"
+                                    <input @click.prevent="toggleModal" :class="state.user !== '' ? '' : 'disabled-service'"
                                            type="submit" value="Заказать ">
                                     <p></p>
                                 </div>
@@ -360,6 +360,10 @@ export default {
   box-shadow: 1px 1px 13px 2px red;
   transform: scale(1.1);
 
+}
+.disabled-service{
+    pointer-events: none;
+    opacity: 0.3;
 }
 .disabled {
   display: none;

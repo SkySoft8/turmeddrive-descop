@@ -127,7 +127,7 @@
                                          </span>
                                      </label>
                                      <input @click.prevent="toggleModal(post.id)" type="submit"
-                                            :class="state.user !== '' ? '' : 'disabled '" value="Забронировать">
+                                            :class="state.user !== '' ? '' : 'disabled-service '" value="Забронировать">
                                  </div>
 
                                     <div class="post_item_s">
@@ -447,5 +447,8 @@ export default {
         max-width: 100%;
     }
 }
-
+.disabled-service{
+    pointer-events: none;
+    opacity: 0.3;
+}
 </style>

@@ -84,8 +84,8 @@
                     </div>
                     <div class="button">
                         <input
-                                type="submit"
-                                value="Сохранить изменения"
+                            type="submit"
+                            value="Сохранить изменения"
                         />
                     </div>
                 </form>
@@ -126,7 +126,7 @@
                                                             <li class="product_option_list_item row">
                                                                 <div class="product_list_item_header col-9">
                                                                     <div
-                                                                            class="product_list_item_header_head">{{$list['product']}}</div>
+                                                                        class="product_list_item_header_head">{{$list['product']}}</div>
                                                                     <div class="product_option_list_item_qty">
                                                                         <span>({{$list['qty']}}шт) </span>
                                                                     </div>
@@ -143,7 +143,7 @@
                                                 @endif
                                             </ol>
                                             <label
-                                                    class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
+                                                class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
                                             <form class="product_form"
                                                   action="{{route('user.maim.delete', $preOrder->id)}}"
                                                   method="post">
@@ -187,7 +187,7 @@
                                                             <li class="product_option_list_item row">
                                                                 <div class="product_list_item_header col-9">
                                                                     <div
-                                                                            class="product_list_item_header_head">{{$list['product']}}</div>
+                                                                        class="product_list_item_header_head">{{$list['product']}}</div>
                                                                     <div class="product_option_list_item_qty">
                                                                         <span>({{$list['qty']}}шт)</span>
                                                                     </div>
@@ -204,7 +204,7 @@
                                                 @endif
                                             </ol>
                                             <label
-                                                    class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
+                                                class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
                                             <form class="product_form"
                                                   action="{{route('user.maim.delete', $preOrder->id)}}"
                                                   method="post">
@@ -247,7 +247,7 @@
                                                         <li class="product_option_list_item row">
                                                             <div class="product_list_item_header col-9 ">
                                                                 <div
-                                                                        class="product_list_item_header_head">{{$list['product']}}</div>
+                                                                    class="product_list_item_header_head">{{$list['product']}}</div>
                                                                 <div class="product_option_list_item_qty">
                                                                     <span>({{$list['qty']}}шт)</span>
                                                                 </div>
@@ -279,7 +279,7 @@
                                         {{--                                                        @endif--}}
                                         {{--                                                    </ul>--}}
                                         <label
-                                                class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
+                                            class="date">  {{json_decode($preOrder->products, true)['date']}}</label>
                                         <form class="product_form"
                                               action="{{route('user.maim.delete', $preOrder->id)}}"
                                               method="post">
@@ -318,14 +318,14 @@
                                             <li class="product_option_list_item product_option_list_item_m row">
                                                 <div class="product_list_item_header_hostel ">
                                                     <div><span
-                                                                class="product_list_item_header_head">{{json_decode($preOrder->products, true)['category'] }}</span>
+                                                            class="product_list_item_header_head">{{json_decode($preOrder->products, true)['category'] }}</span>
                                                     </div>
                                                     <div><span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span>
                                                     </div>
                                                 </div>
                                                 <div class="product_list_item_header ">
                                                     <span
-                                                            class="product_list_item_header_head">{{json_decode($preOrder->products, true)['title'] }}</span>
+                                                        class="product_list_item_header_head">{{json_decode($preOrder->products, true)['title'] }}</span>
                                                 </div>
                                                 <div class="product_option_list_item_cost">
                                                     <p>{{json_decode($preOrder->total_price, true)}} &nbsp</p>
@@ -375,7 +375,7 @@
                                         </label>
                                         <div class="product_list_item_header_hostel ">
                                             <div class="product_list_item_header_hostel_m"><span
-                                                        class="product_list_item_header_head">{{json_decode($preOrder->products, true)['category'] }}</span>
+                                                    class="product_list_item_header_head">{{json_decode($preOrder->products, true)['category'] }}</span>
                                             </div>
                                             <div class="product_list_item_header_hostel_m">
                                                 <span>
@@ -389,9 +389,16 @@
                                                 @endforeach<br>
                                                 <p style="font-size: small; margin:0;">Стоимость за номер</p>
                                                 <p style="font-size: small; margin:0;">за 1 сутки</p>
-                                                <label
-                                                        class="date">{{json_decode($preOrder->products, true)['totalPrice'] }}
-                                                    р</label>
+                                                    @if(isset(json_decode($preOrder->products, true)['allPrice']))
+                                                        <label
+                                                            class="date">{{json_decode($preOrder->products, true)['allPrice']  }}
+                                                            р</label>
+                                                    @else
+                                                        <label
+                                                            class="date"
+                                                            style="display: none">{{json_decode($preOrder->products, true)['allPrice']  }}
+                                                            р</label>
+                                                    @endif
                                             </div>
                                         </div>
                                         <ol class="product_option_list_san col-5">
@@ -401,7 +408,7 @@
                                                         <li class="product_option_list_item row">
                                                             <div class="product_list_item_header col-9">
                                                                 <div
-                                                                        class="product_list_item_header_head">{{$list['product']}}</div>
+                                                                    class="product_list_item_header_head">{{$list['product']}}</div>
                                                                 <div class="product_option_list_item_qty">
                                                                     <span>({{$list['qty']}}шт)</span>
                                                                 </div>
@@ -470,7 +477,7 @@
                                         </label>
                                         <div class="product_list_item_header_hostel ">
                                             <div class="product_list_item_header_hostel_m"><span
-                                                        class="product_list_item_header_head">{{json_decode($preOrder->products, true)['category'] }}</span>
+                                                    class="product_list_item_header_head">{{json_decode($preOrder->products, true)['category'] }}</span>
                                             </div>
                                             <div class="product_list_item_header_hostel_m">
                                                 <span>
@@ -482,10 +489,17 @@
                                                 @foreach(json_decode($preOrder->products, true)['date'] as $list)
                                                     <label class="date">{{$list}}</label>
                                                 @endforeach<br>
-                                                    <p style="font-size: small; margin:0;">Стоимость за номер</p>
-                                                <label
+                                                <p style="font-size: small; margin:0;">Стоимость за номер</p>
+                                                @if(isset(json_decode($preOrder->products, true)['allPrice']))
+                                                    <label
                                                         class="date">{{json_decode($preOrder->products, true)['allPrice']  }}
-                                                    р</label>
+                                                        р</label>
+                                                @else
+                                                    <label
+                                                        class="date"
+                                                        style="display: none">{{json_decode($preOrder->products, true)['allPrice']  }}
+                                                        р</label>
+                                                @endif
                                             </div>
                                         </div>
                                         <ol class="product_option_list_san col-5">
@@ -495,7 +509,7 @@
                                                         <li class="product_option_list_item row">
                                                             <div class="product_list_item_header col-9">
                                                                 <div
-                                                                        class="product_list_item_header_head">{{$list['product']}}</div>
+                                                                    class="product_list_item_header_head">{{$list['product']}}</div>
                                                                 <div class="product_option_list_item_qty">
                                                                     <span>({{$list['qty']}}шт)</span>
                                                                 </div>
@@ -564,7 +578,7 @@
                                     </label>
                                     <div class="product_list_item_header_hostel col">
                                         <div class="product_list_item_header_hostel_m"><span
-                                                    class="product_list_item_header_head">{{json_decode($preOrder->products, true)['title'] }}</span>
+                                                class="product_list_item_header_head">{{json_decode($preOrder->products, true)['title'] }}</span>
                                         </div>
                                         <div class="product_list_item_header_hostel_m"><span>({{json_decode($preOrder->products, true)['berth'] }} человек)</span>
                                         </div>
@@ -573,7 +587,7 @@
                                         <li class="product_option_list_item row">
                                             <div class="col-9">
                                                 <label
-                                                        class="date">{{json_decode($preOrder->products, true)['date'] }}</label>
+                                                    class="date">{{json_decode($preOrder->products, true)['date'] }}</label>
                                             </div>
                                             <div class="col-3 product_option_list_item_cost">
                                                 <p>{{json_decode($preOrder->products, true)['price']}}&nbsp</p>
@@ -676,21 +690,24 @@
                                                                     @foreach($medicals as $medical)
                                                                         @if($medical->title === $items['name_product'])
                                                                             <a href="http://127.0.0.1:8000/medical/{{$medical->id}}">
-                                                                                <label style="cursor: pointer">{{$items['name_product']}}</label><br></a>
+                                                                                <label
+                                                                                    style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
                                                                     @endforeach
                                                                 @elseif($items['role'] == 'spa')
                                                                     @foreach($spa as $el)
                                                                         @if($el->title === $items['name_product'])
                                                                             <a href="http://127.0.0.1:8000/spa/{{$el->id}}">
-                                                                                <label style="cursor: pointer">{{$items['name_product']}}</label><br></a>
+                                                                                <label
+                                                                                    style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
                                                                     @endforeach
                                                                 @elseif($items['role'] == 'cafe')
                                                                     @foreach($cafes as $cafe)
                                                                         @if($cafe->title === $items['name_product'])
                                                                             <a href="http://127.0.0.1:8000/cafe/{{$cafe->id}}">
-                                                                                <label style="cursor: pointer">{{$items['name_product']}}</label><br></a>
+                                                                                <label
+                                                                                    style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
                                                                     @endforeach
                                                                 @endif
@@ -717,16 +734,16 @@
                                                                         @foreach(json_decode($item,true)['productList'] as $i)
                                                                             @if($i['qty'] != 0)
                                                                                 <div
-                                                                                        class="d-flex justify-content-sm-between product_promo__item">
+                                                                                    class="d-flex justify-content-sm-between product_promo__item">
                                                                                     <div class="col-6"><p
-                                                                                                class="new_style_promo">{{$i['product']}}</p>
+                                                                                            class="new_style_promo">{{$i['product']}}</p>
                                                                                     </div>
                                                                                     <div class="col-2"><p
-                                                                                                class="new_style_promo">
+                                                                                            class="new_style_promo">
                                                                                             ({{$i['qty']}} шт) </p>
                                                                                     </div>
                                                                                     <div class="col-4"><p
-                                                                                                class="new_style_promo_price">{{$i['price']}}
+                                                                                            class="new_style_promo_price">{{$i['price']}}
                                                                                             р</p></div>
                                                                                 </div>
                                                                             @else
@@ -739,7 +756,8 @@
                                                             <div class="times col-3">
                                                                 @foreach(array($items['products']) as $item)
                                                                     @if(gettype(json_decode($item,true)['date']) == "string")
-                                                                        <div class="mob_times">{{json_decode($item,true)['date']}}
+                                                                        <div
+                                                                            class="mob_times">{{json_decode($item,true)['date']}}
                                                                             <br>
                                                                         </div>
                                                                     @else
@@ -780,21 +798,24 @@
                                                                     @foreach($medicals as $medical)
                                                                         @if($medical->title === $items['name_product'])
                                                                             <a href="http://127.0.0.1:8000/medical/{{$medical->id}}">
-                                                                                <label style="cursor: pointer">{{$items['name_product']}}</label><br></a>
+                                                                                <label
+                                                                                    style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
                                                                     @endforeach
                                                                 @elseif($items['role'] == 'spa')
                                                                     @foreach($spa as $el)
                                                                         @if($el->title === $items['name_product'])
                                                                             <a href="http://127.0.0.1:8000/spa/{{$el->id}}">
-                                                                                <label style="cursor: pointer">{{$items['name_product']}}</label><br></a>
+                                                                                <label
+                                                                                    style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
                                                                     @endforeach
                                                                 @elseif($items['role'] == 'cafe')
                                                                     @foreach($cafes as $cafe)
                                                                         @if($cafe->title === $items['name_product'])
                                                                             <a href="http://127.0.0.1:8000/cafe/{{$cafe->id}}">
-                                                                                <label style="cursor: pointer">{{$items['name_product']}}</label><br></a>
+                                                                                <label
+                                                                                    style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
                                                                     @endforeach
                                                                 @endif<br>
@@ -821,16 +842,16 @@
                                                                         @foreach(json_decode($item,true)['productList'] as $i)
                                                                             @if($i['qty'] != 0)
                                                                                 <div
-                                                                                        class="d-flex justify-content-sm-between product_promo__item">
+                                                                                    class="d-flex justify-content-sm-between product_promo__item">
                                                                                     <div class="col-6"><p
-                                                                                                class="new_style_promo">{{$i['product']}}</p>
+                                                                                            class="new_style_promo">{{$i['product']}}</p>
                                                                                     </div>
                                                                                     <div class="col-2"><p
-                                                                                                class="new_style_promo">
+                                                                                            class="new_style_promo">
                                                                                             ({{$i['qty']}} шт) </p>
                                                                                     </div>
                                                                                     <div class="col-4"><p
-                                                                                                class="new_style_promo_price">{{$i['price']}}
+                                                                                            class="new_style_promo_price">{{$i['price']}}
                                                                                             р</p></div>
                                                                                 </div>
                                                                             @else
@@ -843,7 +864,8 @@
                                                             <div class="times col-3">
                                                                 @foreach(array($items['products']) as $item)
                                                                     @if(gettype(json_decode($item,true)['date']) == "string")
-                                                                        <div class="mob_times">{{json_decode($item,true)['date']}}
+                                                                        <div
+                                                                            class="mob_times">{{json_decode($item,true)['date']}}
                                                                             <br>
                                                                         </div>
                                                                     @else
@@ -888,21 +910,24 @@
                                                                     @foreach($hostels as $hostel)
                                                                         @if($hostel->title === $items['name_product'])
                                                                             <a href="http://127.0.0.1:8000/hotel/{{$hostel->id}}">
-                                                                                <label style="cursor: pointer">{{$items['name_product']}}</label><br></a>
+                                                                                <label
+                                                                                    style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
                                                                     @endforeach
                                                                 @elseif($items['role'] == 'sanatorium')
                                                                     @foreach($sanatoriums as $sanatorium)
                                                                         @if($sanatorium->title === $items['name_product'])
                                                                             <a href="http://127.0.0.1:8000/sanatorium/{{$sanatorium->id}}">
-                                                                                <label style="cursor: pointer">{{$items['name_product']}}</label><br></a>
+                                                                                <label
+                                                                                    style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
                                                                     @endforeach
                                                                 @elseif($items['role'] == 'sport')
                                                                     @foreach($sports as $sport)
                                                                         @if($sport->title === $items['name_product'])
                                                                             <a href="http://127.0.0.1:8000/sport/{{$sport->id}}">
-                                                                                <label style="cursor: pointer">{{$items['name_product']}}</label><br></a>
+                                                                                <label
+                                                                                    style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
                                                                     @endforeach
                                                                 @endif
@@ -923,7 +948,7 @@
                                                                 @foreach(array($items['products']) as $item)
                                                                     @if(isset(json_decode($item,true)['category']))
                                                                         <div
-                                                                                class="d-flex justify-content-sm-between product_promo__item">
+                                                                            class="d-flex justify-content-sm-between product_promo__item">
                                                                             <p>{{json_decode($item,true)['category']}}</p>
                                                                             @if(isset(json_decode($item,true)['totalPrice']))
                                                                                 <p>{{json_decode($item,true)['totalPrice']}}
@@ -939,7 +964,7 @@
                                                                         @foreach(json_decode($item,true)['productList'] as $i)
                                                                             @if($i['qty'] !=0)
                                                                                 <div
-                                                                                        class="d-flex justify-content-sm-between product_promo__item">
+                                                                                    class="d-flex justify-content-sm-between product_promo__item">
                                                                                     <p class="new_style_promo col-6">{{$i['product']}}</p>
                                                                                     <p class="new_style_promo col-3">
                                                                                         ({{$i['qty']}} шт)</p>
@@ -956,7 +981,8 @@
                                                             <div class="times col">
                                                                 @foreach(array($items['products']) as $item)
                                                                     @if(gettype(json_decode($item,true)['date']) == "string")
-                                                                        <div class="mob_times">{{json_decode($item,true)['date']}}
+                                                                        <div
+                                                                            class="mob_times">{{json_decode($item,true)['date']}}
                                                                             <br>
                                                                         </div>
                                                                     @else
@@ -997,21 +1023,24 @@
                                                                     @foreach($hostels as $hostel)
                                                                         @if($hostel->title === $items['name_product'])
                                                                             <a href="http://127.0.0.1:8000/hotel/{{$hostel->id}}">
-                                                                                <label style="cursor: pointer">{{$items['name_product']}}</label><br></a>
+                                                                                <label
+                                                                                    style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
                                                                     @endforeach
                                                                 @elseif($items['role'] == 'sanatorium')
                                                                     @foreach($sanatoriums as $sanatorium)
                                                                         @if($sanatorium->title === $items['name_product'])
                                                                             <a href="http://127.0.0.1:8000/sanatorium/{{$sanatorium->id}}">
-                                                                                <label style="cursor: pointer">{{$items['name_product']}}</label><br></a>
+                                                                                <label
+                                                                                    style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
                                                                     @endforeach
                                                                 @elseif($items['role'] == 'sport')
                                                                     @foreach($sports as $sport)
                                                                         @if($sport->title === $items['name_product'])
                                                                             <a href="http://127.0.0.1:8000/sport/{{$sport->id}}">
-                                                                                <label style="cursor: pointer">{{$items['name_product']}}</label><br></a>
+                                                                                <label
+                                                                                    style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
                                                                     @endforeach
                                                                 @endif<br>
@@ -1032,7 +1061,7 @@
                                                                 @foreach(array($items['products']) as $item)
                                                                     @if(isset(json_decode($item,true)['category']))
                                                                         <div
-                                                                                class="d-flex justify-content-sm-between product_promo__item">
+                                                                            class="d-flex justify-content-sm-between product_promo__item">
                                                                             <p>{{json_decode($item,true)['category']}}</p>
                                                                             @if(isset(json_decode($item,true)['totalPrice']))
                                                                                 <p>{{json_decode($item,true)['totalPrice']}}
@@ -1048,7 +1077,7 @@
                                                                         @foreach(json_decode($item,true)['productList'] as $i)
                                                                             @if($i['qty'] != 0)
                                                                                 <div
-                                                                                        class="d-flex justify-content-sm-between product_promo__item">
+                                                                                    class="d-flex justify-content-sm-between product_promo__item">
                                                                                     <p class="new_style_promo col-6">{{$i['product']}}</p>
                                                                                     <p class="new_style_promo col-3">
                                                                                         ({{$i['qty']}} шт)</p>
@@ -1065,7 +1094,8 @@
                                                             <div class="times col">
                                                                 @foreach(array($items['products']) as $item)
                                                                     @if(gettype(json_decode($item,true)['date']) == "string")
-                                                                        <div class="mob_times">{{json_decode($item,true)['date']}}
+                                                                        <div
+                                                                            class="mob_times">{{json_decode($item,true)['date']}}
                                                                             <br>
                                                                         </div>
                                                                     @else
@@ -1106,7 +1136,8 @@
                                                                     @foreach($turoperators as $tur)
                                                                         @if($tur->title === $items['name_product'])
                                                                             <a href="http://127.0.0.1:8000/tur/{{$tur->id}}">
-                                                                                <label style="cursor: pointer">{{$items['name_product']}}</label><br></a>
+                                                                                <label
+                                                                                    style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
                                                                     @endforeach
                                                                 @endif<br>
@@ -1127,7 +1158,7 @@
                                                                 @foreach(array($items['products']) as $item)
                                                                     @if(isset(json_decode($item,true)['category']))
                                                                         <div
-                                                                                class="d-flex justify-content-sm-between product_promo__item">
+                                                                            class="d-flex justify-content-sm-between product_promo__item">
                                                                             <p> {{json_decode($item,true)['category']}}</p>
                                                                             <p> {{json_decode($item,true)['price']}}
                                                                                 р</p>
@@ -1145,7 +1176,8 @@
                                                             <div class="times col">
                                                                 @foreach(array($items['products']) as $item)
                                                                     @if(gettype(json_decode($item,true)['date']) == "string")
-                                                                        <div class="mob_times">{{json_decode($item,true)['date']}}
+                                                                        <div
+                                                                            class="mob_times">{{json_decode($item,true)['date']}}
                                                                             <br></div>
                                                                     @else
                                                                         @foreach(json_decode($item,true)['date'] as $time)
@@ -1179,7 +1211,8 @@
                                                                     @foreach($turoperators as $tur)
                                                                         @if($tur->title === $items['name_product'])
                                                                             <a href="http://127.0.0.1:8000/tur/{{$tur->id}}">
-                                                                                <label style="cursor: pointer">{{$items['name_product']}}</label><br></a>
+                                                                                <label
+                                                                                    style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
                                                                     @endforeach
                                                                 @endif<br>
@@ -1200,7 +1233,7 @@
                                                                 @foreach(array($items['products']) as $item)
                                                                     @if(isset(json_decode($item,true)['category']))
                                                                         <div
-                                                                                class="d-flex justify-content-sm-between product_promo__item">
+                                                                            class="d-flex justify-content-sm-between product_promo__item">
                                                                             <p> {{json_decode($item,true)['category']}}</p>
                                                                             <p> {{json_decode($item,true)['price']}}
                                                                                 р</p>
@@ -1218,7 +1251,8 @@
                                                             <div class="times col">
                                                                 @foreach(array($items['products']) as $item)
                                                                     @if(gettype(json_decode($item,true)['date']) == "string")
-                                                                        <div class="mob_times">{{json_decode($item,true)['date']}}
+                                                                        <div
+                                                                            class="mob_times">{{json_decode($item,true)['date']}}
                                                                             <br></div>
                                                                     @else
                                                                         @foreach(json_decode($item,true)['date'] as $time)

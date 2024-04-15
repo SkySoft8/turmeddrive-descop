@@ -42,7 +42,7 @@
                       </li>
                     </ul>
                   </div>
-                  <input @click.prevent="toggleModal" :class="state.user !== '' ? '' : 'disabled '"
+                  <input @click.prevent="toggleModal" :class="state.user !== '' ? '' : 'disabled-service '"
                          type="submit" value="Заказать услугу">
                 </div>
               </div>
@@ -402,5 +402,8 @@ export default {
   border: 1px solid #51D3B7 !important;
 }
 
-
+.disabled-service{
+    pointer-events: none;
+    opacity: 0.3;
+}
 </style>

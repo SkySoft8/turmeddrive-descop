@@ -42,7 +42,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <input @click.prevent="toggleModal" :class="state.user !== '' ? '' : 'disabled '" type="submit" value="Забронировать стол">
+                                    <input @click.prevent="toggleModal" :class="state.user !== '' ? '' : 'disabled-service '" type="submit" value="Забронировать стол">
                                 </div>
                             </div>
                             <div class="card-contacts col col-12 col-md-3">
@@ -397,7 +397,10 @@ export default {
     -webkit-box-shadow: 0 1px 5px rgb(81 211 183 / 25%);
     box-shadow: 0 1px 5px rgb(81 211 183 / 25%);
 }
-
+.disabled-service{
+    pointer-events: none;
+    opacity: 0.3;
+}
 .active {
     border: 1px solid #51D3B7 !important;
 

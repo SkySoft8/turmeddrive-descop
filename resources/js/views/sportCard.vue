@@ -110,7 +110,7 @@
                                         </li>
                                     </ul>
                                     <label class="cost">{{ post.price }}р за сутки</label>
-                                    <input  @click.prevent="toggleModal(post.id)" type="submit"  :class="state.user !== '' ? '' : 'disabled '" value="Забронировать">
+                                    <input  @click.prevent="toggleModal(post.id)" type="submit"  :class="state.user !== '' ? '' : 'disabled-service '" value="Забронировать">
                                 </div>
                             </div>
                         </div>
@@ -413,7 +413,10 @@ export default {
 .hide {
     display: none;
 }
-
+.disabled-service{
+    pointer-events: none;
+    opacity: 0.3;
+}
 .comment-input {
     width: 100%;
     max-width: 485px;

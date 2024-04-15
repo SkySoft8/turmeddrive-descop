@@ -142,7 +142,7 @@ export default {
 
             const rawsList = localStorage.getItem('cafeProductList')
             const productList = JSON.parse(rawsList)
-            
+
             const calculatePrice = (total) => {
                 if (total === null) {
                     return 0;
@@ -172,13 +172,13 @@ export default {
             }
             const totalPrice = this.totalPrice
             if(this.totalPrice){
-            this.order = {
-                date: this.$refs.formDate.date,
-                people: this.$refs.formDate.countPeople,
-                product: product,
-                productList: productList,
-                totalPrice: this.totalPrice
-            }
+                this.order = {
+                    date: this.$refs.formDate.date,
+                    people: this.$refs.formDate.countPeople,
+                    product: product,
+                    productList: productList,
+                    totalPrice: this.totalPrice
+                }
             }else{
                 this.order={}
             }
@@ -191,7 +191,7 @@ export default {
         },
     },
     mounted() {
-    
+
     }
 
 }

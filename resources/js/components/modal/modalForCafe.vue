@@ -171,13 +171,13 @@ export default {
             }
             const totalPrice = this.totalPrice
             if(this.totalPrice){
-            this.order = {
-                date: this.$refs.formDate.date,
-                people: this.$refs.formDate.countPeople,
-                product: product,
-                productList: productList,
-                totalPrice: this.totalPrice
-            }
+                this.order = {
+                    date: this.$refs.formDate.date,
+                    people: this.$refs.formDate.countPeople,
+                    product: product,
+                    productList: productList,
+                    totalPrice: this.totalPrice
+                }
             }else{
                 this.order={}
             }

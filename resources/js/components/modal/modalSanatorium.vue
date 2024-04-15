@@ -61,7 +61,7 @@
                                     <!-- </div> -->
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <p class="price-total-san "> Общая стоимость заказа : {{ this.sumPrice }}</p>
+                                    <p class="price-total-san "> Общая стоимость заказа : {{ this.itemPrice }}</p>
                                 </div>
                                 <button class=" btn-price-san" @click.prevent="orderCafe">
                                     {{ message }}
@@ -117,13 +117,15 @@ export default {
             order: [],
             role: 'sanatorium',
             berth: null,
+            allPrice:0,
+            itemPrice:0,
         }
     },
     methods: {
 
         storePreOreder() {
             this.axios.post('/api/preOrder', {
-                'total_price': this.sumPrice,
+                'total_price': this.totalPrice + (this.price * (this.day-1)),
                 'date': '-',
                 'products': this.order,
                 'user_id': this.state.user,
@@ -201,20 +203,24 @@ export default {
 
 
             const totalPrice = this.totalPrice
-            this.sumPrice = this.totalPrice + (this.price * (this.day-1))
-
-
-            this.order = {
-                date: this.$refs.formDate.date,
-                people: this.$refs.formDate.countPeople,
-                product: product,
-                productList: productList,
-                totalPrice: this.totalPrice + this.price,
-                title: this.title,
-                category: this.category,
-                id: this.id,
-                berth: this.berth,
+            this.sumPrice =(this.price * (this.day-1))
+            this.itemPrice = this.totalPrice + (this.price * (this.day-1))
+            if(this.totalPrice != 0 || this.sumPrice != 0){
+                this.order = {
+                    date: this.$refs.formDate.date,
+                    people: this.$refs.formDate.countPeople,
+                    product: product,
+                    productList: productList,
+                    totalPrice: this.totalPrice + (this.price * (this.day-1)),
+                    title: this.title,
+                    category: this.category,
+                    id: this.id,
+                    berth: this.berth,
+                    allPrice: this.sumPrice
+                }}else{
+                this.order={}
             }
+
 
             localStorage.setItem('orderProductSanatorium', JSON.stringify(this.order))
             const raw = localStorage.getItem('order')
@@ -359,5 +365,3 @@ export default {
     }
 }
 </style>
-
-

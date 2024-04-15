@@ -110,7 +110,7 @@
                                         </li>
                                     </ul>
                                     <label class="cost">{{ post.price }}р за сутки</label>
-                                    <input  @click.prevent="toggleModal(post.id)" type="submit"  :class="state.user !== '' ? '' : 'disabled '" value="Забронировать">
+                                    <input  @click.prevent="toggleModal(post.id)" type="submit"  :class="state.user !== '' ? '' : 'disabled-service '" value="Забронировать">
                                 </div>
                             </div>
                         </div>
@@ -388,7 +388,10 @@ export default {
 .btn-delete {
     opacity: 0.1;
 }
-
+.disabled-service{
+    pointer-events: none;
+    opacity: 0.3;
+}
 .btn-delete-active {
   display: flex;
   width: 80px;

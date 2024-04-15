@@ -99,7 +99,7 @@ export default {
                 'organization_email': this.card.email
             })
                 .then(res => {
-                   // localStorage.removeItem('orderProductMed')
+                    // localStorage.removeItem('orderProductMed')
                 })
         },
         price() {
@@ -183,12 +183,12 @@ export default {
             const totalPrice = this.totalPrice
             if(this.totalPrice != 0){
                 this.order = {
-                date: this.$refs.formDate.date,
-                people: this.$refs.formDate.countPeople,
-                product: product,
-                productList: productList,
-                totalPrice: this.totalPrice,
-            }
+                    date: this.$refs.formDate.date,
+                    people: this.$refs.formDate.countPeople,
+                    product: product,
+                    productList: productList,
+                    totalPrice: this.totalPrice,
+                }
             }else{
                 this.order={}
             }

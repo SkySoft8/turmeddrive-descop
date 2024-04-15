@@ -206,18 +206,18 @@ export default {
             this.sumPrice =(this.price * (this.day-1))
             this.itemPrice = this.totalPrice + (this.price * (this.day-1))
             if(this.totalPrice != 0 || this.sumPrice != 0){
-            this.order = {
-                date: this.$refs.formDate.date,
-                people: this.$refs.formDate.countPeople,
-                product: product,
-                productList: productList,
-                totalPrice: this.totalPrice + (this.price * (this.day-1)),
-                title: this.title,
-                category: this.category,
-                id: this.id,
-                berth: this.berth,
-                allPrice: this.sumPrice
-            }}else{
+                this.order = {
+                    date: this.$refs.formDate.date,
+                    people: this.$refs.formDate.countPeople,
+                    product: product,
+                    productList: productList,
+                    totalPrice: this.totalPrice + (this.price * (this.day-1)),
+                    title: this.title,
+                    category: this.category,
+                    id: this.id,
+                    berth: this.berth,
+                    allPrice: this.sumPrice
+                }}else{
                 this.order={}
             }
 
@@ -364,5 +364,3 @@ export default {
     }
 }
 </style>
-
-
