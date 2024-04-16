@@ -36,6 +36,8 @@ class StoreTodoListRequest extends FormRequest
         return [
             'title.required' => 'Это поле необходимо для заполнения',
             'title.string' => 'Имя должно быть строкой',
+            'price.integer' => 'Введите число',
+            'price.required' => 'Это поле необходимо для заполнения',
             'user_email.required' => 'Это поле необходимо для заполнения',
             'address.required' => 'Это поле необходимо для заполнения',
         ];

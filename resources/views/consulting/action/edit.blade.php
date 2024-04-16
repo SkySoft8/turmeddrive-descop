@@ -24,8 +24,8 @@
                         @csrf
                         @method('PATCH')
                         <div class="form-group w-75">
-                            <input type="text" class="form-control" name="title" placeholder="Название услуги"
-                                   value="{{$consultingAction->title}}">
+                            <textarea type="text" class="form-control" name="title" placeholder="Название услуги"
+                                  >{{$consultingAction->title}}</textarea>
                             @error('title')
                             <div class="text-danger">{{$message}}</div>
                             @enderror

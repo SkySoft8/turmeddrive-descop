@@ -50,7 +50,7 @@
                                 </select>
                             </div>
                             <div class="form-group w-100">
-                                <label>Выберите Регион (область)у</label>
+                                <label>Выберите Регион (область)</label>
                                 <select name="republic_id" class="form-control">
                                     @foreach($republics as $republic)
                                         <option value="{{$republic->id}}"
@@ -70,9 +70,10 @@
                             <div class="form-group w-100">
                                 <label>Выберите вид организации</label>
                                 <select name="type_id" class="form-control">
-                                    @foreach($types as $type)
-                                        <option value="{{$type->id}}"
-                                            {{$type->id == old('type_id') ? ' selected' : '' }}>{{$type->title}}</option>
+                                    @foreach($types as $id => $type)
+                                        <option value="{{$id}}"
+                                            class=@if($id === 7)"d-none"@else''@endif
+                                            {{$id == old('type_id') ? ' selected' : '' }}>{{$type->title}}</option>
                                     @endforeach
                                 </select>
                             </div>

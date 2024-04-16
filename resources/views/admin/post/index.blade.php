@@ -37,7 +37,7 @@
                                     @foreach($posts as $post)
                                         <tr>
                                             <td>{{$post->id}}</td>
-                                            <td>{{$post->title}}</td>
+                                            <td><p class="head_post" >{{$post->title}}</p></td>
                                             <td><a href="{{route('admin.post.show', $post->id)}}"><i
                                                             class="far fa-eye"></i></a></td>
                                             <td><a href="{{route('admin.post.edit', $post->id)}}"
@@ -67,3 +67,12 @@
         <!-- /.content -->
     </div>
 @endsection
+<style>
+    .head_post{
+        white-space: nowrap; 
+    overflow: hidden; 
+    width:560px;
+    text-overflow: ellipsis;
+    }
+    
+</style>    

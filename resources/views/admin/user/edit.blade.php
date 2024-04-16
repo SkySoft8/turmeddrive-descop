@@ -65,9 +65,10 @@
                         <div class="form-group w-100">
                             <label>Выберите вид организации</label>
                             <select name="type_id" class="form-control">
-                                @foreach($types as $type)
-                                    <option value="{{$type->id}}"
-                                            {{$type->id == $user->type_id ? ' selected' : '' }}>{{$type->title}}</option>
+                                @foreach($types as $id => $type)
+                                    <option value="{{$id}}"
+                                    class=@if($id === 7)"d-none"@else''@endif
+                                             {{$id == $user->type_id ? ' selected' : '' }}>{{$type->title}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -76,6 +77,7 @@
                             <select name="role" class="form-control">
                                 @foreach($roles as $id => $role)
                                     <option value="{{$id}}"
+                                    class=@if($id === 9)"d-none"@else''@endif
                                             {{$id == $user->role ? ' selected' : '' }}>{{$role}}</option>
                                 @endforeach
                             </select>

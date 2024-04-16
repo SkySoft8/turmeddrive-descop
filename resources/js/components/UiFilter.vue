@@ -5,7 +5,9 @@
         <label>Тип организации</label>
         <select  v-model="types">
           <option v-for="type in filterList.types"
+                  :key="type.id" 
                   v-bind:value="type.id"
+                  :class="type.id !=8 ? '' : 'd-none'"
           >{{type.title}}</option>
         </select>
       </div>

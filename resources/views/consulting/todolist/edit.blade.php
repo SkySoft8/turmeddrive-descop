@@ -24,12 +24,12 @@
                         @csrf
                         @method('PATCH')
                         <div class="form-group w-75">
-                            <input type="text" class="form-control" name="title" placeholder="Название услуги"
-                                   value="{{$consultingTodoList->title}}">
+                            <textarea type="text" class="form-control" name="title" placeholder="Название услуги"
+                                   >{{$consultingTodoList->title}}</textarea>
                             @error('title')
                             <div class="text-danger">{{$message}}</div>
                             @enderror
-                            <input type="text" class="form-control" name="price" placeholder="Цена"
+                            <input type="text" class="form-control mt-5" name="price" placeholder="Цена"
                                    value="{{$consultingTodoList->price}}">
                             @error('title')
                             <div class="text-danger">{{$message}}</div>

@@ -2823,3 +2823,10 @@ footer .f-logo {
         margin-top: 0;
     }
 }
+
+.head_post{
+    white-space: nowrap !important; 
+    overflow: hidden !important; 
+    width:560px !important;
+    text-overflow: ellipsis !;
+}

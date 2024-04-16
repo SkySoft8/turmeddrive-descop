@@ -66,10 +66,9 @@
                 <div class="w-50">
                     <form action="{{route('consulting.action.store'), $id}}" method="POST" class="w-55">
                         @csrf
-                        <div class="input-group">
-                            <div class="input-group">
-                                <input type="text" name="title" class="form-control"
-                                       placeholder="Добавить новое описание">
+                            <div class="input-group ">
+                            <textarea type="text" name="title" class="form-control"
+                                       placeholder="Ввести наименование категории"></textarea>
                                 @error('title')
                                 <div class="text-danger text-bold ">{{$message}}</div>
                                 @enderror
@@ -85,7 +84,6 @@
                                     </button>
                                 @endif
                             </div>
-                        </div>
                     </form>
                     <div class="mt-3">
                         <table class="table">
@@ -123,17 +121,29 @@
                 <div class="w-50">
                     <form action="{{route('consulting.todolist.store'), $id}}" method="POST" class="w-55">
                         @csrf
-                        <div class="input-group">
-                            <input type="text" name="title" class="form-control"
-                                   placeholder="Добавить новое описание">
-                            @error('title')
-                            <div class="text-danger text-bold ">{{$message}}</div>
-                            @enderror
-                            <input type="text" name="price" class="form-control"
-                                   placeholder="Добавить новое описание">
-                            @error('price')
-                            <div class="text-danger text-bold ">{{$message}}</div>
-                            @enderror
+                        <div class="input-group justify-content-between">
+                            <div class="d-block ">
+                                <div style="width:456px">
+                                    <textarea type="text" name="title" class="form-control"
+                                    placeholder="Ввести наименование услуги"></textarea>
+                                </div>
+                                <div>    
+                                    @error('title')
+                                    <div class="text-danger text-bold ">{{$message}}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="d-block">
+                                <div>
+                                    <input  type="text" name="price" class="form-control"
+                                    placeholder="Ввести стоимость услуги">
+                                </div>
+                                <div> 
+                                    @error('price')
+                                    <div class="text-danger text-bold ">{{$message}}</div>
+                                    @enderror
+                                </div>
+                            </div>
                             <input type="hidden" name="user_id" value="{{$user}}">
                             <input type="hidden" name="cat_id" value="{{$id}}">
                             <button type="submit" class="btn btn-dark btn-sm px-4">

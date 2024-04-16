@@ -34,7 +34,7 @@ class User extends Authenticatable
             self::ROLE_READER => 'Пользователь',
             self::ROLE_HOSTEl => 'Отель',
             self::ROLE_CAFE => 'Кофе',
-            self::ROLE_MEDICAL => 'Медецина',
+            self::ROLE_MEDICAL => 'Медицина',
             self::ROLE_SPA => 'CПА',
             self::ROLE_SANATORIUM => 'Санатории',
             self::ROLE_TUROPERATOR => 'ТурОператор',
