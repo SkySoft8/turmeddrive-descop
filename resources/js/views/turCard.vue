@@ -34,7 +34,7 @@
                                 <p>{{ card.content }}</p>
                                 <div class="hotel-gallery">
                                     <ul>
-                                        <li v-for="image in card.images" id="1"><img :src="image.images"></li>
+                                        <li v-for="image in card.images" :id="image.id"><img :src="image.images"></li>
                                     </ul>
                                 </div>
                             </div>

@@ -34,7 +34,7 @@
                                     <p>{{ card.content }}</p>
                                     <div class="hotel-gallery">
                                         <ul>
-                                            <li v-for="image in images" id="1">
+                                            <li v-for="image in images" :id="image.id">
                                                 <template v-if="image.spa_card_id === card.id">
                                                     <img :src="image.images">
                                                 </template>
