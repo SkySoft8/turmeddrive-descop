@@ -95,8 +95,18 @@
                 <div class="col-9 box_mob">
                     <div class="cart-section">
                         @foreach($preOrders as $preOrder)
+                        
+                            @foreach($medicals as $el)
+                                @if($el->title === $preOrder->name_product)
+                                <a style="color:red;" href="http://127.0.0.1:8000/medical/{{$el->id}}"> <p>{{$preOrder->name_product}}  </p>  </a>
+                                @else
+                                @endif
+                            @endforeach
                             @if($preOrder->role == 'Мед.центр')
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
                                 <div class="product">
                                     <div class="product_item">
                                         <div class="product_item_header">
