@@ -36,9 +36,7 @@
                   <div class="hotel-gallery">
                     <ul>
                       <li v-for="image in images" :id="image.id">
-                        <template v-if="image.medical_card_id === card.id">
-                          <img :src="image.images">
-                        </template>
+                          <img @click.prevent="toggleImage" v-if="image.medical_card_id === card.id" :src="image.images">
                       </li>
                     </ul>
                   </div>
@@ -189,25 +187,39 @@
     >
     </modal-med>
   </div>
+  <div>
+    <modal-image
+        :modal-active="imageActive"
+        :images="images"
+        @close="toggleImage"
+    >
+    </modal-image>
+  </div>
 </template>
 
 <script>
 import user from "../user";
 import modalMed from "../components/modal/modalMed.vue";
+import modalImage from "../components/modal/modalImage.vue";
 import {ref} from "vue";
 import axios from "axios";
 
 export default {
   components: {
-    modalMed
+    modalMed,
+    modalImage
   },
   setup() {
     const {state} = user;
     const modalActive = ref(false);
+    const imageActive = ref(false);
     const toggleModal = () => {
       modalActive.value = !modalActive.value;
     }
-    return {state, modalActive, toggleModal};
+    const toggleImage = () => {
+      imageActive.value = !imageActive.value
+    }
+    return {state, modalActive, toggleModal , imageActive, toggleImage};
   },
   name: "medicalCard",
   data() {
