@@ -36,8 +36,14 @@
                   <div class="hotel-gallery">
                     <ul>
                       <li v-for="image in images" :id="image.id">
-                          <img @click.prevent="toggleImage" v-if="image.medical_card_id === card.id" :src="image.images">
+                          <img @click="toggler = !toggler" v-if="image.medical_card_id === card.id" :src="image.images">
                       </li>
+                      <div>
+                    <FsLightbox 
+                    :toggler="toggler"
+                    :sources='elems'
+                    />
+                    </div>
                     </ul>
                   </div>
                   <input @click.prevent="toggleModal" :class="state.user !== '' ? '' : 'disabled-service '"
@@ -187,27 +193,20 @@
     >
     </modal-med>
   </div>
-  <div>
-    <modal-image
-        :modal-active="imageActive"
-        :images="images"
-        @close="toggleImage"
-    >
-    </modal-image>
-  </div>
+
 </template>
 
 <script>
 import user from "../user";
 import modalMed from "../components/modal/modalMed.vue";
-import modalImage from "../components/modal/modalImage.vue";
+import FsLightbox from "fslightbox-vue/v3";
 import {ref} from "vue";
 import axios from "axios";
 
 export default {
   components: {
     modalMed,
-    modalImage
+    FsLightbox
   },
   setup() {
     const {state} = user;
@@ -238,6 +237,8 @@ export default {
       pagination: [],
       actions: [],
       images: [],
+      toggler: false,
+      elems:null,
     }
   },
 
@@ -341,8 +342,14 @@ export default {
     getImage() {
       this.axios.get('/api/medicalImage')
           .then(res => {
-
             this.images = res.data.data;
+            const imgs = []
+            this.images.forEach( (key) => {
+              if(key.medical_card_id === this.card.id){
+              imgs.push(key.images)
+              }
+            })
+            this.elems = imgs
           })
     },
   },
