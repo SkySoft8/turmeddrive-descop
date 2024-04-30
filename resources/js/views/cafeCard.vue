@@ -36,9 +36,7 @@
                                     <div class="hotel-gallery">
                                         <ul>
                                             <li v-for="image in images" :id="image.id">
-                                                <template v-if="image.cafe_card_id === card.id">
-                                                    <img :src="image.images">
-                                                </template>
+                                                    <img @click="toggler = !toggler" v-if="image.cafe_card_id === card.id" :src="image.images">
                                             </li>
                                         </ul>
                                     </div>
@@ -187,16 +185,23 @@
         >
         </modal-cafe>
     </div>
+    <div>
+                    <FsLightbox 
+                    :toggler="toggler"
+                    :sources='elems'
+                    />
+                    </div>
 </template>
 
 <script>
 import user from "../user";
 import modalCafe from "../components/modal/modalCafe.vue";
 import {ref} from "vue";
-
+import FsLightbox from "fslightbox-vue/v3";
 export default {
     components: {
-        modalCafe
+        modalCafe,
+        FsLightbox
     },
     setup() {
         const {state} = user;
@@ -224,7 +229,8 @@ export default {
             pagination: [],
             actions: [],
             images: [],
-            elems:[],
+            toggler: false,
+            elems:null,
         }
     },
     methods: {
@@ -331,6 +337,13 @@ export default {
             this.axios.get('/api/cafeImage')
                 .then(res => {
                     this.images = res.data.data;
+                    const imgs = []
+                    this.images.forEach( (key) => {
+                    if(key.cafe_card_id === this.card.id){
+                    imgs.push(key.images)
+                }
+                })
+                this.elems = imgs
                 })
         },
     },

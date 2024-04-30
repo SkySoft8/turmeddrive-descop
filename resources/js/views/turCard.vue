@@ -34,7 +34,9 @@
                                 <p>{{ card.content }}</p>
                                 <div class="hotel-gallery">
                                     <ul>
-                                        <li v-for="image in card.images" :id="image.id"><img :src="image.images"></li>
+                                        <li v-for="image in card.images" :id="image.id">
+                                            <img @click="toggler = !toggler" :src="image.images">
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -207,6 +209,12 @@
         >
         </modal-tur>
     </div>
+    <div>
+                    <FsLightbox 
+                    :toggler="toggler"
+                    :sources='elems'
+                    />
+                    </div>
 </template>
 
 <script>
@@ -215,10 +223,11 @@ import swiper from '../components/swiper.vue';
 import {ref} from "vue";
 import ModalTur from "../components/modal/modalTur.vue";
 import turPost from "../components/turPost.vue";
+import FsLightbox from "fslightbox-vue/v3";
 
 export default {
     name: "turCard",
-    components: {ModalTur, swiper, turPost},
+    components: {ModalTur, swiper, turPost,FsLightbox},
     setup() {
         const {state} = user;
         return {state};
@@ -242,6 +251,8 @@ export default {
             modalPost:null,
             turPost: ref(false),
             contentId: null,
+            toggler: false,
+            elems:null,
         }
     },
     methods: {
@@ -250,7 +261,12 @@ export default {
                 .then(res => {
                     this.card = res.data.data;
                     let center = [this.card.coordinate_l, this.card.coordinate_r];
-
+                    let items = res.data.data.images
+                    const imgs = []
+                    items.forEach( (key) => {                    
+                    imgs.push(key.images)
+                })
+                this.elems = imgs
                     function init() {
                         let map = new ymaps.Map('map-test', {
                             center: center,

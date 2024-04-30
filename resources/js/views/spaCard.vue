@@ -35,9 +35,7 @@
                                     <div class="hotel-gallery">
                                         <ul>
                                             <li v-for="image in images" :id="image.id">
-                                                <template v-if="image.spa_card_id === card.id">
-                                                    <img :src="image.images">
-                                                </template>
+                                                <img @click="toggler = !toggler" v-if="image.spa_card_id === card.id" :src="image.images">
                                             </li>
                                         </ul>
                                     </div>
@@ -184,15 +182,24 @@
         >
         </modal-spa>
     </div>
+    <div>
+                    <FsLightbox 
+                    :toggler="toggler"
+                    :sources='elems'
+                    />
+                    </div>
 </template>
 
 <script>
 import user from "../user";
 import {ref} from "vue";
 import ModalSpa from "../components/modal/modalSpa.vue";
-
+import FsLightbox from "fslightbox-vue/v3";
 export default {
-    components: {ModalSpa},
+    components: {
+        ModalSpa,
+        FsLightbox
+    },
     setup() {
         const {state} = user;
         const modalActive = ref(false);
@@ -218,6 +225,8 @@ export default {
             pagination: [],
             actions: [],
             images: [],
+            toggler: false,
+            elems:null,
         }
     },
     methods: {
@@ -322,6 +331,13 @@ export default {
             this.axios.get('/api/spaImage')
                 .then(res => {
                     this.images = res.data.data;
+                    const imgs = []
+                    this.images.forEach( (key) => {
+                    if(key.spa_card_id === this.card.id){
+                    imgs.push(key.images)
+                }
+                })
+                this.elems = imgs
                 })
         },
     },
