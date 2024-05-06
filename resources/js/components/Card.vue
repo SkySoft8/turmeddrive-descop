@@ -1,7 +1,7 @@
 <template>
-    <div class="d-flex" @click="emit('addToCart',title)">
+    <div class="d-flex" @click="emit('addToCart',card)">
         <div class="item-img">
-            <img :src="img" />
+            <img :src="img"/>
         </div>
         <div class="list-item-descr">
             <h2>{{ title }}</h2>
@@ -12,9 +12,9 @@
                 </li>
             </ul>
             <div class="company">
-                <img class="logo" :src="logo" />
+                <img class="logo" :src="logo"/>
                 <a :href="link"
-                    ><p>{{ linkTitle }}</p></a
+                ><p>{{ linkTitle }}</p></a
                 >
             </div>
         </div>
@@ -22,6 +22,8 @@
 </template>
 
 <script setup>
+import {ref, onMounted} from 'vue'
+
 defineProps({
     img: String,
     title: String,
@@ -31,8 +33,10 @@ defineProps({
     link: String,
     linkTitle: String,
     onClickAdd: Function,
+    card: Array,
 });
-const emit = defineEmits(['addToCart'])
+const emit = defineEmits(['addToCart']);
+
 </script>
 
 <style scoped>
