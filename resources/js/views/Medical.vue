@@ -53,8 +53,8 @@
              && districts === medical.district_id && republics === medical.republic_id
               ">
 
-                                <router-link :to="'/medical/'+ medical.id">
-                                    <div class="item-img">
+                                <router-link :to="'/medical/'+ medical.id"  >
+                                    <!-- <div class="item-img">
                                         <img :src="medical.image_url">
                                     </div>
                                     <div class="list-item-descr">
@@ -67,9 +67,20 @@
                                             <img class="logo" :src="medical.logo_url">
                                             <a :href="medical.link"><p>{{ medical.name_link }}</p></a>
                                         </div>
-                                    </div>
+                                    </div> -->
+                                    <Card 
+                                    :img ='medical.image_url'
+                                    :title ='medical.title'
+                                    :desc = 'medical.desc'
+                                    :tags ='medical.tags'
+                                    :logo ='medical.logo_url'
+                                    :link = 'medical.link'
+                                    :linkTitle = 'medical.name_link'
+                                    :onClickAdd = 'isAdded'
+                                    @addToCart = 'addToCart'
+                                    />   
                                 </router-link>
-
+                                 
                             </div>
                         </div>
                     </div>
@@ -77,15 +88,25 @@
             </div>
     </div>
 </template>
+
 <script>
 import global from "../global.js";
+import Card from '../components/Card.vue';
+import {ref, inject} from "vue";
 
 export default {
-
+    components:{
+        Card,
+    },
     name: "Medical",
     setup() {
         const {state} = global;
-        return {state};
+        const isAdd = ref(true);
+        const isAdded = () => {
+           alert('click')
+        }
+        const {addToCart} = inject('cartActions')
+        return {state, isAdded, addToCart};
     },
     data() {
         return {

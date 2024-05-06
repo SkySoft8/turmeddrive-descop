@@ -211,14 +211,10 @@ export default {
   setup() {
     const {state} = user;
     const modalActive = ref(false);
-    const imageActive = ref(false);
     const toggleModal = () => {
       modalActive.value = !modalActive.value;
     }
-    const toggleImage = () => {
-      imageActive.value = !imageActive.value
-    }
-    return {state, modalActive, toggleModal , imageActive, toggleImage};
+    return {state, modalActive, toggleModal ,};
   },
   name: "medicalCard",
   data() {
