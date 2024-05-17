@@ -34,8 +34,8 @@
                                 <p>{{ card.content }}</p>
                                 <div class="hotel-gallery">
                                     <ul>
-                                        <li v-for="image in card.images" :id="image.id">
-                                            <img @click="toggler = !toggler" :src="image.images">
+                                        <li>
+                                            <image-box images-list-class="d-flex" :images="elems" :card='card.id'></image-box>
                                         </li>
                                     </ul>
                                 </div>
@@ -209,12 +209,6 @@
         >
         </modal-tur>
     </div>
-    <div>
-                    <FsLightbox 
-                    :toggler="toggler"
-                    :sources='elems'
-                    />
-                    </div>
 </template>
 
 <script>
@@ -223,11 +217,11 @@ import swiper from '../components/swiper.vue';
 import {ref} from "vue";
 import ModalTur from "../components/modal/modalTur.vue";
 import turPost from "../components/turPost.vue";
-import FsLightbox from "fslightbox-vue/v3";
+import ImageBox from "../components/ImageBox.vue";
 
 export default {
     name: "turCard",
-    components: {ModalTur, swiper, turPost,FsLightbox},
+    components: {ModalTur, swiper, turPost,ImageBox},
     setup() {
         const {state} = user;
         return {state};
@@ -264,7 +258,7 @@ export default {
                     let items = res.data.data.images
                     const imgs = []
                     items.forEach( (key) => {                    
-                    imgs.push(key.images)
+                    imgs.push(key)
                 })
                 this.elems = imgs
                     function init() {

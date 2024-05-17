@@ -38,13 +38,6 @@
                                             <li>
                                               <image-box images-list-class="d-flex" :images="elems" :card='card.id'></image-box>
                                             </li>
-                                            <div>
-                                                <!-- <FsLightbox
-                                                    :toggler="toggler"
-                                                    :sources='elems'
-                                                /> -->
-                                            </div>
-                                            
                                         </ul>
                                         
                                     </div>
@@ -201,7 +194,6 @@
 <script>
 import user from "../user";
 import modalMed from "../components/modal/modalMed.vue";
-import FsLightbox from "fslightbox-vue/v3";
 import {ref} from "vue";
 import axios from "axios";
 import ImageBox from "../components/ImageBox.vue";
@@ -209,7 +201,6 @@ import ImageBox from "../components/ImageBox.vue";
 export default {
     components: {
         modalMed,
-        FsLightbox,
         ImageBox
     },
     setup() {

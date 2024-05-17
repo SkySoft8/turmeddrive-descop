@@ -35,8 +35,8 @@
                                 <div class="hotel-gallery">
                                     <ul>
 
-                                        <li v-for="image in card.images" :id="image.id">
-                                            <img @click="toggler = !toggler"  :src="image.images">
+                                        <li>
+                                            <image-box images-list-class="d-flex" :images="elems" :card='card.id'></image-box>
                                         </li>
                                     </ul>
                                 </div>
@@ -177,23 +177,18 @@
         >
         </modal-hostel>
     </div>
-    <div>
-                    <FsLightbox 
-                    :toggler="toggler"
-                    :sources='elems'
-                    />
-                    </div>
 </template>
 
 <script>
 import user from "../user";
 import swiper from '../components/swiper.vue';
 import modalHostel from "../components/modal/modalHostel.vue";
-import FsLightbox from "fslightbox-vue/v3";
+import ImageBox from "../components/ImageBox.vue";
+
 import {ref} from "vue";
 export default {
     name: "hostelCard",
-    components: {swiper ,  modalHostel, FsLightbox},
+    components: {swiper ,  modalHostel, ImageBox},
     setup() {
         const {state} = user;
         return {state};
@@ -227,7 +222,7 @@ export default {
                     let items = res.data.data.images
                     const imgs = []
                     items.forEach( (key) => {                    
-                    imgs.push(key.images)
+                    imgs.push(key)
                 })
                 this.elems = imgs
 
