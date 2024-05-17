@@ -267,7 +267,7 @@ export default {
                         })
                     })
                     this.elemsProduct = elemProducts
-                    console.log(this.elemsProduct);
+                    //console.log(this.elemsProduct)
                 })
         },
         getImage() {
@@ -293,6 +293,7 @@ export default {
             this.axios.get('/api/medicals/' + this.$route.params.id)
                 .then(res => {
                     this.card = res.data.data;
+                    console.log(this.card)
                     let center = [this.card.coordinate_l, this.card.coordinate_r];
 
                     function init() {

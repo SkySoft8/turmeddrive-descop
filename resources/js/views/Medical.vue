@@ -79,7 +79,8 @@
                                       :onClickAdd='isAdded'
                                       @addToCart='addToCart'
                                       :card='medical'
-
+                                      :lists='lists'
+                                      :newItem = 'items'  
                                 />
                             </router-link>
 
@@ -107,7 +108,7 @@ export default {
         const isAdded = () => {
             alert('click')
         }
-        const {addToCart} = inject('cartActions')
+        const {addToCart} = inject('cart')
         return {state, isAdded, addToCart};
     },
     data() {
@@ -119,6 +120,9 @@ export default {
             republics: [],
             cities: [],
             medicals: [],
+            lists: [],
+            items: [],
+            elemsProduct:null,
         }
     },
     methods: {
@@ -168,11 +172,39 @@ export default {
             }
             localStorage.clear()
         },
+        getList() {
+            this.axios.get('/api/list')
+                .then(res => {
+                    this.lists = res.data.data;
+                    this.cats = res.data.data;
+                })
+        },
+        getItem() {
+            this.axios.get('/api/item')
+                .then(res => {
+                    this.items = res.data.data
+                    const elemProducts = []
+                    this.medicals.forEach((med)=>{
+                            this.lists.forEach((list)=>{
+                                this.items.forEach((key)=>{
+                                    if(key.medical_todo_list_id === list.id && list.user_id === med.user_id && key.deleted_at === null){
+                                        elemProducts.push(key)
+                                    }
+                                })
+                            })
+                        this.elemsProduct = elemProducts;
+                       
+                    })
+                    
+                })
+        },
     },
     mounted() {
         this.getMedical()
         this.getFilterList()
         this.getSearch()
+        this.getList()
+        this.getItem()
     }
 }
 </script>

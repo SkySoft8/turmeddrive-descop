@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex" @click="emit('addToCart',card)">
+    <div class="d-flex" @click="emit('addToCart',card,lists,newItem)">
         <div class="item-img">
             <img :src="img"/>
         </div>
@@ -17,6 +17,13 @@
                 ><p>{{ linkTitle }}</p></a
                 >
             </div>
+            <p v-for="list in lists">
+               <p v-if="list.user_id === card.user_id">{{ list }}</p> 
+                <p v-for="item in newItem">
+                    <p v-if="item.medical_todo_list_id === list.id && list.user_id === card.user_id">{{ item }}</p>
+            </p>
+            </p>
+
         </div>
     </div>
 </template>
@@ -34,9 +41,12 @@ defineProps({
     linkTitle: String,
     onClickAdd: Function,
     card: Array,
+    lists:Array,
+    newItem: Array
 });
 const emit = defineEmits(['addToCart']);
 
+    
 </script>
 
 <style scoped>

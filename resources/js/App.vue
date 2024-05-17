@@ -44,7 +44,7 @@ import {ref, provide} from 'vue'
 
 const drawerOpen = ref(false)
 const cart=ref([])
-
+const elems=ref([])
 
 const closeDrawer = () => {
     drawerOpen.value = false
@@ -54,12 +54,25 @@ const openDrawer = () => {
     drawerOpen.value = true 
 }
 
-const addToCart = (title) => {
-    cart.value.push(title)
-    console.log(title)
+const addToCart = (item,lists,newItem) => {
+    if(!item.isAdded){
+        lists.forEach(el => {
+            if(el.user_id === item.user_id){
+                elems.value.push(el)
+            }
+        }); 
+        cart.value.push(item)
+        item.isAdded = true  
+        item.product = elems
+    }else{
+        cart.value.splice(cart.value.indexOf(item), 1)
+        item.isAdded = false
+    }
+    
 }
 
-provide('cartActions', {
+provide('cart', {
+    cart,
     closeDrawer,
     openDrawer,
     addToCart
