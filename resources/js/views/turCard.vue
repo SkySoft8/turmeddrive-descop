@@ -129,7 +129,7 @@
                                          </span>
                                      </label>
                                      <input @click.prevent="toggleModal(post.id)" type="submit"
-                                            :class="state.user !== '' ? '' : 'disabled-service '" value="Забронировать">
+                                            value="Забронировать">
                                  </div>
 
                                     <div class="post_item_s">

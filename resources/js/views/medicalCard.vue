@@ -42,7 +42,6 @@
                                         
                                     </div>
                                     <input @click.prevent="toggleModal"
-                                           :class="state.user !== '' ? '' : 'disabled-service '"
                                            type="submit" value="Заказать услугу">
                                 </div>
                             </div>

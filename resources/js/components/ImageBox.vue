@@ -233,7 +233,7 @@
     position: relative;
   }
   img.vue-lb-modal-image {
-    width: 200px !important;
+    width: 500px !important;
     max-height: calc(100vh - 140px);
     cursor: pointer;
     display: block;

@@ -39,7 +39,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <input @click.prevent="toggleModal" :class="state.user !== '' ? '' : 'disabled-service'"
+                                    <input @click.prevent="toggleModal" 
                                            type="submit" value="Заказать ">
                                     <p></p>
                                 </div>

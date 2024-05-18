@@ -1,5 +1,6 @@
 <template>
-    <transition name="modal-animation">
+    <div v-if="state.user !== ''">
+       <transition name="modal-animation">
         <div v-show="modalActive" class="modal-cafe">
             <transition name="modal-animation-inner">
                 <div v-show="modalActive" class="modal-inner-cafe">
@@ -56,6 +57,34 @@
             </transition>
         </div>
     </transition>
+    </div>
+    <div v-if="state.user === ''">
+        <transition name="modal-animation">
+        <div v-show="modalActive" class="modal-cafe">
+            <transition name="modal-animation-inner">
+                <div v-show="modalActive" class="modal-inner-cafe">
+                    <div class=" modal-content-cafe" style="width:50% !important;">
+                        <div class="col col-12  hotels-inf-item">
+                            <div class="section-label section-label-mob">
+                                <h2>Бронирование возможно только для зарегистрированных пользователей</h2>
+                                <hr>
+                            </div>
+                            <div class='d-flex justify-content-between align-items-center mt-4 modalRegister'>
+                                    <div>
+                                        <button type="button" class="btn btn-primary"><a  href="https://tourmeddriver.com/login"> Войти</a></button>
+                                        <button type="button" class="btn btn-primary"><a  href='https://tourmeddriver.com/register'> Зарегистрироваться </a>  </button>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-danger" @click.prevent="close">Закрыть</button>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+                </div>
+            </transition>
+        </div>
+    </transition>
+    </div>
 </template>
 
 <script>

@@ -112,7 +112,7 @@
                                         </li>
                                     </ul>
                                     <label class="cost">{{ post.price }}р за сутки</label>
-                                    <input  @click.prevent="toggleModal(post.id)" type="submit"  :class="state.user !== '' ? '' : 'disabled-service '" value="Забронировать">
+                                    <input  @click.prevent="toggleModal(post.id)" type="submit"  value="Забронировать">
                                 </div>
                             </div>
                         </div>

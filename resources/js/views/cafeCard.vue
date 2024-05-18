@@ -40,7 +40,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <input @click.prevent="toggleModal" :class="state.user !== '' ? '' : 'disabled-service '" type="submit" value="Забронировать стол">
+                                    <input @click.prevent="toggleModal"  type="submit" value="Забронировать стол">
                                 </div>
                             </div>
                             <div class="card-contacts col col-12 col-md-3">
