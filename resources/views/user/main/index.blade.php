@@ -103,10 +103,6 @@
                                 @endif
                             @endforeach
                             @if($preOrder->role == 'Мед.центр')
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
                                 <div class="product">
                                     <div class="product_item">
                                         <div class="product_item_header">
@@ -676,13 +672,13 @@
                                 <div class="cart-section">
                                     @if($items['role'] == 'Мед.центр' || $items['role'] == 'spa' || $items['role'] == 'cafe' )
                                         @foreach(array($items['products']) as $item)
-                                            @if(((substr($items['date'], 0, 2) >= substr(date("d m Y H:m"), 0,2)) && (substr($items['date'],3,-11)) >= substr(date("d m Y H:m"), 3,-11)) ||
-                                            ((substr($items['date'], 0, 2) <= substr(date("d m Y H:m"), 0,2)) && (substr($items['date'],3,-11)) > substr(date("d m Y H:m"), 3,-11)) ||
-                                            ((substr($items['date'], 3, -11) <= substr(date("d m Y H:m"), 3,-11)) && (substr($items['date'],6,-6)) > substr(date("d m Y H:m"), 6,-6))
-                                            )
+                                            @if(substr(json_decode($item,true)['date'],6,-6) > substr(date("d m Y H:m"), 6,-6) ||
+                                                substr(json_decode($item,true)['date'],6,-6) >= substr(date("d m Y H:m"), 6,-6) &&
+                                            substr(json_decode($item,true)['date'], 3, -11) >= substr(date("d m Y H:m"), 3,-11) &&
+                                            substr(json_decode($item,true)['date'], 0, 2) >= substr(date("d m Y H:m"), 0,2))
                                                 <div class="section-label  section-label_promo_mob">
                                                     @if($items['role'] == 'Мед.центр')
-                                                        <h2>Медицинский центр<br></h2>
+                                                        <h2>Медицинский центр 123<br></h2>
                                                         <hr>
                                                     @elseif($items['role'] == 'spa')
                                                         <h2>Бьюти/Спа<br></h2>
@@ -897,9 +893,11 @@
                                             @endif
                                         @endforeach
                                     @elseif($items['role'] == 'hostel' || $items['role'] == 'sanatorium' || $items['role'] == 'sport')
-                                        @foreach(array($items['products']) as $item)
-
-                                            @if(json_decode($item,true)['date'][1]  > date(date("d m Y")) )
+                                        @foreach(array($items['products']) as $item)                    
+                                            @if(substr(json_decode($item,true)['date'][1],6)  > substr(date("d m Y H:m"), 6,-6) ||
+                                            substr(json_decode($item,true)['date'][1],6)  >= substr(date("d m Y H:m"), 6,-6) &&
+                                            substr(json_decode($item,true)['date'][1],3,2) >= substr(date("d m Y H:m"), 3,-11) &&
+                                            substr(json_decode($item,true)['date'][1],0,2) >= substr(date("d m Y H:m"), 0,2))
                                                 <div class="section-label section-label_promo_mob">
                                                     @if($items['role'] == 'hostel')
                                                         <h2>Отели<br></h2>
@@ -1128,10 +1126,10 @@
                                         @endforeach
                                     @elseif($items['role'] == 'tur')
                                         @foreach(array($items['products']) as $item)
-                                            @if((substr(json_decode($item,true)['date'], -10) < date(date("d.m.Y")) && substr(json_decode($item,true)['date'], -7) > date(date("m.Y"))) ||
-                                                (substr(json_decode($item,true)['date'], -10) > date(date("d.m.Y")) && substr(json_decode($item,true)['date'], -7) > date(date("m.Y"))) ||
-                                                (substr(json_decode($item,true)['date'], -10) > date(date("d.m.Y")) && substr(json_decode($item,true)['date'], -7) === date(date("m.Y")))
-                                                || substr(json_decode($item,true)['date'], -4) > date(date("Y")))
+                                            @if(substr(json_decode($item,true)['date'], -4) > substr(date("d m Y H:m"), 6,-6) ||
+                                                substr(json_decode($item,true)['date'], -4) >= substr(date("d m Y H:m"), 6,-6) &&
+                                                substr(json_decode($item,true)['date'], 16,-5) >= substr(date("d m Y H:m"), 3,-11) &&
+                                                substr(json_decode($item,true)['date'], 13,-8) >= substr(date("d m Y H:m"), 0,2))
                                                 <div class="section-label section-label_promo_mob">
                                                     @if($items['role'] == 'tur')
                                                         <h2>Туроператоры<br></h2>
