@@ -678,7 +678,7 @@
                                             substr(json_decode($item,true)['date'], 0, 2) >= substr(date("d m Y H:m"), 0,2))
                                                 <div class="section-label  section-label_promo_mob">
                                                     @if($items['role'] == 'Мед.центр')
-                                                        <h2>Медицинский центр 123<br></h2>
+                                                        <h2>Медицинский центр <br></h2>
                                                         <hr>
                                                     @elseif($items['role'] == 'spa')
                                                         <h2>Бьюти/Спа<br></h2>
