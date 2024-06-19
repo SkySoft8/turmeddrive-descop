@@ -201,6 +201,7 @@ Route::group(['prefix' => 'main'], function () {
             Route::get('/create', CreateController::class)->name('admin.user.create');
             Route::post('/', StoreController::class)->name('admin.user.store');
             Route::get('/{user}', ShowController::class)->name('admin.user.show');
+            Route::get('/{user}/showDelete', ShowDeleteController::class)->name('admin.user.showDelete');
             Route::get('/{user}/edit', EditController::class)->name('admin.user.edit');
             Route::patch('/{user}', UpdateController::class)->name('admin.user.update');
             Route::delete('/{user}', DeleteController::class)->name('admin.user.delete');

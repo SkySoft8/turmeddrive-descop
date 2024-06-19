@@ -26,6 +26,12 @@
                                 @enderror
                             </div>
                             <div class="form-group w-25">
+                                <textarea class="textarea" rows='5' cols='70' name="desc">{{old('desc')}}</textarea>
+                                @error('title')
+                                <div class="text-danger text-bold ">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group w-25">
                                 <label> Email (для получения уведомлений:промокод,заказ) </label>
                                 <input type="text" class="form-control" name="user_email" placeholder="Email"
                                        value="{{old('user_email')}}">

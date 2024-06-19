@@ -24,7 +24,7 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th>ID.</th>
+                                        <th>ID</th>
                                         <th>Название</th>
                                         <th>Почта</th>
                                         <th>Вид организации</th>
@@ -51,6 +51,10 @@
                                                        class='text-success'><i
                                                             class="fas fa-pencil-alt"></i></a></td>
                                                 <td>
+                                                <td><a href="{{route('admin.user.showDelete', $user->id)}}"
+                                                       class='text-success'><i class="fas fa-trash text-danger"
+                                                               role="button"></i></a></td>
+                                                <!-- <td>
                                                     <form action="{{route('admin.user.delete', $user->id)}}"
                                                           method="post">
                                                         @csrf
@@ -60,7 +64,7 @@
                                                                role="button"></i>
                                                         </button>
                                                     </form>
-                                                </td>
+                                                </td> -->
                                             </tr>
                                         @else
                                         @endif

@@ -25,6 +25,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
+            'desc' => 'required|string',
             'address' => 'required|string',
             'user_email' => 'required|string',
             'preview_image' => 'nullable|file',

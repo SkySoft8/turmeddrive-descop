@@ -32,8 +32,8 @@
                                     <template v-else-if="pagination.total >= 5">
                                         <span><a href="#review">({{ pagination.total }}  отзывов)</a></span>
                                     </template>
-                                    <p>{{ card.content }}</p>
-                                    <input @click.prevent="toggleModal" :class="state.user !== '' ? '' : 'disabled '"
+                                    <p>{{ card.desc }}</p>
+                                    <input @click.prevent="toggleModal"
                                            type="submit" value="Оставить заявку">
                                 </div>
                             </div>

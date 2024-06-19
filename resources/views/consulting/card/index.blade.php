@@ -22,6 +22,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Название</th>
+                                    <th>Описание</th>
                                     <th>Город</th>
                                     <th>Почта</th>
                                     <th>Фото(превью)</th>
@@ -33,6 +34,7 @@
                                     <tr>
                                         <td>{{$consultingPost->id}}</td>
                                         <td>{{$consultingPost->title}}</td>
+                                        <td>{{$consultingPost->desc}}</td>
                                         <td>{{$consultingPost->address}}</td>
                                         <td>{{$consultingPost->user_email}}</td>
                                         <td><img class="img-thumbnail" style="height: 10vh;"

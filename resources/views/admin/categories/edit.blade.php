@@ -24,9 +24,9 @@
                         @csrf
                         @method('PATCH')
                         <div class="form-group">
-                            <input type="text" class="form-control" name="title" placeholder="Название категории"
-                            value="{{$category->title}}"
-                            >
+                        <textarea  cols="50" rows="10" name="title" placeholder="Название категории"
+                            value=""
+                            > {{$category->title}}</textarea>
                             @error('title')
                                 <div class="text-danger">Это поле необходимо заполнить</div>
                             @enderror

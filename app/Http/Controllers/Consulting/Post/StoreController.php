@@ -13,6 +13,7 @@ class StoreController extends Controller
 {
     public function __invoke(StoreRequest $request , $id)
     {
+       
         $data = $request->validated();
         $user = Auth::id();
 

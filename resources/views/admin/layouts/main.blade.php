@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
     <!-- Daterange picker -->
@@ -67,7 +67,7 @@
 <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
 <script src="{{asset('plugins/select2/js/select2.full.min.js')}}"></script>
 <script>
@@ -78,6 +78,7 @@
 <script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <script src="{{asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
 <script src="{{asset('dist/js/adminlte.js')}}"></script>
+
 <script>
     $(document).ready(function() {
         $('#summernote').summernote({
@@ -96,6 +97,28 @@
         bsCustomFileInput.init();
     });
     $('.select2').select2()
+</script>
+<script>
+    var exampleModal = document.getElementById('exampleModal')
+    exampleModal.addEventListener('show.bs.modal', function (event) {
+  // Кнопка, запускающая модальное окно
+  var button = event.relatedTarget
+  // Извлечь информацию из атрибутов data-bs- *
+  var recipient = button.getAttribute('data-bs-whatever')
+  var recipient_id = button.getAttribute('data-bs-whatever-id')
+  console.log(recipient_id)
+  // При необходимости вы можете инициировать запрос AJAX здесь
+  // а затем выполните обновление в обратном вызове.
+  //
+  // Обновите содержимое модального окна.
+
+  var modalTitle = exampleModal.querySelector('.modal-title')
+  var modalBodyInput = exampleModal.querySelector('.modal-body input')
+        
+  modalTitle.textContent = 'Вы действительно хотите удалить пользователя ' + ': ' + recipient
+  var text = recipient_id;
+    document.getElementById("myDiv").setAttribute("ids", text);
+})
 </script>
 <style>
     .custom-file-input:lang(en)~.custom-file-label::after{

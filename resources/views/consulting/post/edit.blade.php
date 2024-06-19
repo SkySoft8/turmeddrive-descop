@@ -25,6 +25,13 @@
                                 <div class="text-danger">{{$message}}</div>
                                 @enderror
                             </div>
+                            <div class="form-group w-25">
+                                <textarea type="text" class="form-control" name="desc" placeholder="Описание центра"
+                                       value="">{{$consultingPost->desc}}</textarea>
+                                @error('title')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
                             <label> Email (для получения уведомлений:промокод,заказ) </label>
                             <div class="form-group w-25">
                                 <input type="text" class="form-control" name="user_email" placeholder="Email"
