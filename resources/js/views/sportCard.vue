@@ -34,8 +34,8 @@
                                 <p>{{ card.content }}</p>
                                 <div class="hotel-gallery">
                                     <ul>
-                                        <li v-for="image in card.images" :id="image.id">
-                                            <img  @click="toggler = !toggler" :src="image.images">
+                                        <li>
+                                            <image-box images-list-class="d-flex" :images="elems" :card='card.id'></image-box>
                                         </li>
                                     </ul>
                                 </div>
@@ -112,7 +112,7 @@
                                         </li>
                                     </ul>
                                     <label class="cost">{{ post.price }}р за сутки</label>
-                                    <input  @click.prevent="toggleModal(post.id)" type="submit"  :class="state.user !== '' ? '' : 'disabled-service '" value="Забронировать">
+                                    <input  @click.prevent="toggleModal(post.id)" type="submit"  value="Забронировать">
                                 </div>
                             </div>
                         </div>
@@ -221,12 +221,6 @@
         >
         </modal-sport>
     </div>
-    <div>
-                    <FsLightbox 
-                    :toggler="toggler"
-                    :sources='elems'
-                    />
-                    </div>
 </template>
 
 <script>
@@ -234,11 +228,11 @@ import user from "../user";
 import swiper from '../components/swiper.vue';
 import {ref} from "vue";
 import ModalSport from "../components/modal/modalSport.vue";
-import FsLightbox from "fslightbox-vue/v3";
+import ImageBox from "../components/ImageBox.vue";
 
 export default {
     name: "sportCard",
-    components: {ModalSport, swiper,FsLightbox},
+    components: {ModalSport, swiper,ImageBox},
     setup() {
         const {state} = user;
         return {state};
@@ -275,7 +269,7 @@ export default {
                     let items = res.data.data.images
                     const imgs = []
                     items.forEach( (key) => {                    
-                    imgs.push(key.images)
+                    imgs.push(key)
                         })
                     this.elems = imgs
                     function init() {

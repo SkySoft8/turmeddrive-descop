@@ -98,15 +98,11 @@
                         
                             @foreach($medicals as $el)
                                 @if($el->title === $preOrder->name_product)
-                                <a style="color:red;" href="http://127.0.0.1:8000/medical/{{$el->id}}"> <p>{{$preOrder->name_product}}  </p>  </a>
+                                <a style="color:red;" href="https://tourmeddriver.com/medical/{{$el->id}}"> <p>{{$preOrder->name_product}}  </p>  </a>
                                 @else
                                 @endif
                             @endforeach
                             @if($preOrder->role == 'Мед.центр')
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
                                 <div class="product">
                                     <div class="product_item">
                                         <div class="product_item_header">
@@ -120,7 +116,7 @@
                                             <label class="name d-block pe-auto"> {{$preOrder->role}}<br>
                                                 @foreach($medicals as $medic)
                                                     @if($medic->title === $preOrder->name_product)
-                                                        <a href="http://127.0.0.1:8000/medical/{{$medic->id}}">
+                                                        <a href="https://tourmeddriver.com/medical/{{$medic->id}}">
                                                             <label style="cursor:pointer">"{{$preOrder->name_product}}
                                                                 "</label>
                                                         </a>
@@ -182,7 +178,7 @@
                                             <label class="name d-block"> {{$preOrder->role}}<br>
                                                 @foreach($spa as $el)
                                                     @if($el->title === $preOrder->name_product)
-                                                        <a href="http://127.0.0.1:8000/spa/{{$el->id}}">
+                                                        <a href="https://tourmeddriver.com/catalog/spa/{{$el->id}}">
                                                             <label style="cursor:pointer">"{{$preOrder->name_product}}
                                                                 "</label>
                                                         </a>
@@ -242,7 +238,7 @@
                                         <label class="name d-block"> {{$preOrder->role}}<br>
                                             @foreach($cafes as $cafe)
                                                 @if($cafe->title === $preOrder->name_product)
-                                                    <a href="http://127.0.0.1:8000/cafe/{{$cafe->id}}">
+                                                    <a href="https://tourmeddriver.com/catalog/cafe/{{$cafe->id}}">
                                                         <label style="cursor:pointer">"{{$preOrder->name_product}}
                                                             "</label>
                                                     </a>
@@ -316,7 +312,7 @@
                                         <label class="name col d-block"> {{$preOrder->role}} <br>
                                             @foreach($hostels as $hostel)
                                                 @if($hostel->title === $preOrder->name_product)
-                                                    <a href="http://127.0.0.1:8000/hotel/{{$hostel->id}}">
+                                                    <a href="https://tourmeddriver.com/catalog/hotel/{{$hostel->id}}">
                                                         <label style="cursor:pointer">"{{$preOrder->name_product}}
                                                             "</label>
                                                     </a>
@@ -375,7 +371,7 @@
                                         <label class="name col d-block"> {{$preOrder->role}}<br>
                                             @foreach($sanatoriums as $sanatorium)
                                                 @if($sanatorium->title === $preOrder->name_product)
-                                                    <a href="http://127.0.0.1:8000/sanatorium/{{$sanatorium->id}}">
+                                                    <a href="https://tourmeddriver.com/catalog/sanatorium/{{$sanatorium->id}}">
                                                         <label style="cursor:pointer">"{{$preOrder->name_product}}
                                                             "</label>
                                                     </a>
@@ -477,7 +473,7 @@
                                         <label class="name col d-block"> {{$preOrder->role}}<br>
                                             @foreach($sports as $sport)
                                                 @if($sport->title === $preOrder->name_product)
-                                                    <a href="http://127.0.0.1:8000/sport/{{$sport->id}}">
+                                                    <a href="https://tourmeddriver.com/catalog/sport/{{$sport->id}}">
                                                         <label style="cursor:pointer">"{{$preOrder->name_product}}
                                                             "</label>
                                                     </a>
@@ -579,7 +575,7 @@
                                     <label class="name col d-block">
                                         @foreach($turoperators as $turoperator)
                                             @if($turoperator->title === $preOrder->name_product)
-                                                <a href="http://127.0.0.1:8000/tur/{{$turoperator->id}}">
+                                                <a href="https://tourmeddriver.com/catalog/tur/{{$turoperator->id}}">
                                                     <label style="cursor:pointer">"{{$preOrder->name_product}}"</label>
                                                 </a>
                                             @else
@@ -676,13 +672,13 @@
                                 <div class="cart-section">
                                     @if($items['role'] == 'Мед.центр' || $items['role'] == 'spa' || $items['role'] == 'cafe' )
                                         @foreach(array($items['products']) as $item)
-                                            @if(((substr($items['date'], 0, 2) >= substr(date("d m Y H:m"), 0,2)) && (substr($items['date'],3,-11)) >= substr(date("d m Y H:m"), 3,-11)) ||
-                                            ((substr($items['date'], 0, 2) <= substr(date("d m Y H:m"), 0,2)) && (substr($items['date'],3,-11)) > substr(date("d m Y H:m"), 3,-11)) ||
-                                            ((substr($items['date'], 3, -11) <= substr(date("d m Y H:m"), 3,-11)) && (substr($items['date'],6,-6)) > substr(date("d m Y H:m"), 6,-6))
-                                            )
+                                            @if(substr(json_decode($item,true)['date'],6,-6) > substr(date("d m Y H:m"), 6,-6) ||
+                                                substr(json_decode($item,true)['date'],6,-6) >= substr(date("d m Y H:m"), 6,-6) &&
+                                            substr(json_decode($item,true)['date'], 3, -11) >= substr(date("d m Y H:m"), 3,-11) &&
+                                            substr(json_decode($item,true)['date'], 0, 2) >= substr(date("d m Y H:m"), 0,2))
                                                 <div class="section-label  section-label_promo_mob">
                                                     @if($items['role'] == 'Мед.центр')
-                                                        <h2>Медицинский центр<br></h2>
+                                                        <h2>Медицинский центр <br></h2>
                                                         <hr>
                                                     @elseif($items['role'] == 'spa')
                                                         <h2>Бьюти/Спа<br></h2>
@@ -699,7 +695,7 @@
                                                                 @if($items['role'] == 'Мед.центр')
                                                                     @foreach($medicals as $medical)
                                                                         @if($medical->title === $items['name_product'])
-                                                                            <a href="http://127.0.0.1:8000/medical/{{$medical->id}}">
+                                                                            <a href="https://tourmeddriver.com/catalog/medical/{{$medical->id}}">
                                                                                 <label
                                                                                     style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
@@ -707,7 +703,7 @@
                                                                 @elseif($items['role'] == 'spa')
                                                                     @foreach($spa as $el)
                                                                         @if($el->title === $items['name_product'])
-                                                                            <a href="http://127.0.0.1:8000/spa/{{$el->id}}">
+                                                                            <a href="https://tourmeddriver.com/catalog/spa/{{$el->id}}">
                                                                                 <label
                                                                                     style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
@@ -715,7 +711,7 @@
                                                                 @elseif($items['role'] == 'cafe')
                                                                     @foreach($cafes as $cafe)
                                                                         @if($cafe->title === $items['name_product'])
-                                                                            <a href="http://127.0.0.1:8000/cafe/{{$cafe->id}}">
+                                                                            <a href="https://tourmeddriver.com/catalog/cafe/{{$cafe->id}}">
                                                                                 <label
                                                                                     style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
@@ -807,7 +803,7 @@
                                                                 @if($items['role'] == 'Мед.центр')
                                                                     @foreach($medicals as $medical)
                                                                         @if($medical->title === $items['name_product'])
-                                                                            <a href="http://127.0.0.1:8000/medical/{{$medical->id}}">
+                                                                            <a href="https://tourmeddriver.com/catalog/medical/{{$medical->id}}">
                                                                                 <label
                                                                                     style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
@@ -815,7 +811,7 @@
                                                                 @elseif($items['role'] == 'spa')
                                                                     @foreach($spa as $el)
                                                                         @if($el->title === $items['name_product'])
-                                                                            <a href="http://127.0.0.1:8000/spa/{{$el->id}}">
+                                                                            <a href="https://tourmeddriver.com/catalog/spa/{{$el->id}}">
                                                                                 <label
                                                                                     style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
@@ -823,7 +819,7 @@
                                                                 @elseif($items['role'] == 'cafe')
                                                                     @foreach($cafes as $cafe)
                                                                         @if($cafe->title === $items['name_product'])
-                                                                            <a href="http://127.0.0.1:8000/cafe/{{$cafe->id}}">
+                                                                            <a href="https://tourmeddriver.com/catalog/cafe/{{$cafe->id}}">
                                                                                 <label
                                                                                     style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
@@ -897,9 +893,11 @@
                                             @endif
                                         @endforeach
                                     @elseif($items['role'] == 'hostel' || $items['role'] == 'sanatorium' || $items['role'] == 'sport')
-                                        @foreach(array($items['products']) as $item)
-
-                                            @if(json_decode($item,true)['date'][1]  > date(date("d m Y")) )
+                                        @foreach(array($items['products']) as $item)                    
+                                            @if(substr(json_decode($item,true)['date'][1],6)  > substr(date("d m Y H:m"), 6,-6) ||
+                                            substr(json_decode($item,true)['date'][1],6)  >= substr(date("d m Y H:m"), 6,-6) &&
+                                            substr(json_decode($item,true)['date'][1],3,2) >= substr(date("d m Y H:m"), 3,-11) &&
+                                            substr(json_decode($item,true)['date'][1],0,2) >= substr(date("d m Y H:m"), 0,2))
                                                 <div class="section-label section-label_promo_mob">
                                                     @if($items['role'] == 'hostel')
                                                         <h2>Отели<br></h2>
@@ -919,7 +917,7 @@
                                                                 @if($items['role'] == 'hostel')
                                                                     @foreach($hostels as $hostel)
                                                                         @if($hostel->title === $items['name_product'])
-                                                                            <a href="http://127.0.0.1:8000/hotel/{{$hostel->id}}">
+                                                                            <a href="https://tourmeddriver.com/catalog/hotel/{{$hostel->id}}">
                                                                                 <label
                                                                                     style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
@@ -927,7 +925,7 @@
                                                                 @elseif($items['role'] == 'sanatorium')
                                                                     @foreach($sanatoriums as $sanatorium)
                                                                         @if($sanatorium->title === $items['name_product'])
-                                                                            <a href="http://127.0.0.1:8000/sanatorium/{{$sanatorium->id}}">
+                                                                            <a href="https://tourmeddriver.com/catalog/sanatorium/{{$sanatorium->id}}">
                                                                                 <label
                                                                                     style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
@@ -935,7 +933,7 @@
                                                                 @elseif($items['role'] == 'sport')
                                                                     @foreach($sports as $sport)
                                                                         @if($sport->title === $items['name_product'])
-                                                                            <a href="http://127.0.0.1:8000/sport/{{$sport->id}}">
+                                                                            <a href="https://tourmeddriver.com/catalog/sport/{{$sport->id}}">
                                                                                 <label
                                                                                     style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
@@ -1032,7 +1030,7 @@
                                                                 @if($items['role'] == 'hostel')
                                                                     @foreach($hostels as $hostel)
                                                                         @if($hostel->title === $items['name_product'])
-                                                                            <a href="http://127.0.0.1:8000/hotel/{{$hostel->id}}">
+                                                                            <a href="https://tourmeddriver.com/catalog/hotel/{{$hostel->id}}">
                                                                                 <label
                                                                                     style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
@@ -1040,7 +1038,7 @@
                                                                 @elseif($items['role'] == 'sanatorium')
                                                                     @foreach($sanatoriums as $sanatorium)
                                                                         @if($sanatorium->title === $items['name_product'])
-                                                                            <a href="http://127.0.0.1:8000/sanatorium/{{$sanatorium->id}}">
+                                                                            <a href="https://tourmeddriver.com/catalog/sanatorium/{{$sanatorium->id}}">
                                                                                 <label
                                                                                     style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
@@ -1048,7 +1046,7 @@
                                                                 @elseif($items['role'] == 'sport')
                                                                     @foreach($sports as $sport)
                                                                         @if($sport->title === $items['name_product'])
-                                                                            <a href="http://127.0.0.1:8000/sport/{{$sport->id}}">
+                                                                            <a href="https://tourmeddriver.com/catalog/sport/{{$sport->id}}">
                                                                                 <label
                                                                                     style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
@@ -1128,10 +1126,10 @@
                                         @endforeach
                                     @elseif($items['role'] == 'tur')
                                         @foreach(array($items['products']) as $item)
-                                            @if((substr(json_decode($item,true)['date'], -10) < date(date("d.m.Y")) && substr(json_decode($item,true)['date'], -7) > date(date("m.Y"))) ||
-                                                (substr(json_decode($item,true)['date'], -10) > date(date("d.m.Y")) && substr(json_decode($item,true)['date'], -7) > date(date("m.Y"))) ||
-                                                (substr(json_decode($item,true)['date'], -10) > date(date("d.m.Y")) && substr(json_decode($item,true)['date'], -7) === date(date("m.Y")))
-                                                || substr(json_decode($item,true)['date'], -4) > date(date("Y")))
+                                            @if(substr(json_decode($item,true)['date'], -4) > substr(date("d m Y H:m"), 6,-6) ||
+                                                substr(json_decode($item,true)['date'], -4) >= substr(date("d m Y H:m"), 6,-6) &&
+                                                substr(json_decode($item,true)['date'], 16,-5) >= substr(date("d m Y H:m"), 3,-11) &&
+                                                substr(json_decode($item,true)['date'], 13,-8) >= substr(date("d m Y H:m"), 0,2))
                                                 <div class="section-label section-label_promo_mob">
                                                     @if($items['role'] == 'tur')
                                                         <h2>Туроператоры<br></h2>
@@ -1145,7 +1143,7 @@
                                                                 @if($items['role'] == 'tur')
                                                                     @foreach($turoperators as $tur)
                                                                         @if($tur->title === $items['name_product'])
-                                                                            <a href="http://127.0.0.1:8000/tur/{{$tur->id}}">
+                                                                            <a href="https://tourmeddriver.com/catalog/tur/{{$tur->id}}">
                                                                                 <label
                                                                                     style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif
@@ -1220,7 +1218,7 @@
                                                                 @if($items['role'] == 'tur')
                                                                     @foreach($turoperators as $tur)
                                                                         @if($tur->title === $items['name_product'])
-                                                                            <a href="http://127.0.0.1:8000/tur/{{$tur->id}}">
+                                                                            <a href="https://tourmeddriver.com/catalog/tur/{{$tur->id}}">
                                                                                 <label
                                                                                     style="cursor: pointer">{{$items['name_product']}}</label><br></a>
                                                                         @endif

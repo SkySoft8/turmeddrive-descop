@@ -35,20 +35,12 @@
                                     <p>{{ card.content }}</p>
                                     <div class="hotel-gallery">
                                         <ul>
-                                            <li v-for="image in images" :id="image.id">
-                                                <img @click="toggler = !toggler"
-                                                     v-if="image.medical_card_id === card.id" :src="image.images">
+                                            <li>
+                                              <image-box images-list-class="d-flex" :images="elems" :card='card.id'></image-box>
                                             </li>
-                                            <div>
-                                                <FsLightbox
-                                                    :toggler="toggler"
-                                                    :sources='elems'
-                                                />
-                                            </div>
                                         </ul>
                                     </div>
                                     <input @click.prevent="toggleModal"
-                                           :class="state.user !== '' ? '' : 'disabled-service '"
                                            type="submit" value="Заказать услугу">
                                 </div>
                             </div>
@@ -200,14 +192,18 @@
 <script>
 import user from "../user";
 import modalMed from "../components/modal/modalMed.vue";
-import FsLightbox from "fslightbox-vue/v3";
 import {ref} from "vue";
 import axios from "axios";
+import ImageBox from "../components/ImageBox.vue";
 
 export default {
     components: {
         modalMed,
+<<<<<<< HEAD
         FsLightbox
+=======
+        ImageBox
+>>>>>>> main
     },
     setup() {
         const {state} = user;
@@ -277,7 +273,11 @@ export default {
                     const imgs = []
                     this.images.forEach((key) => {
                         if (key.medical_card_id === this.card.id) {
+<<<<<<< HEAD
                             imgs.push(key.images)
+=======
+                            imgs.push(key)
+>>>>>>> main
                         }
                     })
                     this.elems = imgs
@@ -293,7 +293,10 @@ export default {
             this.axios.get('/api/medicals/' + this.$route.params.id)
                 .then(res => {
                     this.card = res.data.data;
+<<<<<<< HEAD
                     console.log(this.card)
+=======
+>>>>>>> main
                     let center = [this.card.coordinate_l, this.card.coordinate_r];
 
                     function init() {
