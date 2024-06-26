@@ -12,6 +12,7 @@ class UpdateController extends Controller
     public function __invoke(UpdateRequest $request, MedicalCard $medicalCard)
     {
         $data = $request->validated();
+        //dd($data);
         if (isset($data['preview_image'])) {
             $data['preview_image'] = Storage::disk('public')->put('/medical_images_card', $data['preview_image']);
         }

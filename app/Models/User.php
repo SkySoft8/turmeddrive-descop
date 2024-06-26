@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use App\Filters\QueryFilter;
+use App\Http\Resources\Medical\MedicalProductResource;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -190,6 +191,14 @@ class User extends Authenticatable
     public function medicalTags()
     {
         return $this->hasMany(MedicalTag::class, 'user_id');
+    }
+    public function medicalProducts()
+    {
+        return $this->hasMany(MedicalProduct::class, 'user_id');
+    }
+    public function medicalItems()
+    {
+        return $this->hasMany(MedicalItem::class, 'user_id');
     }
     public function medicalActions()
     {

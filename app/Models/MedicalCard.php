@@ -28,6 +28,7 @@ class MedicalCard extends Model
     public function medicalTags(){
         return $this->belongsToMany(MedicalTag::class, 'medical_card_tags','medical_card_id','medical_tag_id');
     }
+ 
     public function types(){
         return $this->belongsTo(Type::class,'type_id','id');
     }

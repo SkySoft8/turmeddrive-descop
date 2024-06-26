@@ -334,6 +334,24 @@ Route::group(['prefix' => 'main'], function () {
             Route::patch('/{medicalTag}', UpdateController::class)->name('medical.tag.update');
             Route::delete('/{medicalTag}', DeleteController::class)->name('medical.tag.delete');
         });
+        Route::group(['namespace' => 'Product', 'prefix' => 'products'], function () {
+            Route::get('/', IndexController::class)->name('medical.product.index');
+            Route::get('/create', CreateController::class)->name('medical.product.create');
+            Route::post('/', StoreController::class)->name('medical.product.store');
+            Route::get('/{medicalProduct}', ShowController::class)->name('medical.product.show');
+            Route::get('/{medicalProduct}/edit', EditController::class)->name('medical.product.edit');
+            Route::patch('/{medicalProduct}', UpdateController::class)->name('medical.product.update');
+            Route::delete('/{medicalProduct}', DeleteController::class)->name('medical.product.delete');
+        });
+        Route::group(['namespace' => 'Item', 'prefix' => 'items'], function () {
+            Route::get('/', IndexController::class)->name('medical.item.index');
+            Route::get('/create', CreateController::class)->name('medical.item.create');
+            Route::post('/', StoreController::class)->name('medical.item.store');
+            Route::get('/{medicalItem}', ShowController::class)->name('medical.item.show');
+            Route::get('/{medicalItem}/edit', EditController::class)->name('medical.item.edit');
+            Route::patch('/{medicalItem}', UpdateController::class)->name('medical.item.update');
+            Route::delete('/{medicalItem}', DeleteController::class)->name('medical.item.delete');
+        });
         Route::group(['namespace' => 'Time', 'prefix' => 'times'], function () {
             Route::get('/', IndexController::class)->name('medical.time.index');
             Route::get('/create', CreateController::class)->name('medical.time.create');
