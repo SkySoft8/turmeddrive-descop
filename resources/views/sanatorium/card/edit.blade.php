@@ -24,7 +24,7 @@
                             @csrf
                             @method('PATCH')
                             <div class="form-group w-25">
-                                <input type="text" class="form-control" name="title" placeholder="Название центра"
+                                <input type="text" class="form-control" name="title" placeholder="Название санатория"
                                        value="{{$sanatoriumCard->title}}">
                                 @error('title')
                                 <div class="text-danger">{{$message}}</div>

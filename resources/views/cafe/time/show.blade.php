@@ -25,10 +25,6 @@
                                 <table class="table table-hover text-nowrap">
                                     <tbody>
                                     <tr>
-                                        <td>ID</td>
-                                        <td>{{$cafeTime->id}}</td>
-                                    </tr>
-                                    <tr>
                                         <td>Начало</td>
                                         <td>{{$cafeTime->time_start}}</td>
                                     </tr>

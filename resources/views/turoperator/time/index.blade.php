@@ -30,7 +30,6 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Начало</th>
                                         <th>Конец</th>
                                         <th>День</th>
@@ -40,7 +39,6 @@
                                     <tbody>
                                     @foreach($turoperatorTimes as $turoperatorTime)
                                         <tr>
-                                            <td>{{$turoperatorTime->id}}</td>
                                             <td>{{$turoperatorTime->time_start}}</td>
                                             <td>{{$turoperatorTime->time_end}}</td>
                                             <td>{{$turoperatorTime->time_date}}</td>

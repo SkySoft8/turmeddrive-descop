@@ -30,7 +30,6 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Начало</th>
                                         <th>Конец</th>
                                         <th>День</th>
@@ -40,7 +39,6 @@
                                     <tbody>
                                     @foreach($medicalTimes as $medicalTime)
                                         <tr>
-                                            <td>{{$medicalTime->id}}</td>
                                             <td>{{$medicalTime->time_start}}</td>
                                             <td>{{$medicalTime->time_end}}</td>
                                             <td>{{$medicalTime->time_date}}</td>

@@ -24,7 +24,6 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Название</th>
                                         <th>Почта</th>
                                         <th>Вид организации</th>
@@ -38,7 +37,6 @@
                                     @foreach($users as $user)
                                         @if($user->role != 9 )
                                             <tr>
-                                                <td>{{$user->id}}</td>
                                                 <td>{{$user->name}}</td>
                                                 <td>{{$user->email}}</td>
                                                 <td>@if($user->type == null){{'-'}}@else{{$user->type->title}}@endif</td>

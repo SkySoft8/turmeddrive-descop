@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0"> Услуги для главной карточки отеля</h1>
+                        <h1 class="m-0"> Услуги для главной карточки туристического оператора</h1>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,6 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Название</th>
                                         <th colspan="3" class="text-center">Действие</th>
                                     </tr>
@@ -36,7 +35,6 @@
                                     <tbody>
                                     @foreach($turoperatorCardTags as $turoperatorCardTag)
                                         <tr>
-                                            <td>{{$turoperatorCardTag->id}}</td>
                                             <td>{{$turoperatorCardTag->title}}</td>
                                             <td><a href="{{route('turoperator.tagCard.show', $turoperatorCardTag->id)}}"><i
                                                             class="far fa-eye"></i></a></td>

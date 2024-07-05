@@ -28,7 +28,6 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Название</th>
                                         <th>Прайс</th>
                                         <th colspan="3" class="text-center">Действие</th>
@@ -37,7 +36,6 @@
                                     <tbody>
                                     @foreach($sportPosts as $sportPost)
                                         <tr>
-                                            <td>{{$sportPost->id}}</td>
                                             <td>{{$sportPost->title}} </td>
                                             <td>{{$sportPost->price}} $</td>
                                             <td><a href="{{route('sport.post.edit', $sportPost->id)}}"

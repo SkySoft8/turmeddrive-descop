@@ -25,10 +25,6 @@
                                 <table class="table table-hover text-nowrap">
                                     <tbody>
                                     <tr>
-                                        <td>ID</td>
-                                        <td>{{$turoperatorAction->id}}</td>
-                                    </tr>
-                                    <tr>
                                         <td>Название</td>
                                         <td>{{$turoperatorAction->title}}</td>
                                     </tr>

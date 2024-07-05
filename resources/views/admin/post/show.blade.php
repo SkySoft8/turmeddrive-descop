@@ -26,10 +26,6 @@
                                 <table class="table table-hover text-nowrap">
                                     <tbody>
                                     <tr>
-                                        <td>ID</td>
-                                        <td>{{$post->id}}</td>
-                                    </tr>
-                                    <tr>
                                         <td>Название</td>
                                         <td>{{$post->title}}</td>
                                     </tr>

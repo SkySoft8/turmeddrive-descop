@@ -28,7 +28,6 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Название</th>
                                         <th colspan="3" class="text-center">Действие</th>
                                     </tr>
@@ -36,7 +35,6 @@
                                     <tbody>
                                     @foreach($posts as $post)
                                         <tr>
-                                            <td>{{$post->id}}</td>
                                             <td><p class="head_post" >{{$post->title}}</p></td>
                                             <td><a href="{{route('admin.post.show', $post->id)}}"><i
                                                             class="far fa-eye"></i></a></td>

@@ -24,10 +24,7 @@
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-hover text-nowrap">
                                     <tbody>
-                                    <tr>
-                                        <td>ID</td>
-                                        <td>{{$sanatoriumCard->id}}</td>
-                                    </tr>
+                                    
                                     <tr>
                                         <td>Название</td>
                                         <td>{{$sanatoriumCard->title}}</td>

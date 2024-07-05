@@ -30,7 +30,6 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Начало</th>
                                         <th>Конец</th>
                                         <th>День</th>
@@ -40,7 +39,6 @@
                                     <tbody>
                                     @foreach($cafeTimes as $cafeTime)
                                         <tr>
-                                            <td>{{$cafeTime->id}}</td>
                                             <td>{{$cafeTime->time_start}}</td>
                                             <td>{{$cafeTime->time_end}}</td>
                                             <td>{{$cafeTime->time_date}}</td>

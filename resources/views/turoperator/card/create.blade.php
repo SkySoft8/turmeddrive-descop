@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Создать карточку туристического агентства</h1>
+                        <h1 class="m-0">Создать карточку туристического оператора</h1>
                     </div><!-- /.col -->
 
                 </div><!-- /.row -->
@@ -23,7 +23,7 @@
                         <form action="{{route('turoperator.card.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group w-25">
-                                <input type="text" class="form-control" name="title" placeholder="Название центра"
+                                <input type="text" class="form-control" name="title" placeholder="Название туристического оператора"
                                        value="{{old('title')}}">
                                 @error('title')
                                 <div class="text-danger text-bold ">{{$message}}</div>

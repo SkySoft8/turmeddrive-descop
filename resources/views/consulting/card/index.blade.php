@@ -20,7 +20,6 @@
                             <table class="table table-hover text-nowrap">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
                                     <th>Название</th>
                                     <th>Описание</th>
                                     <th>Город</th>
@@ -32,7 +31,6 @@
                                 <tbody>
                                 @foreach($consultingPosts as $consultingPost)
                                     <tr>
-                                        <td>{{$consultingPost->id}}</td>
                                         <td>{{$consultingPost->title}}</td>
                                         <td>{{$consultingPost->desc}}</td>
                                         <td>{{$consultingPost->address}}</td>

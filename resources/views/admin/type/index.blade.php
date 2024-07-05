@@ -30,7 +30,6 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Название</th>
                                         <th colspan="3" class="text-center">Действие</th>
                                     </tr>
@@ -38,7 +37,6 @@
                                     <tbody>
                                     @foreach($types as $type)
                                         <tr>
-                                            <td>{{$type->id}}</td>
                                             <td>{{$type->title}}</td>
                                             <td><a href="{{route('admin.type.show', $type->id)}}"><i
                                                             class="far fa-eye"></i></a></td>

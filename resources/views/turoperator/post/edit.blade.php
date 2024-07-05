@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Редактировани поста </h1>
+                        <h1 class="m-0">Редактировани тура </h1>
                     </div><!-- /.col -->
 
                 </div><!-- /.row -->
@@ -24,7 +24,7 @@
                             @csrf
                             @method('PATCH')
                             <div class="form-group w-25">
-                                <input type="text" class="form-control" name="title" placeholder="Название поста"
+                                <input type="text" class="form-control" name="title" placeholder="Название тура"
                                        value="{{$turoperatorPost->title}}">
                                 @error('title')
                                 <div class="text-danger">{{$message}}</div>

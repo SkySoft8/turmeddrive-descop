@@ -30,7 +30,6 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Название</th>
                                         <th colspan="3" class="text-center">Действие</th>
                                     </tr>
@@ -38,7 +37,6 @@
                                     <tbody>
                                     @foreach($districts as $district)
                                         <tr>
-                                            <td>{{$district->id}}</td>
                                             <td>{{$district->title}}</td>
                                             <td><a href="{{route('admin.district.show', $district->id)}}"><i
                                                             class="far fa-eye"></i></a></td>

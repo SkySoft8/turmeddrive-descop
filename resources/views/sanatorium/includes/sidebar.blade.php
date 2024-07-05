@@ -21,7 +21,7 @@
                 <a href="{{route('sanatorium.post.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-users"></i>
                     <p>
-                        Мои посты
+                        Мои номера
                     </p>
                 </a>
             </li>

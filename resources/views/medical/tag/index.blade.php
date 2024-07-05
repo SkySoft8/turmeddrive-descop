@@ -34,7 +34,6 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Название</th>
                                         <th colspan="3" class="text-center">Действие</th>
                                     </tr>
@@ -42,7 +41,6 @@
                                     <tbody>
                                     @foreach($medicalTags as $medicalTag)
                                         <tr>
-                                            <td>{{$medicalTag->id}}</td>
                                             <td>{{$medicalTag->title}}</td>
                                             <td><a href="{{route('medical.tag.show', $medicalTag->id)}}"><i
                                                             class="far fa-eye"></i></a></td>

@@ -30,7 +30,6 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Название</th>
                                         <th colspan="3" class="text-center">Действие</th>
                                     </tr>
@@ -38,7 +37,6 @@
                                     <tbody>
                                     @foreach($turoperatorCategories as $turoperatorCategory)
                                         <tr>
-                                            <td>{{$turoperatorCategory->id}}</td>
                                             <td>{{$turoperatorCategory->title}}</td>
                                             <td><a href="{{route('turoperator.category.show', $turoperatorCategory->id)}}"><i
                                                             class="far fa-eye"></i></a></td>

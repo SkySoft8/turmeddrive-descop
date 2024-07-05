@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Мои посты</h1>
+                        <h1 class="m-0">Мои номера</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -28,7 +28,6 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Название</th>
                                         <th>Прайс</th>
                                         <th colspan="3" class="text-center">Действие</th>
@@ -37,7 +36,6 @@
                                     <tbody>
                                     @foreach($sanatoriumPosts as $sanatoriumPost)
                                         <tr>
-                                            <td>{{$sanatoriumPost->id}}</td>
                                             <td>{{$sanatoriumPost->title}} </td>
                                             <td>{{$sanatoriumPost->price}} $</td>
                                             <td><a href="{{route('sanatorium.post.edit', $sanatoriumPost->id)}}"

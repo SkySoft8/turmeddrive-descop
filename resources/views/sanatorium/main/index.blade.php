@@ -24,7 +24,7 @@
                             <div class="inner">
                                 <h3>10</h3>
 
-                                <p>Мои посты</p>
+                                <p>Мои номера</p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-paste"></i>

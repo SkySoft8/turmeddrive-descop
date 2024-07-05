@@ -28,7 +28,6 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Название</th>
                                         <th colspan="3" class="text-center">Действие</th>
                                     </tr>
@@ -36,7 +35,6 @@
                                     <tbody>
                                     @foreach($sanatoriumCardTags as $sanatoriumCardTag)
                                         <tr>
-                                            <td>{{$sanatoriumCardTag->id}}</td>
                                             <td>{{$sanatoriumCardTag->title}}</td>
                                             <td><a href="{{route('sanatorium.tagCard.show', $sanatoriumCardTag->id)}}"><i
                                                             class="far fa-eye"></i></a></td>

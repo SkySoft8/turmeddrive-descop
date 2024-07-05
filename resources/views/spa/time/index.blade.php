@@ -30,7 +30,6 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Начало</th>
                                         <th>Конец</th>
                                         <th>День</th>
@@ -40,7 +39,6 @@
                                     <tbody>
                                     @foreach($spaTimes as $spaTime)
                                         <tr>
-                                            <td>{{$spaTime->id}}</td>
                                             <td>{{$spaTime->time_start}}</td>
                                             <td>{{$spaTime->time_end}}</td>
                                             <td>{{$spaTime->time_date}}</td>

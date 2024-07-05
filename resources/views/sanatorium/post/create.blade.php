@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Добавление поста</h1>
+                        <h1 class="m-0">Добавление номера</h1>
                     </div><!-- /.col -->
 
                 </div><!-- /.row -->
@@ -23,7 +23,7 @@
                         <form action="{{route('sanatorium.post.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group w-25">
-                                <input type="text" class="form-control" name="title" placeholder="Название поста"
+                                <input type="text" class="form-control" name="title" placeholder="Название номера"
                                        value="{{old('title')}}">
                                 @error('title')
                                 <div class="text-danger">{{$message}}</div>

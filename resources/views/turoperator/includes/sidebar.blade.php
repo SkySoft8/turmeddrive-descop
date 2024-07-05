@@ -13,7 +13,7 @@
                 <a href="{{route('turoperator.card.index')}}" class="nav-link">
                     <i class="nav-icon fa fa-hotel"></i>
                     <p>
-                        Главная карточка Вашего туристического агенства
+                        Главная карточка Вашего туристического оператора
                     </p>
                 </a>
             </li>
