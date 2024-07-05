@@ -22,7 +22,7 @@
                                     <div>
                                         <button
                                             type="button"
-                                            class="btn btn-primary"
+                                            class="btn new_btn btn-primary"
                                         >
                                             <a
                                                 href="https://tourmeddriver.com/login"
@@ -32,7 +32,7 @@
                                         </button>
                                         <button
                                             type="button"
-                                            class="btn btn-primary"
+                                            class="btn new_btn  btn-primary"
                                         >
                                             <a
                                                 href="https://tourmeddriver.com/register"
@@ -43,7 +43,7 @@
                                     </div>
                                     <div>
                                         <button
-                                            class="btn btn-danger"
+                                            class="btn new_btn btn-danger"
                                             @click.prevent="close"
                                         >
                                             Закрыть
@@ -682,5 +682,10 @@ body {
     margin-top: 5px;
     width:130px;
 }
+}
+.new_btn{
+    padding: 10px;
+    margin-right: 10px;
+    border-radius:5px;
 }
 </style>
