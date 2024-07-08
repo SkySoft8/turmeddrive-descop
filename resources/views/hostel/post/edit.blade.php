@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Редактировани номера </h1>
+                        <h1 class="m-0">Редактирование номера </h1>
                     </div><!-- /.col -->
 
                 </div><!-- /.row -->
