@@ -39,7 +39,6 @@
                                               <image-box images-list-class="d-flex" :images="elems" :card='card.id'></image-box>
                                             </li>
                                         </ul>
-                                        
                                     </div>
                                     <input @click.prevent="toggleModal"
                                            type="submit" value="Заказать услугу">
@@ -200,7 +199,11 @@ import ImageBox from "../components/ImageBox.vue";
 export default {
     components: {
         modalMed,
+<<<<<<< HEAD
+        FsLightbox
+=======
         ImageBox
+>>>>>>> main
     },
     setup() {
         const {state} = user;
@@ -270,7 +273,11 @@ export default {
                     const imgs = []
                     this.images.forEach((key) => {
                         if (key.medical_card_id === this.card.id) {
+<<<<<<< HEAD
+                            imgs.push(key.images)
+=======
                             imgs.push(key)
+>>>>>>> main
                         }
                     })
                     this.elems = imgs
@@ -286,6 +293,10 @@ export default {
             this.axios.get('/api/medicals/' + this.$route.params.id)
                 .then(res => {
                     this.card = res.data.data;
+<<<<<<< HEAD
+                    console.log(this.card)
+=======
+>>>>>>> main
                     let center = [this.card.coordinate_l, this.card.coordinate_r];
 
                     function init() {

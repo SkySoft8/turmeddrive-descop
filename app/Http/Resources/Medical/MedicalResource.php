@@ -35,6 +35,7 @@ class MedicalResource extends JsonResource
             'republic_id' =>$this->republic_id,
             'city_id' => $this->city_id,
             'tags' => MedicalTagsResource::collection($this->medicalTags),
+            
         ];
     }
 }
