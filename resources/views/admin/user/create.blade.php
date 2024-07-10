@@ -41,6 +41,27 @@
                                 @enderror
                             </div>
                             <div class="form-group w-100">
+                            <label>Выберите страну</label>
+                    <select name="district_id" id="country" class="form-control input-lg dynamic" data-dependent="state">
+                        
+                         @foreach($country_list as $country)
+                            <option value="{{ $country->id_country}}">{{ $country->name }}</option>
+                         @endforeach
+                    </select>
+                    </div>
+                    <div class="form-group w-100">
+                    <label>Выберите Регион (область)</label>
+                    <select name="republic_id" id="state" class="form-control input-lg dynamic" data-dependent="city">
+                     <option value="">Регион (область)</option>
+                    </select>
+                </div>
+   <div class="form-group w-100">
+   <label>Выберите город</label>
+    <select name="city_id" id="city" class="form-control input-lg">
+     <option value="">Город</option>
+    </select>
+   </div>
+                            <!-- <div class="form-group w-100">
                                 <label>Выберите страну</label>
                                 <select name="district_id" class="form-control">
                                     @foreach($districts as $district)
@@ -50,7 +71,7 @@
                                 </select>
                             </div>
                             <div class="form-group w-100">
-                                <label>Выберите Регион (область)</label>
+                                <label>Выберите Регион (область)у</label>
                                 <select name="republic_id" class="form-control">
                                     @foreach($republics as $republic)
                                         <option value="{{$republic->id}}"
@@ -66,14 +87,13 @@
                                             {{$city->id == old('city_id') ? ' selected' : '' }}>{{$city->title}}</option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div> -->
                             <div class="form-group w-100">
                                 <label>Выберите вид организации</label>
                                 <select name="type_id" class="form-control">
-                                    @foreach($types as $id => $type)
-                                        <option value="{{$id}}"
-                                            class=@if($id === 7)"d-none"@else''@endif
-                                            {{$id == old('type_id') ? ' selected' : '' }}>{{$type->title}}</option>
+                                    @foreach($types as $type)
+                                        <option value="{{$type->id}}"
+                                            {{$type->id == old('type_id') ? ' selected' : '' }}>{{$type->title}}</option>
                                     @endforeach
                                 </select>
                             </div>

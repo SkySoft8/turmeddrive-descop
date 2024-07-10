@@ -9,9 +9,10 @@ use App\Models\Republic;
 use App\Models\Type;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
-class CreateController extends Controller
+
+class StateController extends Controller
 {
-    public function __invoke()
+    public function index($id)
     {
 
         $roles = User::getRoles();
@@ -19,9 +20,7 @@ class CreateController extends Controller
         $districts = District::all();
         $republics = Republic::all();
         $types = Type::all();
-
-        $country_list = DB::table('country')->select('id_country','name')->get();
-
-        return view('admin.user.create', compact('roles', 'cities', 'republics','districts', 'types','country_list'));
+        $empData['data'] = DB::table('region')->select('id_country','name','id_region')->where('id_country',$id)->get();
+        return response()->json($empData);
     }
 }
