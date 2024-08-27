@@ -5,7 +5,7 @@
         <label>Тип организации</label>
         <select  v-model="types">
           <option v-for="type in filterList.types"
-                  :key="type.id" 
+                  :key="type.id"
                   v-bind:value="type.id"
                   :class="type.id !=8 ? '' : 'd-none'"
           >{{type.title}}</option>
@@ -17,16 +17,20 @@
           <option v-for="district in filterList.districts" :value="district.id">{{district.title}}</option>
         </select>
       </div>
-      <div class="search-item">
+      <div class="search-item" >
         <label>Регион (область)</label>
         <select v-model="republics">
-          <option v-for="republic in filterList.republics" :value="republic.id">{{republic.title}}</option>
+                <option v-for="republic in filterList.republics" :value="republic.id" :class="republic.district_id === districts   ? '' : 'd-none'">
+                    <span >{{republic.title}}</span>
+                </option>
         </select>
       </div>
       <div class="search-item">
         <label>Город</label>
         <select v-model="cities">
-          <option v-for="city in filterList.cities" :value="city.id">{{city.title}}</option>
+          <option v-for="city in filterList.cities" :value="city.id"
+                  :class="districts === city.district_id && republics === city.republic_id   ? '' : 'd-none'"
+          >{{city.title}}</option>
         </select>
       </div>
       <input type="submit" @click.prevent="getFilter" value="Найти">

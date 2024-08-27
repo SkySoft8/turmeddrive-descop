@@ -27,7 +27,7 @@
                             <select name="district_id" id="country" class="form-control input-lg dynamic"
                                 data-dependent="state">
                                 @foreach($country_list as $country)
-                                    <option value="{{ $country->id}}">{{ $country->name }}</option>
+                                    <option value="{{ $country->id}}">{{ $country->title }}</option>
                                 @endforeach
                             </select>
                         </div>

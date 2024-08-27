@@ -11,7 +11,7 @@ class StoreController extends Controller
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
-        District::firstOrCreate(['name'=>$data['name'] ], $data);
+        District::firstOrCreate(['title'=>$data['title'] ], $data);
         return redirect()->route('admin.district.index');
     }
 }

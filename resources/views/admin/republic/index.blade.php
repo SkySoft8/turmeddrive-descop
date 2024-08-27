@@ -40,7 +40,7 @@
                                     @foreach($republics as $republic)
                                     @if($district->id === $republic->district_id)
                                         <tr>
-                                            <td>{{$district->name}}</td>
+                                            <td>{{$district->title}}</td>
                                             <td>{{$republic->title}}</td>
                                             <td><a href="{{route('admin.republic.show', $republic->id)}}"><i
                                                             class="far fa-eye"></i></a></td>

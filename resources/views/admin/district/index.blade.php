@@ -37,7 +37,7 @@
                                     <tbody>
                                     @foreach($districts as $district)
                                         <tr>
-                                            <td>{{$district->name}}</td>
+                                            <td>{{$district->title}}</td>
                                             <td><a href="{{route('admin.district.show', $district->id)}}"><i
                                                             class="far fa-eye"></i></a></td>
                                             <td><a href="{{route('admin.district.edit', $district->id)}}"

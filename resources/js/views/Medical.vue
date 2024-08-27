@@ -44,14 +44,7 @@
 
                         <div v-for="medical in medicals" class="item fadeInRight wow "
                         >
-                            <div v-if="
-             state.city === medical.city_id
-             && state.district === medical.district_id
-             && state.republic === medical.republic_id
-             || state.city === '' && state.district === ''  && state.republic === ''
-             || cities === medical.city_id
-             && districts === medical.district_id && republics === medical.republic_id
-              ">
+                            <div >
 
                                 <router-link :to="'/medical/'+ medical.id">
                                     <div class="item-img">
