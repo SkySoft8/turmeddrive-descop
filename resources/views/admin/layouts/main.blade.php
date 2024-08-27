@@ -124,6 +124,7 @@
     $(document).ready(function(){
         $('#country').change(function(){
             var id = $(this).val();
+            console.log(id)
             $('#state').find('option').not(':first').remove();
             $.ajax({
                 url:'/state/'+id,
@@ -136,9 +137,9 @@
                     }
                     if(len > 0 ){
                         for(var i = 0; i<len; i++){
-                            console.log(response['data'])
-                            var id = response['data'][i].id_region;
-                            var name = response['data'][i].name;
+                            
+                            var id = response['data'][i].id;
+                            var name = response['data'][i].title;
                             var option = "<option value='"+id+"'>"+name+"</option>";
                             $('#state').append(option);
                    

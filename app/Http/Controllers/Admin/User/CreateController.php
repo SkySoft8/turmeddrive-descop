@@ -20,7 +20,7 @@ class CreateController extends Controller
         $republics = Republic::all();
         $types = Type::all();
 
-        $country_list = DB::table('country')->select('id_country','name')->get();
+        $country_list = DB::table('districts')->select('id','name')->get();
 
         return view('admin.user.create', compact('roles', 'cities', 'republics','districts', 'types','country_list'));
     }

@@ -20,7 +20,8 @@ class StateController extends Controller
         $districts = District::all();
         $republics = Republic::all();
         $types = Type::all();
-        $empData['data'] = DB::table('region')->select('id_country','name','id_region')->where('id_country',$id)->get();
+        $empData['data'] = DB::table('republics')->select('id','title','district_id')->where('district_id',$id)->get();
+        
         return response()->json($empData);
     }
 }

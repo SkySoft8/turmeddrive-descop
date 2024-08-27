@@ -23,7 +23,7 @@
                     <form action="{{route('admin.district.store')}}" method="POST" class="w-25">
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" name="title" placeholder="Название страны">
+                            <input type="text" class="form-control" name="name" placeholder="Название страны">
                             @error('title')
                                 <div class="text-danger">Это поле необходимо заполнить</div>
                             @enderror

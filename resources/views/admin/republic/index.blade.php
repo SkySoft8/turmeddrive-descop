@@ -30,13 +30,17 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th>Название</th>
+                                        <th>Страна</th>
+                                        <th>Регион</th>
                                         <th colspan="3" class="text-center">Действие</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach ($districts as $district)
                                     @foreach($republics as $republic)
+                                    @if($district->id === $republic->district_id)
                                         <tr>
+                                            <td>{{$district->name}}</td>
                                             <td>{{$republic->title}}</td>
                                             <td><a href="{{route('admin.republic.show', $republic->id)}}"><i
                                                             class="far fa-eye"></i></a></td>
@@ -52,8 +56,10 @@
                                                 </form>
                                             </td>
                                         </tr>
-                                    </tbody>
+                                    @endif
                                     @endforeach
+                                    @endforeach
+                                    </tbody>
                                 </table>
                             </div>
                             <!-- /.card-body -->

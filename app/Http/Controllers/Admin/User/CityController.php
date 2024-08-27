@@ -20,7 +20,7 @@ class CityController extends Controller
         $districts = District::all();
         $republics = Republic::all();
         $types = Type::all();
-        $empData['data'] = DB::table('city')->select('id_country','name','id_region','id_city')->where('id_region',$id)->get();
+        $empData['data'] = DB::table('cities')->select('republic_id','title','district_id','id')->where('republic_id',$id)->get();
         return response()->json($empData);
     }
 }

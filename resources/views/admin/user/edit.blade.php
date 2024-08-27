@@ -40,7 +40,7 @@
                             <select name="district_id" class="form-control">
                                 @foreach($districts as $district)
                                     <option value="{{$district->id}}"
-                                            {{$district->id == $user->district_id ? ' selected' : '' }}>{{$district->title}}</option>
+                                            {{$district->id == $user->district_id ? ' selected' : '' }}>{{$district->name}}</option>
                                 @endforeach
                             </select>
                         </div>

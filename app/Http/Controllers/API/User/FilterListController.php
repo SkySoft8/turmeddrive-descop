@@ -18,7 +18,7 @@ class FilterListController extends Controller
       $cities =City::all();
       $republics =Republic::all();
       $districts =District::all();
-
+      
       $result = [
           'types' =>  $types ,
           'cities' =>  $cities ,
