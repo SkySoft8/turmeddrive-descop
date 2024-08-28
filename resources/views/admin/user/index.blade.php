@@ -26,7 +26,7 @@
                                     <tr>
                                         <th>Название</th>
                                         <th>Почта</th>
-                                        <th>Вид организации</th>
+                                        <th>Роль организации</th>
                                         <th>Город</th>
                                         <th>Регион (область)</th>
                                         <th>Страна</th>
@@ -39,7 +39,9 @@
                                             <tr>
                                                 <td>{{$user->name}}</td>
                                                 <td>{{$user->email}}</td>
-                                                <td>@if($user->type == null){{'-'}}@else{{$user->type->title}}@endif</td>
+                                                <td> @foreach($roles as $id => $role)
+                                                         @if($user->role === $id )  {{$role }} @endif
+                                                         @endforeach</td>
                                                 <td>@if($user->city == null){{'-'}}@else{{$user->city->title}}@endif</td>
                                                 <td>@if($user->republic == null){{'-'}}@else{{$user->republic->title}}@endif</td>
                                                 <td>@if($user->district == null){{'-'}}@else{{$user->district->title}}@endif</td>

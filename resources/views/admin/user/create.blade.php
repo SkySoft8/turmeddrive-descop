@@ -45,7 +45,7 @@
                     <select name="district_id" id="country" class="form-control input-lg dynamic" data-dependent="state">
                         
                          @foreach($country_list as $country)
-                            <option value="{{ $country->id_country}}">{{ $country->name }}</option>
+                            <option value="{{ $country->id}}">{{ $country->title }}</option>
                          @endforeach
                     </select>
                     </div>
@@ -55,12 +55,12 @@
                      <option value="">Регион (область)</option>
                     </select>
                 </div>
-   <div class="form-group w-100">
-   <label>Выберите город</label>
-    <select name="city_id" id="city" class="form-control input-lg">
-     <option value="">Город</option>
-    </select>
-   </div>
+                <div class="form-group w-100">
+                            <label>Выберите город</label>
+                            <select name="city_id" id="city" class="form-control">
+                                <option value="">Город</option>
+                            </select>
+                        </div>
                             <!-- <div class="form-group w-100">
                                 <label>Выберите страну</label>
                                 <select name="district_id" class="form-control">

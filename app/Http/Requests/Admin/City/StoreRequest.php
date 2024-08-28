@@ -24,7 +24,8 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-           
+            'district_id' => 'required|integer',
+            'republic_id' => 'required|integer',
             'title' => 'required|string',
         ];
     }

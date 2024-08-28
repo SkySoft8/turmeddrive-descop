@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Republic;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\City\UpdateRequest;
+use App\Http\Requests\Admin\Republic\UpdateRequest;
 use App\Models\Republic;
 
 class UpdateController extends Controller

@@ -14,6 +14,6 @@ class IndexController extends Controller
         $cities = City::all();
         $districts = District::all();
         $republics = Republic::all();
-        return view('admin.city.index', compact('cities'));
+        return view('admin.city.index', compact('cities' , 'districts' , 'republics'));
     }
 }

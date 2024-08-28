@@ -163,8 +163,8 @@
                     if(len > 0 ){
                         for(var i = 0; i<len; i++){
                             console.log(response['data'])
-                            var id = response['data'][i].id_city;
-                            var name = response['data'][i].name;
+                            var id = response['data'][i].id;
+                            var name = response['data'][i].title;
                             var option = "<option value='"+id+"'>"+name+"</option>";
                             $('#city').append(option);
                    
