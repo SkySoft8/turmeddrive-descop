@@ -43,7 +43,6 @@
                             <div class="form-group w-100">
                             <label>Выберите страну</label>
                     <select name="district_id" id="country" class="form-control input-lg dynamic" data-dependent="state">
-                        
                          @foreach($country_list as $country)
                             <option value="{{ $country->id}}">{{ $country->title }}</option>
                          @endforeach

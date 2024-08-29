@@ -16,6 +16,7 @@
                                 :for="district.id"
                                 class="d-block"
                                 v-for="district in filterList.districts"
+                                :key="district.id"
                             >
                                 <input
                                     :id="district.id"
@@ -31,9 +32,11 @@
                     <div class="sort-item">
                         <span>Регион (область)</span>
                         <form>
-                            <label :class="republic.district_id === Number(districts)   ? 'd-block' : 'd-none'"
+                            <label 
+                                :class=" districts.indexOf(republic.district_id) != -1 ? 'd-block' : 'd-none'"
                                 :for="`republic` + republic.id"
                                 v-for="republic in filterList.republics"
+                                :key="republic.id"
                             >
                                 <input
                                     
@@ -51,9 +54,10 @@
                         <span>Город</span>
                         <form>
                             <label 
-                                :class="Number(republics) === city.republic_id   ? 'd-block' : 'd-none'"
+                                :class="republics.indexOf(city.republic_id ) != -1  ? 'd-block' : 'd-none'"
                                 :for="`city` + city.id"
                                 v-for="city in filterList.cities"
+                                :key="city.id"
                             >
                                 <input
                                     :id="`city` + city.id"
@@ -80,6 +84,7 @@
                     <div
                         v-for="medical in medicals"
                         class="item fadeInRight wow"
+                        :key=" medical.city_id"
                     >
                         <div
                             v-if="
@@ -90,7 +95,7 @@
                                     state.district === '' &&
                                     state.republic === '') ||
                                 cities === medical.city_id
-                                //  && districts === medical.district_id && republics === medical.republic_id
+                                && districts === medical.district_id && republics === medical.republic_id
                             "
                         >
                             <router-link :to="'/medical/' + medical.id">
@@ -101,7 +106,7 @@
                                     <h2>{{ medical.title }}</h2>
                                     <p>{{ medical.desc }}</p>
                                     <ul>
-                                        <li v-for="tag in medical.tags">
+                                        <li v-for="tag in medical.tags" :key="tag.title">
                                             {{ tag.title }}
                                         </li>
                                     </ul>

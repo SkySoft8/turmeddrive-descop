@@ -38,6 +38,9 @@ class UpdateRequest extends FormRequest
             'name_link' => 'required|string',
             'cafe_tag_ids' => 'nullable|array',
             'cafe_tag_ids.*' => 'nullable|integer|exists:cafe_tags,id',
+            'city_id' => 'required|integer|exists:cities,id',
+            'republic_id' => 'required|integer|exists:republics,id',
+            'district_id' => 'required|integer|exists:districts,id',
         ];
     }
     public function messages(){

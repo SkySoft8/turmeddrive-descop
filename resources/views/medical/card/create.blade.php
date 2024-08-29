@@ -153,6 +153,26 @@
                         </div>
                         <div class="form-group w-50">
                             <label>Выберите страну</label>
+                    <select name="district_id" id="country" class="form-control input-lg dynamic" data-dependent="state">
+                         @foreach($country_list as $country)
+                            <option value="{{ $country->id}}">{{ $country->title }}</option>
+                         @endforeach
+                    </select>
+                    </div>
+                    <div class="form-group w-50">
+                    <label>Выберите Регион (область)</label>
+                    <select name="republic_id" id="state" class="form-control input-lg dynamic" data-dependent="city">
+                     <option value="">Регион (область)</option>
+                    </select>
+                </div>
+                <div class="form-group w-50">
+                            <label>Выберите город</label>
+                            <select name="city_id" id="city" class="form-control">
+                                <option value="">Город</option>
+                            </select>
+                        </div>
+                        <!-- <div class="form-group w-50">
+                            <label>Выберите страну</label>
                             <select name="district_id" class="form-control">
                                 @foreach($districts as $district)
                                     <option value="{{$district->id}}"
@@ -177,7 +197,7 @@
                                             {{$city->id == old('city_id') ? ' selected' : '' }}>{{$city->title}}</option>
                                 @endforeach
                             </select>
-                        </div>
+                        </div> -->
                         <div class="form-group w-50">
                             <label>Тэги</label>
                             <select class="select2" name="medical_tag_ids[]" multiple="multiple"

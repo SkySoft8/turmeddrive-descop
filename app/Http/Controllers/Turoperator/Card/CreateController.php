@@ -21,6 +21,7 @@ class CreateController extends Controller
         $districts = District::all();
         $republics = Republic::all();
         $turoperatorCardTags =auth()->user()->turoperatorCardTag;
-        return view('turoperator.card.create', compact('user', 'types' , 'cities' , 'user_email', 'republics','districts','turoperatorCardTags'));
+        $country_list = DB::table('districts')->select('id','title')->get();
+        return view('turoperator.card.create', compact('user', 'types' , 'cities' , 'user_email', 'republics','districts','turoperatorCardTags','country_list'));
     }
 }

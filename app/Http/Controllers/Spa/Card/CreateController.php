@@ -21,6 +21,7 @@ class CreateController extends Controller
         $districts = District::all();
         $republics = Republic::all();
         $spaTags =auth()->user()->spaTags;
-        return view('spa.card.create', compact('user', 'types' , 'cities' , 'republics','districts','spaTags', 'user_email'));
+        $country_list = DB::table('districts')->select('id','title')->get();
+        return view('spa.card.create', compact('user', 'types' , 'cities' , 'republics','districts','spaTags', 'user_email', 'country_list'));
     }
 }
