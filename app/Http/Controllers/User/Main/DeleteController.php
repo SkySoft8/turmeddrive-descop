@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\preOrder;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\City;
+use App\Models\District;
+use App\Models\Republic;
 class DeleteController extends Controller
 {
     public function __invoke(preOrder $preOrder)
@@ -23,6 +25,10 @@ class DeleteController extends Controller
         $preOrders=  DB::table('pre_orders')->where('user_id', '=', $user['id'])->get();
         $totals = DB::table('pre_orders')->where('user_id', '=', $user['id'])->pluck('total_price') ;
         $payments =  DB::table('payments')->where('user_id', '=', $user['id'])->get();
-        return view('user.main.index' , compact('user', 'preOrders' , 'totals', 'payments','medicals','sports', 'turoperators', 'sanatoriums', 'hostels','cafes','spa'));
+        $cities = City::all();
+        $districts = District::all();
+        $republics = Republic::all();
+
+        return view('user.main.index' , compact('user', 'preOrders' , 'cities', 'republics','districts', 'totals', 'payments','medicals','sports', 'turoperators', 'sanatoriums', 'hostels','cafes','spa'));
     }
 }

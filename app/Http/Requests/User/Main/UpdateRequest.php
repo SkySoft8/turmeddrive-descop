@@ -32,7 +32,9 @@ class UpdateRequest extends FormRequest
             'age' => 'required|integer',
             'user_city' => 'required|string',
             'user_district' => 'required|string',
+            'user_republic' => 'required|string', 
             'user_id' => 'required|integer|exists:users,id',
+            
         ];
     }
 }

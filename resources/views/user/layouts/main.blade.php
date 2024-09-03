@@ -109,11 +109,64 @@
         });
         $('.select2').select2()
     </script>
+    
     <style>
         .custom-file-input:lang(en)~.custom-file-label::after{
             content: "...";
         }
-    </style>
+    </style><script type='text/javascript'>
+    $(document).ready(function(){
+        $('#country').change(function(){
+            var id = $(this).val();
+            $('#state').find('option').not(':first').remove();
+            $.ajax({
+                url:'/state/'+id,
+                type: 'get',
+                dataType:'json',
+                success:function(response){
+                    var len=0;
+                    if(response['data'] != null){
+                        len = response['data'].length;
+                    }
+                    if(len > 0 ){
+                        for(var i = 0; i<len; i++){
+                            
+                            var id = response['data'][i].id;
+                            var name = response['data'][i].title;
+                            var option = "<option value='"+id+"'>"+name+"</option>";
+                            $('#state').append(option);
+                   
+                        }
+                    }
+                }
+            })
+        });
+        $('#state').change(function(){
+            var ids = $(this).val();
+            $('#city').find('option').not(':first').remove();
+            $.ajax({
+                url:'/city/'+ids,
+                type: 'get',
+                dataType:'json',
+                success:function(response){
+                    var len=0;
+                    if(response['data'] != null){
+                        len = response['data'].length;
+                    }
+                    if(len > 0 ){
+                        for(var i = 0; i<len; i++){
+                            var id = response['data'][i].id;
+                            var name = response['data'][i].title;
+                            var option = "<option value='"+id+"'>"+name+"</option>";
+                            $('#city').append(option);
+                   
+                        }
+                    }
+                }
+            })
+        });
+    });
+</script>
 </div>
 
 </body>
