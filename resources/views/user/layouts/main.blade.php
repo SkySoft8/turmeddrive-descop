@@ -134,8 +134,8 @@
                             var id = response['data'][i].id;
                             var name = response['data'][i].title;
                             var option = "<option value='"+id+"'>"+name+"</option>";
+                            
                             $('#state').append(option);
-                   
                         }
                     }
                 }
