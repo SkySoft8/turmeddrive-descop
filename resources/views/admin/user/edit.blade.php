@@ -44,13 +44,13 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group w-50">
+                        <div class="form-group w-100">
                     <label>Выберите Регион (область)</label>
                     <select name="republic_id" id="state" class="form-control input-lg dynamic" data-dependent="city">
                      <option value="">Регион (область)</option>
                     </select>
                 </div>
-                <div class="form-group w-50">
+                <div class="form-group w-100">
                             <label>Выберите город</label>
                             <select name="city_id" id="city" class="form-control">
                                 <option value="">Город</option>
