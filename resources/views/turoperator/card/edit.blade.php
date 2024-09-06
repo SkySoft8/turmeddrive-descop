@@ -143,21 +143,15 @@
                             </select>
                         </div>
                         <div class="form-group w-50">
-                            <label>Выберите регион (область)</label>
-                            <select name="republic_id" id="state" class="form-control input-lg dynamic" data-dependent="city">
-                                @foreach($republics as $republic)
-                                    <option value="{{$republic->id}}"
-                                            {{$republic->id == $turoperatorCard->republic_id ? ' selected' : '' }}>{{$republic->title}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group w-50">
+                    <label>Выберите Регион (область)</label>
+                    <select name="republic_id" id="state" class="form-control input-lg dynamic" data-dependent="city">
+                     <option value="">Регион (область)</option>
+                    </select>
+                </div>
+                <div class="form-group w-50">
                             <label>Выберите город</label>
                             <select name="city_id" id="city" class="form-control">
-                                @foreach($cities as $city)
-                                    <option value="{{$city->id}}"
-                                            {{$city->id == $turoperatorCard->city_id ? ' selected' : '' }}>{{$city->title}}</option>
-                                @endforeach
+                                <option value="">Город</option>
                             </select>
                         </div>
                             <div class="form-group w-50">
