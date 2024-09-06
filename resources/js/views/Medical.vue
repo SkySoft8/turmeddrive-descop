@@ -54,7 +54,7 @@
               ">
 
                             <router-link :to="'/medical/'+ medical.id">
-                                <!-- <div class="item-img">
+                                <div class="item-img">
                                     <img :src="medical.image_url">
                                 </div>
                                 <div class="list-item-descr">
@@ -67,21 +67,8 @@
                                         <img class="logo" :src="medical.logo_url">
                                         <a :href="medical.link"><p>{{ medical.name_link }}</p></a>
                                     </div>
-                                </div> -->
-                                <Card ref="elemsProduct"
-                                      :img='medical.image_url'
-                                      :title='medical.title'
-                                      :desc='medical.desc'
-                                      :tags='medical.tags'
-                                      :logo='medical.logo_url'
-                                      :link='medical.link'
-                                      :linkTitle='medical.name_link'
-                                      :onClickAdd='isAdded'
-                                      @addToCart='addToCart'
-                                      :card='medical'
-                                      :lists='lists'
-                                      :newItem = 'items'  
-                                />
+                                </div>
+                               
                             </router-link>
 
                         </div>
@@ -94,22 +81,13 @@
 
 <script>
 import global from "../global.js";
-import Card from '../components/Card.vue';
-import {ref, inject} from "vue";
 
 export default {
-    components: {
-        Card,
-    },
     name: "Medical",
     setup() {
         const {state} = global;
-        const isAdd = ref(true);
-        const isAdded = () => {
-            alert('click')
-        }
-        const {addToCart} = inject('cart')
-        return {state, isAdded, addToCart};
+       
+        return {state };
     },
     data() {
         return {

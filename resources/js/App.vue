@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
-        <Drawer v-if="drawerOpen" />
-        <Header  @openDrawer="openDrawer"/>
+       
+        <Header  />
 
         <router-view></router-view>
         <footer>
@@ -35,48 +35,8 @@
 </template>
 
 <script setup>
-import CardItem from "./components/CardItem.vue";
-import Drawer from "./components/Drawer.vue"
 import Header from "./components/Header.vue"
 import user from "./user";
-
-import {ref, provide} from 'vue'
-
-const drawerOpen = ref(false)
-const cart=ref([])
-const elems=ref([])
-
-const closeDrawer = () => {
-    drawerOpen.value = false
-}
-
-const openDrawer = () => {
-    drawerOpen.value = true 
-}
-
-const addToCart = (item,lists,newItem) => {
-    if(!item.isAdded){
-        lists.forEach(el => {
-            if(el.user_id === item.user_id){
-                elems.value.push(el)
-            }
-        }); 
-        cart.value.push(item)
-        item.isAdded = true  
-        item.product = elems
-    }else{
-        cart.value.splice(cart.value.indexOf(item), 1)
-        item.isAdded = false
-    }
-    
-}
-
-provide('cart', {
-    cart,
-    closeDrawer,
-    openDrawer,
-    addToCart
-}) 
 </script>
 
 <style>

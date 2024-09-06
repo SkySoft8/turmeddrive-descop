@@ -44,13 +44,6 @@
                                 >Контакты</router-link
                             >
                         </li>
-                        <li @click="() => emit('openDrawer')">
-                            <img
-                                src="assets/img/basket.png"
-                                style="width: 20px; height: 20px"
-                                alt=""
-                            />
-                        </li>
                     </ul>
                     <login></login>
                 </div>
