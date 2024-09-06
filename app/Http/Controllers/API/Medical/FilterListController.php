@@ -24,6 +24,7 @@ class FilterListController extends Controller
           'republics' => $republics,
           'cities' => $cities,
       ];
+
       return response()->json($result);
     }
 }

@@ -13,7 +13,6 @@ class StoreController extends Controller
     {
 
         $data = $request->validated();
-
         if (isset($data['medical_tag_ids'])) {
             $medical_tagIds = $data['medical_tag_ids'];
             unset($data['medical_tag_ids']);

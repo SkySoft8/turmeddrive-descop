@@ -21,6 +21,7 @@ class CreateController extends Controller
         $districts = District::all();
         $republics = Republic::all();
         $sportCardTags =auth()->user()->sportCardTag;
-        return view('sport.card.create', compact('user', 'types' , 'user_email', 'cities' , 'republics','districts','sportCardTags'));
+        $country_list = DB::table('districts')->select('id','title')->get();
+        return view('sport.card.create', compact('user', 'types' , 'user_email', 'cities' , 'republics','districts','sportCardTags','country_list'));
     }
 }

@@ -22,8 +22,16 @@
                 <div class="col-12">
                     <form action="{{route('admin.republic.store')}}" method="POST" class="w-25">
                         @csrf
+                        <div class="form-group w-100">
+                            <label>Выберите страну</label>
+                                <select name="district_id" id="country" class="form-control input-lg dynamic" data-dependent="state">
+                                @foreach($country_list as $country)
+                            <option value="{{ $country->id}}">{{ $country->title }}</option>
+                         @endforeach
+                    </select>
+                            </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="title" placeholder="Название региона">
+                            <input type="text" class="form-control" name="title" id="state" class="form-control input-lg dynamic"  placeholder="Название региона">
                             @error('title')
                                 <div class="text-danger">Это поле необходимо заполнить</div>
                             @enderror

@@ -24,7 +24,9 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-           'title' => 'required|string'
+            'republic_id' => 'required|integer|exists:republics,id',
+            'district_id' => 'required|integer|exists:districts,id',
+            'title' => 'required|string'
         ];
     }
 }

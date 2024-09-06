@@ -64,6 +64,7 @@ class User extends Authenticatable
         'age',
         'user_city',
         'user_district',
+        'user_republic',
     ];
 
     /**

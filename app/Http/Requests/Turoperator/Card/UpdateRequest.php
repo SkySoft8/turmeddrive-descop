@@ -38,6 +38,9 @@ class UpdateRequest extends FormRequest
             'name_link' => 'required|string',
             'turoperator_cardTag_ids' => 'nullable|array',
             'turoperator_cardTag_ids.*' => 'nullable|integer|exists:turoperator_card_tags,id',
+            'city_id' => 'required|integer|exists:cities,id',
+            'republic_id' => 'required|integer|exists:republics,id',
+            'district_id' => 'required|integer|exists:districts,id',
         ];
     }
     public function messages(){

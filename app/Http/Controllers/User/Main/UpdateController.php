@@ -9,12 +9,18 @@ use App\Models\preOrder;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
-
+use App\Models\City;
+use App\Models\District;
+use App\Models\Republic;
 class UpdateController extends Controller
 {
     public function __invoke(UpdateRequest $request, User $user)
     {
         $data = $request->validated();
+        //dd($data);
+        $cities = City::all();
+        $districts = District::all();
+        $republics = Republic::all();
         $medicals = DB::table('medical_cards')->get();
         $spa = DB::table('spa_cards')->get();
         $cafes = DB::table('cafe_cards')->get();
@@ -27,6 +33,6 @@ class UpdateController extends Controller
         $payments =  DB::table('payments')->where('user_id', '=', $user['id'])->get(); 
         $user->update($data);
         
-        return view('user.main.index' , compact('user' ,'preOrders', 'totals', 'payments','medicals','sports', 'turoperators', 'sanatoriums', 'hostels','cafes','spa'));
+        return view('user.main.index' , compact('user' ,'preOrders','cities', 'republics','districts', 'totals', 'payments','medicals','sports', 'turoperators', 'sanatoriums', 'hostels','cafes','spa'));
     }
 }

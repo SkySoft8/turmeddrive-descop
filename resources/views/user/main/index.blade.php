@@ -59,24 +59,32 @@
                                 <input class="edit-dis" type="text" name="phone" value="{{$user->phone}}">
                             @endif
                         </div>
-                        <div class="profile-data-item">
-                            <label>Страна</label>
-                            @if($user->user_district == null)
-                                <input class="edit-dis" type="text" name="user_district" placeholder="Введите страну"
-                                       value="">
-                            @else
-                                <input class="edit-dis" type="text" name="user_district"
-                                       value="{{$user->user_district}}">
-                            @endif
+                        <div class="profile-data-item w-50 p-0">
+                            <label>Выберите страну</label>
+                            <select style="border: 2px solid #51D3B7;" name="user_district" id="country" class="form-control input-lg dynamic" data-dependent="state">
+                                @foreach($districts as $district)
+                                    <option value="{{$district->id}}"
+                                            {{$district->id == $user->user_district ? ' selected' : '' }}>{{$district->title}}</option>
+                                @endforeach
+                            </select>
                         </div>
-                        <div class="profile-data-item">
-                            <label>Город</label>
-                            @if($user->user_city == null)
-                                <input class="edit-dis" type="text" name="user_city" placeholder="Введите город"
-                                       value="">
-                            @else
-                                <input class="edit-dis" type="text" name="user_city" value="{{$user->user_city}}">
-                            @endif
+                        <div class="profile-data-item w-50">
+                            <label>Выберите регион (область)</label>
+                            <select style="border: 2px solid #51D3B7;" name="user_republic" id="state" class="form-control input-lg dynamic" data-dependent="city">
+                                @foreach($republics as $republic)
+                                    <option value="{{$republic->id}}"
+                                            {{$republic->id == $user->user_republic ? ' selected' : '' }}>{{$republic->title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="profile-data-item w-50 ">
+                            <label>Выберите город</label>
+                            <select style="border: 2px solid #51D3B7;" name="user_city" id="city" class="form-control">
+                                @foreach($cities as $city)
+                                    <option value="{{$city->id}}"
+                                            {{$city->id == $user->user_city ? ' selected' : '' }}>{{$city->title}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="form-group w-50">

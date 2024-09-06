@@ -22,6 +22,7 @@ class CreateController extends Controller
         $districts = District::all();
         $republics = Republic::all();
         $cafeTags =auth()->user()->cafeTags;
-        return view('cafe.card.create', compact('user', 'types' , 'cities' , 'republics','districts', 'cafeTags','user_email'));
+        $country_list = DB::table('districts')->select('id','title')->get();
+        return view('cafe.card.create', compact('user', 'types' , 'cities' , 'republics','districts', 'cafeTags','user_email','country_list'));
     }
 }

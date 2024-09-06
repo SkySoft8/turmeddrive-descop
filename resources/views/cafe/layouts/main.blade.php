@@ -119,6 +119,61 @@
         left: 455px;
     }
 </style>
+<script type='text/javascript'>
+    $(document).ready(function(){
+        $('#country').change(function(){
+            var id = $(this).val();
+            console.log(id)
+            $('#state').find('option').not(':first').remove();
+            $.ajax({
+                url:'/state/'+id,
+                type: 'get',
+                dataType:'json',
+                success:function(response){
+                    var len=0;
+                    if(response['data'] != null){
+                        len = response['data'].length;
+                    }
+                    if(len > 0 ){
+                        for(var i = 0; i<len; i++){
+                            
+                            var id = response['data'][i].id;
+                            var name = response['data'][i].title;
+                            var option = "<option value='"+id+"'>"+name+"</option>";
+                            $('#state').append(option);
+                   
+                        }
+                    }
+                }
+            })
+        });
+        $('#state').change(function(){
+            var ids = $(this).val();
+            $('#city').find('option').not(':first').remove();
+            $.ajax({
+                url:'/city/'+ids,
+                type: 'get',
+                dataType:'json',
+                success:function(response){
+                    var len=0;
+                    if(response['data'] != null){
+                        len = response['data'].length;
+                    }
+                    if(len > 0 ){
+                        for(var i = 0; i<len; i++){
+                            console.log(response['data'])
+                            var id = response['data'][i].id;
+                            var name = response['data'][i].title;
+                            var option = "<option value='"+id+"'>"+name+"</option>";
+                            $('#city').append(option);
+                   
+                        }
+                    }
+                }
+            })
+        });
+    });
+</script>
 <script>
     const textarea = document.querySelector('.textarea');
     const counter = document.querySelector('.current');

@@ -38,6 +38,9 @@ class UpdateRequest extends FormRequest
             'name_link' => 'required|string',
             'sport_cardTag_ids' => 'nullable|array',
             'sport_cardTag_ids.*' => 'nullable|integer|exists:sport_card_tags,id',
+            'city_id' => 'required|integer|exists:cities,id',
+            'republic_id' => 'required|integer|exists:republics,id',
+            'district_id' => 'required|integer|exists:districts,id',
         ];
     }
     public function messages(){

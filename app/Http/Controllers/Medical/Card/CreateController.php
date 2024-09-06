@@ -23,7 +23,7 @@ class CreateController extends Controller
         $districts = District::all();
         $republics = Republic::all();
         $medicalTags =auth()->user()->medicalTags;
-
-        return view('medical.card.create', compact('user', 'types' , 'cities' , 'republics','districts','medicalTags','user_email'));
+        $country_list = DB::table('districts')->select('id','title')->get();
+        return view('medical.card.create', compact('user', 'types' , 'cities' , 'republics','districts','medicalTags','user_email' , 'country_list'));
     }
 }

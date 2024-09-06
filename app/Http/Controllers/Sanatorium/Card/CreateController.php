@@ -21,6 +21,7 @@ class CreateController extends Controller
         $districts = District::all();
         $republics = Republic::all();
         $sanatoriumCardTags =auth()->user()->sanatoriumCardTag;
-        return view('sanatorium.card.create', compact('user', 'types' ,'user_email', 'cities' , 'republics','districts','sanatoriumCardTags'));
+        $country_list = DB::table('districts')->select('id','title')->get();
+        return view('sanatorium.card.create', compact('user', 'types' ,'user_email', 'cities' , 'republics','districts','sanatoriumCardTags','country_list'));
     }
 }

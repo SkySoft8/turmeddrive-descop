@@ -9,7 +9,9 @@ use App\Mail\Payment\Consulting;
 use App\Mail\Payment\Promocode;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
-
+use App\Models\City;
+use App\Models\District;
+use App\Models\Republic;
 class IndexController extends Controller
 {
     public function __invoke()
@@ -40,6 +42,10 @@ class IndexController extends Controller
         $products_email = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('products')->last();
         $amount = DB::table('payments')->where('user_id', '=', $user['id'])->pluck('amount')->last();
 
+        $cities = City::all();
+        $districts = District::all();
+        $republics = Republic::all();
+
         $d=[];
         $message=[];
         $dd=[];
@@ -47,7 +53,7 @@ class IndexController extends Controller
 
 
 
-        return view('user.main.index', compact('medicals','sports', 'turoperators', 'sanatoriums', 'hostels','cafes','spa', 'user', 'preOrders', 'products', 'totals', 'payments', 'promocode_status', 'promocode'));
+        return view('user.main.index', compact('medicals','sports', 'cities', 'republics','districts', 'turoperators', 'sanatoriums', 'hostels','cafes','spa', 'user', 'preOrders', 'products', 'totals', 'payments', 'promocode_status', 'promocode'));
 
     }
 }

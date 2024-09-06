@@ -21,6 +21,7 @@ class CreateController extends Controller
         $districts = District::all();
         $republics = Republic::all();
         $hostelCardTags =auth()->user()->hostelCardTag;
-        return view('hostel.card.create', compact('user', 'types' , 'cities' , 'republics','districts','hostelCardTags','user_email'));
+        $country_list = DB::table('districts')->select('id','title')->get();
+        return view('hostel.card.create', compact('user', 'types' , 'cities' , 'republics','districts','hostelCardTags','user_email', 'country_list'));
     }
 }

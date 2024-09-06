@@ -3,7 +3,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin\User\StateController;
+use App\Http\Controllers\Admin\User\CityController; 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/state/{id}', [StateController::class,'index']);
+Route::get('/city/{id}', [CityController::class,'index']);
+
 Route::group(['prefix' => 'main'], function () {
 
     Route::group(['namespace' => 'Main'], function () {
@@ -202,6 +206,7 @@ Route::group(['prefix' => 'main'], function () {
             Route::post('/', StoreController::class)->name('admin.user.store');
             Route::get('/{user}', ShowController::class)->name('admin.user.show');
             Route::get('/{user}/showDelete', ShowDeleteController::class)->name('admin.user.showDelete');
+
             Route::get('/{user}/edit', EditController::class)->name('admin.user.edit');
             Route::patch('/{user}', UpdateController::class)->name('admin.user.update');
             Route::delete('/{user}', DeleteController::class)->name('admin.user.delete');

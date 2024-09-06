@@ -134,6 +134,33 @@
                                 @enderror
                             </div>
                             <div class="form-group w-50">
+                            <label>Выберите страну</label>
+                            <select name="district_id" id="country" class="form-control input-lg dynamic" data-dependent="state">
+                                @foreach($districts as $district)
+                                    <option value="{{$district->id}}"
+                                            {{$district->id == $sanatoriumCard->district_id ? ' selected' : '' }}>{{$district->title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group w-50">
+                            <label>Выберите регион (область)</label>
+                            <select name="republic_id" id="state" class="form-control input-lg dynamic" data-dependent="city">
+                                @foreach($republics as $republic)
+                                    <option value="{{$republic->id}}"
+                                            {{$republic->id == $sanatoriumCard->republic_id ? ' selected' : '' }}>{{$republic->title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group w-50">
+                            <label>Выберите город</label>
+                            <select name="city_id" id="city" class="form-control">
+                                @foreach($cities as $city)
+                                    <option value="{{$city->id}}"
+                                            {{$city->id == $sanatoriumCard->city_id ? ' selected' : '' }}>{{$city->title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                            <div class="form-group w-50">
                                 <label>Тэги</label>
                                 <select class="select2" name="sanatorium_cardTag_ids[]" multiple="multiple"
                                         data-placeholder="Выберите услугу" style="width: 100%;">

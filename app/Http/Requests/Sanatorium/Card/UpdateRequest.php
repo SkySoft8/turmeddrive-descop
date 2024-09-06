@@ -38,6 +38,9 @@ class UpdateRequest extends FormRequest
             'name_link' => 'required|string',
             'sanatorium_cardTag_ids' => 'nullable|array',
             'sanatorium_cardTag_ids.*' => 'nullable|integer|exists:sanatorium_card_tags,id',
+            'city_id' => 'required|integer|exists:cities,id',
+            'republic_id' => 'required|integer|exists:republics,id',
+            'district_id' => 'required|integer|exists:districts,id',
         ];
     }
     public function messages(){
