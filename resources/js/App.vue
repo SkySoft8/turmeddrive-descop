@@ -9,7 +9,7 @@
                 <div class="menu">
                     <ul>
                         <li>
-                            <router-link :to="{name:'med'}">Каталог</router-link>
+                            <router-link :to="{name:'med'}">Каталог1</router-link>
                         </li>
                         <li>
                             <router-link :to="{name: 'ecosistem'}">О проекте</router-link>
