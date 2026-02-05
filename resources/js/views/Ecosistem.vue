@@ -14,7 +14,7 @@
 
             <div class="card-cafe col col-12 col-md-10 consalt">
                 <div class="section-label">
-                    <h2>Цифровая Экосистема ТурМедДрайвер</h2>
+                    <h2>Цифровая Экосистема Центр Юнити</h2>
                     <hr>
                 </div>
 
@@ -27,7 +27,7 @@
 
                 <div class="consalt-section">
                     <div class="sub-section-label">
-                        <label><span id="tasks"></span>Цифровая Экосистема ТурМедДрайвер решает следующие задачи:</label>
+                        <label><span id="tasks"></span>Цифровая Экосистема Центр Юнити решает следующие задачи:</label>
                     </div>
                     <div>
                         <ul>
@@ -48,13 +48,13 @@
 
                 <div class="consalt-section">
                     <div class="sub-section-label">
-                        <label><span id="activity_subject"></span>Предметом деятельности проекта ТурМедДрайвер является: </label>
+                        <label><span id="activity_subject"></span>Предметом деятельности проекта Центр Юнити является: </label>
                     </div>
                     <div>
                         <ul>
                             <li><img src="assets/img/check-list.svg">формирования удобного и понятного сервера для пользователей;
                             </li>
-                            <li><img src="assets/img/check-list.svg">развитие малого и среднего бизнеса через экосистему ТурМедДрайвер;
+                            <li><img src="assets/img/check-list.svg">развитие малого и среднего бизнеса через экосистему Центр Юнити;
                             </li>
                             <li><img src="assets/img/check-list.svg">формирование условий для повышения качества туристической индустрии в области медицинского туризма, восстановительной медицины и санаторно-курортной сферы для обеспечения здоровьесбережения населения;</li>
                             <li><img src="assets/img/check-list.svg">диагностика и мониторинг состояния здоровьеобеспечения общества;</li>

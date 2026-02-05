@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/index.css')}}">
     <link rel="icon" type="image/png" href="{{asset('assets/img/fav.png')}}" />
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <title>ТурМедДрайвер</title>
+    <title>Центр Юнити</title>
 </head>
 
 @yield('content')

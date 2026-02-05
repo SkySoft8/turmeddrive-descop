@@ -12,7 +12,7 @@
     <scritp src="{{asset('assets/js/app.js')}}" defer></scritp>
     @vite(['resources/js/app.js'])
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/index.css')}}">
-    <title>ТурМедДрайвер</title>
+    <title>Центр Юнити</title>
 </head>
 
 @yield('content')

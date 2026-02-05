@@ -29,7 +29,7 @@
                                 </li>
                                 <li>
                                     <router-link :to="{ name: 'ecosistem' }"
-                                        >Экосистема ТурМедДрайвер</router-link
+                                        >Экосистема Центр Юнити</router-link
                                     >
                                 </li>
                             </ul>
@@ -75,7 +75,7 @@
                                     <li>
                                         <router-link :to="{ name: 'ecosistem' }"
                                             >Экосистема
-                                            ТурМедДрайвер</router-link
+                                            Центр Юнити</router-link
                                         >
                                     </li>
                                 </ul>

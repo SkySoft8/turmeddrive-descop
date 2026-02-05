@@ -15,7 +15,7 @@
                                 :to="{name:'med'}">
                                 <li>Медцентры</li>
                             </router-link>
-                            <router-link
+                           <!-- <router-link
                                 active-class="active"
                                 :to="{name:'spa'}">
                                 <li>СПА\Бьюти</li>
@@ -29,17 +29,17 @@
                                 active-class="active"
                                 :to="{name:'hotel'}">
                                 <li>Отели</li>
-                            </router-link>
+                            </router-link>-->
                             <router-link
                                 active-class="active"
                                 :to="{name:'sanatorium'}">
-                                <li>Санатории</li>
+                                <li>Санатории/Курорты</li>
                             </router-link>
-                            <router-link
+                            <!--<router-link
                                 active-class="active"
                                 :to="{name:'tur'}">
                                 <li>Туроператоры</li>
-                            </router-link>
+                            </router-link>-->
                             <router-link
                                 active-class="active"
                                 :to="{name:'sport'}">

@@ -42,7 +42,7 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item mr-3">
-                    <a href="http://127.0.0.1:8000/">
+                    <a href="https://centrunity.com/">
                         <input type="submit" class="btn btn-outline-primary" value="Перейти на сайт">
                     </a>
                 </li>

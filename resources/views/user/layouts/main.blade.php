@@ -28,20 +28,20 @@
 <div class="wrapper">
     <header>
         <div class="nav">
-            <a href="http://127.0.0.1:8000/"><img src="{{asset('assets/img/logo-s.png')}}"></a>
+            <a href="https://centrunity.com/"><img src="{{asset('assets/img/logo-s.png')}}"></a>
             <div class="mob-menu-div">
                 <img onclick="openBlockMenu('mob-menu')" class="burger" src="{{asset('assets/img/menu.svg')}}">
                 <div id="mob-menu" class="menu">
                     <ul>
-                        <li><a href="http://127.0.0.1:8000/catalog/medical">Каталог</a></li>
+                        <li><a href="https://centrunity.com/catalog/medical">Каталог</a></li>
                         <li><a href="#">О проекте</a>
                             <ul>
-                                <li><a href="http://127.0.0.1:8000/rules-organization">Для организаций</a></li>
-                                <li><a href="http://127.0.0.1:8000/rules-client">Для клиентов</a></li>
-                                <li><a href="http://127.0.0.1:8000/ecosistem">Экосистема турмеддрайвер</a></li>
+                                <li><a href="https://centrunity.com/rules-organization">Для организаций</a></li>
+                                <li><a href="https://centrunity.com/rules-client">Для клиентов</a></li>
+                                <li><a href="https://centrunity.com/ecosistem">Экосистема турмеддрайвер</a></li>
                             </ul>
                         </li>
-                        <li><a href="http://127.0.0.1:8000/contact">Контакты</a></li>
+                        <li><a href="https://centrunity.com/contact">Контакты</a></li>
                     </ul>
                     <li class="nav-item">
                         <form action="{{route('logout')}}" method="POST">
@@ -60,9 +60,9 @@
         <div>
             <div class="menu">
                 <ul>
-                    <li><a href="http://127.0.0.1:8000/catalog/medical">Каталог</a></li>
-                    <li><a href="http://127.0.0.1:8000/rules-organization">О проекте</a></li>
-                    <li><a href="http://127.0.0.1:8000/contact">Контакты</a></li>
+                    <li><a href="https://centrunity.com/catalog/medical">Каталог</a></li>
+                    <li><a href="https://centrunity.com/rules-organization">О проекте</a></li>
+                    <li><a href="https://centrunity.com/contact">Контакты</a></li>
                 </ul>
             </div>
             <div class="media">
