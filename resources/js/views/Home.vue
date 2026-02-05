@@ -3,9 +3,10 @@
         <div class="row main-cat-blocks">
         <div class=" col col-6 col-md-3 main-cat-blocks-item"><a href="">
 			 <router-link
-                    :to="{name:'sanatorium'}">
+                    :to="{name:''}">
                     <div class="section-item">
-                        <img src="assets/img/unity-cen.png">
+                        <img src="assets/img/unuty-cen.jpg">
+                        //<img src="assets/img/unuty-logo.jpg">
                         <p>Услуги Центра Юнити</p>
                     </div>
                 </router-link>
@@ -39,7 +40,7 @@
 		</a></div>
         <div class=" col col-6 col-md-3 main-cat-blocks-item"><a href="">
 			 <router-link
-                    :to="{name:'sanatorium'}">
+                    :to="{name:''}">
                     <div class="section-item">
                         <img src="assets/img/med-prod.jpg">
                         <p>Производители медицинских изделий и оборудования</p>
@@ -48,7 +49,7 @@
 		</a></div>
         <div class=" col col-6 col-md-3 main-cat-blocks-item"><a href="">
 			 <router-link
-                    :to="{name:'sanatorium'}">
+                    :to="{name:''}">
                     <div class="section-item">
                         <img src="assets/img/non-med-prod.jpg">
                         <p>Производители немедицинской продукции для реабилитации </p>
@@ -57,7 +58,7 @@
 		</a></div>
         <div class=" col col-6 col-md-3 main-cat-blocks-item"><a href="">
 			 <router-link
-                    :to="{name:'sanatorium'}">
+                    :to="{name:''}">
                     <div class="section-item">
                         <img src="assets/img/club-sys.jpg">
                         <p>Клубные системы</p>
@@ -66,7 +67,7 @@
 		</a></div>
                 <div class=" col col-6 col-md-3 main-cat-blocks-item"><a href="">
 			 <router-link
-                    :to="{name:'sanatorium'}">
+                    :to="{name:''}">
                     <div class="section-item">
                         <img src="assets/img/CBO.jpg">
                         <p>Z среда: Центры социального здоровья</p>
