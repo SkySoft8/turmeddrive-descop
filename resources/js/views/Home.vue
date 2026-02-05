@@ -1,31 +1,30 @@
 <template>
     <div class="container-fluid slider-block">
         <div class="row main-cat-blocks">
+        <div class=" col col-6 col-md-3 main-cat-blocks-item"><a href="">
+			 <router-link
+                    :to="{name:'sanatorium'}">
+                    <div class="section-item">
+                        <img src="assets/img/unity-cen.png">
+                        <p>Услуги Центра Юнити</p>
+                    </div>
+                </router-link>
+		</a></div>
 		<div class=" col col-6 col-md-3 main-cat-blocks-item"><a href="">
 			<router-link
                     :to="{name:'med'}">
                     <div class="section-item">
-                        <img src="assets/img/med-main.png">
+                        <img src="assets/img/new-med.jpg">
                         <p>Медицинские центры</p>
                     </div>
                 </router-link>
 		</a></div>
-		<div class=" col col-6 col-md-3 main-cat-blocks-item"><a href="">
+        <div class=" col col-6 col-md-3 main-cat-blocks-item"><a href="">
 			 <router-link
-                    active-class="active"
-                    :to="{name:'spa'}">
+                    :to="{name:'sanatorium'}">
                     <div class="section-item">
-                        <img src="assets/img/spa-main.png">
-                        <p>SPA/Бьюти</p>
-                    </div>
-                </router-link>
-		</a></div>
-		<div class=" col col-6 col-md-3 main-cat-blocks-item"><a href="">
-			 <router-link
-                    :to="{name:'hotel'}">
-                    <div class="section-item">
-                        <img src="assets/img/hotel-main.png">
-                        <p>Отели</p>
+                        <img src="assets/img/new-san.jpg">
+                        <p>Санатории/Курорты</p>
                     </div>
                 </router-link>
 		</a></div>
@@ -33,44 +32,44 @@
 			 <router-link
                     :to="{name:'sport'}">
                     <div class="section-item">
-                        <img src="assets/img/sport-main.png">
-                        <p>Спорт</p>
+                        <img src="assets/img/new-sport.jpg">
+                        <p>Спорт и физическая реабилитация</p>
                     </div>
                 </router-link>
 		</a></div>
-		<div class=" col col-6 col-md-3 main-cat-blocks-item"><a href="">
-			 <router-link
-                    :to="{name:'tur'}">
-                    <div class="section-item">
-                        <img src="assets/img/tour-main.png">
-                        <p>Туроператоры</p>
-                    </div>
-                </router-link>
-		</a></div>
-		<div class=" col col-6 col-md-3 main-cat-blocks-item"><a href="">
+        <div class=" col col-6 col-md-3 main-cat-blocks-item"><a href="">
 			 <router-link
                     :to="{name:'sanatorium'}">
                     <div class="section-item">
-                        <img src="assets/img/san-main.png">
-                        <p>Санатории</p>
+                        <img src="assets/img/med-prod.jpg">
+                        <p>Производители медицинских изделий и оборудования</p>
                     </div>
                 </router-link>
 		</a></div>
-		<div class=" col col-6 col-md-3 main-cat-blocks-item"><a href="">
-			<router-link
-                    :to="{name:'cafe'}">
-                    <div class="section-item">
-                        <img src="assets/img/cafe-main.png">
-                        <p>Рестораны/Кафе</p>
-                    </div>
-                </router-link>
-		</a></div>
-		<div class=" col col-6 col-md-3 main-cat-blocks-item"><a href="">
+        <div class=" col col-6 col-md-3 main-cat-blocks-item"><a href="">
 			 <router-link
-                    :to="{name:'constaling'}">
+                    :to="{name:'sanatorium'}">
                     <div class="section-item">
-                        <img src="assets/img/cons-main.png">
-                        <p>Консалтинг</p>
+                        <img src="assets/img/non-med-prod.jpg">
+                        <p>Производители немедицинской продукции для реабилитации </p>
+                    </div>
+                </router-link>
+		</a></div>
+        <div class=" col col-6 col-md-3 main-cat-blocks-item"><a href="">
+			 <router-link
+                    :to="{name:'sanatorium'}">
+                    <div class="section-item">
+                        <img src="assets/img/club-sys.jpg">
+                        <p>Клубные системы</p>
+                    </div>
+                </router-link>
+		</a></div>
+                <div class=" col col-6 col-md-3 main-cat-blocks-item"><a href="">
+			 <router-link
+                    :to="{name:'sanatorium'}">
+                    <div class="section-item">
+                        <img src="assets/img/CBO.jpg">
+                        <p>Z среда: Центры социального здоровья</p>
                     </div>
                 </router-link>
 		</a></div>
@@ -210,5 +209,19 @@ export default {
 <style scoped>
 .color_baner {
     color: #08366A !important;
+}
+
+.section-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.section-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 </style>
